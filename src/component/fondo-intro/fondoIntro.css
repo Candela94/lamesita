@@ -1,0 +1,40 @@
+.fondo-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+.fondo-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    /* Todas ocultas por defecto */
+    z-index: 0;
+}
+
+
+
+
+
+.fondo-imagen.active {
+    display: block;
+    /* Solo la activa se muestra */
+    z-index: 1;
+}
+
+
+
+
+
+
+.fondo-imagen.inactive {
+
+    z-index: 0;
+}
