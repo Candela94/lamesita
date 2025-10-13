@@ -1,4 +1,5 @@
 import { FondoIntro } from "./component/fondo-intro/FondoIntro"
+import { Outlet } from "react-router"
 
 
 function App() {
@@ -7,8 +8,11 @@ function App() {
 
     <>
 
+    {/* <main className="main-principal"> */}
 
-<FondoIntro/>
+
+<Outlet/>
+{/* </main> */}
   
     </>
   )

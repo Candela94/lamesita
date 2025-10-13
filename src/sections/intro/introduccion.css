@@ -1,3 +1,97 @@
 
 
 
+
+
+
+.section-intro{
+    
+    
+    background-color: var(--primary);
+
+    width: 100%;
+    height: 100%;
+
+
+}
+
+
+
+.intro-imagen{
+
+    /* border: 5px solid blueviolet; */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+  
+}
+
+
+.imagen{
+
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    padding: 1rem 1rem 0 1rem;
+
+  
+    
+}
+
+
+
+.intro-slider{
+
+
+    position: absolute;
+
+    /* border: 5px solid yellow; */
+    width: 60%;
+    height: 50%;
+    box-shadow: 1px 1px 0.5 black;
+
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+.intro-imagen {
+    perspective: 800px; /* o más si quieres menos deformación */
+    perspective-origin: center;
+  }
+
+
+.mockup{
+   
+    height: auto;
+    width: 400px;
+
+
+
+    position: absolute;       
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+   
+    height: auto;
+    z-index: 10; 
+
+ 
+
+}
+
+
+
+
+  

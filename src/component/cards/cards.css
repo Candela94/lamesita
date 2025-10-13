@@ -1,0 +1,215 @@
+/* cards horarios */
+.card {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.5rem ;
+    border: 2px solid var(--primary);
+    width: 100%;
+    color:var(--primary);
+    border-radius: 8px;
+
+
+
+}
+
+
+.calle{
+    /* background-color: aqua; */
+   
+    font-size: 12px;
+}
+
+
+.card-location {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--primary);
+    padding: 0.5rem;
+    color: var(--background);
+    border-radius: 8px;
+
+}
+
+.icon {
+    font-size: 1.5rem;
+
+}
+
+
+.dia{}
+
+
+
+
+
+
+
+/* cards cajas */
+
+
+.caja-item{
+  
+    width: 80%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+.caja-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+
+}
+
+
+
+.nombre{
+    width: 100%;
+    font-family: gafiton;
+    color: var(--background);
+}
+
+
+.caja-toggle{
+    border: none;
+    background: none;
+    color: var(--background);
+    cursor: pointer;
+}
+
+
+
+
+.caja {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    color: var(--background);
+}
+
+
+
+.caja-img {
+    width: 90%;
+}
+
+
+.caja-btn {
+
+    background-color: var(--background);
+    color: var(--primary);
+    font-family: gafiton;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+.overlay {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+
+}
+
+
+
+.card-options{
+
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 2rem;
+   
+
+
+}
+
+
+
+.producto-overlay{
+    /* background-color: green; */
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    color: var(--background);
+}
+
+
+.overlay-producto-tipos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+   
+}
+
+.tipos {
+
+    border: 1px solid var(--background);
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--background);
+    background:none;
+    border-radius: 8px;
+}
+
+
+.tipos.activo {
+    background-color: var(--text);
+   
+}
+
+
+.input-nombre{
+    padding: 0.5rem;
+    background: none;
+    border: 1px solid var(--background);
+    color: var(--background);
+    border-radius: 8px;
+    font-family: sans;
+
+
+}
+
+
+
+.caja-resumen{
+
+    /* background-color: aqua; */
+    width: 100%;
+}

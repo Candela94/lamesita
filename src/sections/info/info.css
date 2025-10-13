@@ -1,0 +1,81 @@
+.titulo-ubicacion{
+    color: var(--primary);
+    font-size: 3.3rem;
+    width: 70%;
+    margin-bottom: 2rem;
+    /* background-color: aquamarine; */
+    padding: var(--padding);
+  
+}
+
+
+.ubicacion{
+
+   
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+    justify-content: center;
+
+   
+}
+
+.mapa{
+    /* background-color: aqua; */
+    width: 100%;
+    position: relative;
+
+}
+
+
+
+.mapa-card{
+    
+    width: 100%;
+    /* background-color: palegreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+.imagen-mapa{
+    /* background-color: pink; */
+    width: 100%;
+    height: 40vh;
+   
+}
+
+
+.ilu-mercado{
+    /* margin-top: 7.5rem;*/
+    width: 100%;
+    height: 53vh;
+    object-fit: cover;
+  position: absolute;
+  top: 17%;
+  right: 0;
+    /* background-color: pink; */
+}
+
+
+.horarios{
+    width: 70%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    /* position: absolute;
+    left: 0;
+    bottom: 0%; */
+    z-index: 10;
+    margin-bottom: 1rem;
+    padding: var(--padding);
+   
+}
+
+
