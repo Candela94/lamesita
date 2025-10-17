@@ -3,7 +3,10 @@
 
 
 .section-cajas{
-    margin-top: 2rem;
+    padding-top: 2rem;
+    padding: var(--padding);
+    width: 100%;
+    background-color: var(--background);
 }
 
 
@@ -11,16 +14,36 @@
 
 .titulo{
     font-size: 4rem;
+    color: var(--primary);
 
 }
+
 
 .galeria{
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
-
     width: 100%;
-    height: 40vh;
-
+    height:100%;
+    margin-top: 2rem;
 
 }
+
+
+
+.galeria-cajas{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+
+
+.cajas-li{
+    width: 100%;
+}
+
+
+

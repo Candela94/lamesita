@@ -55,7 +55,7 @@
 
 .caja-item{
   
-    width: 80%;
+    width: 100%;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -93,11 +93,9 @@
 
 .caja {
     padding: 1rem;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
 
     width: 100%;
     color: var(--background);
@@ -110,16 +108,32 @@
 }
 
 
-.caja-btn {
 
+.btn-container{
+
+    width: 65%;
     background-color: var(--background);
-    color: var(--primary);
+    
     font-family: gafiton;
     padding: 0.7rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    margin-top: 1.5rem;
+
+    
 }
+
+.caja-btn {
+
+   
+
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 
 
 
@@ -149,7 +163,7 @@
     justify-content: center;
     align-items: center;
     width: 80%;
-    gap: 2rem;
+    gap: 1rem;
    
 
 
@@ -178,20 +192,17 @@
    
 }
 
-.tipos {
 
-    border: 1px solid var(--background);
-    cursor: pointer;
+
+.tipos{
     padding: 0.5rem;
-    color: var(--background);
-    background:none;
     border-radius: 8px;
-}
+    cursor: pointer;
+    border: 1px solid var(--background);
+    color: var(--background);
+    background-color: transparent;
+    transition: all 0.3s ease;
 
-
-.tipos.activo {
-    background-color: var(--text);
-   
 }
 
 
@@ -202,8 +213,24 @@
     color: var(--background);
     border-radius: 8px;
     font-family: sans;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 60%;
 
 
+
+}
+
+.input-nombre::placeholder {
+    color: var(--background);
+    opacity: 0.9; /* Asegura que no esté semi-transparente */
+  }
+  
+
+input:focus{
+
+    outline: none;
+    box-shadow:1px 1px 7px var(--background) ;
 }
 
 
@@ -213,3 +240,49 @@
     /* background-color: aqua; */
     width: 100%;
 }
+
+
+.caja-info{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: pink; */
+}
+
+
+
+
+
+
+
+/* contacto */
+
+
+.card-contacto{
+    width: 100%;
+    color: var(--primary);
+    padding: var(--padding);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+   display: flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+
+
+.contacto-lista{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.telefono{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+

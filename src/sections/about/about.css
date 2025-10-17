@@ -1,22 +1,20 @@
-
-
-
-.section-about{
+.section-about {
     position: relative;
     /* border: 5px solid blue; */
     height: 100vh;
+
 }
 
 
 
 
-.fondo{
+.fondo {
     width: 85%;
     display: flex;
 
     flex-direction: column;
     background-color: var(--primary);
-    opacity: 0.9;
+    opacity: 0.8;
     color: var(--background);
     padding: 1rem;
     position: absolute;
@@ -28,13 +26,13 @@
 
 }
 
-.imagen-fondo{
+.imagen-fondo {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.subheader-nav{
+.subheader-nav {
     /* background-color: palegoldenrod; */
 }
 
@@ -42,20 +40,20 @@
     display: flex;
     gap: 2rem;
     /* border: 5px gray solid; */
-  }
-  
-  .tab-option {
+}
+
+.tab-option {
     font-family: gafiton;
     cursor: pointer;
     /* background-color: red; */
     width: 100%;
-  }
-  
+}
 
 
 
 
-  .tab-icon{
+
+.tab-icon {
     display: flex;
     justify-content: end;
 
@@ -63,19 +61,10 @@
     width: 100%;
     gap: 1rem;
     /* align-items: center; */
-  }
-
-.conoce{
-    font-size: 3.7rem;
 }
 
-
-
-
-
-.tab-content{
-
-
+.conoce {
+    font-size: 5.5vw;
 }
 
 
@@ -83,7 +72,11 @@
 
 
 
-.contenido{
+
+
+
+
+.contenido {
     /* background-color: aqua; */
     display: flex;
     flex-direction: column;
@@ -92,14 +85,96 @@
 }
 
 
-.ilustracion{
-    border: 8px solid var(--background);
+.ilustracion {
+    background-color: var(--background);
     width: 100%;
     height: 30vh;
 }
 
-.ilu{
+.ilu {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+}
+
+
+
+
+
+
+@media (min-width:768px) {
+
+
+
+
+
+    .fondo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        height: auto;
+        gap: 0;
+    }
+
+
+
+
+    .tab-content{
+        /* background-color: green; */
+        height: fit-content;
+        height: 100%;
+        width: 100%;
+    }
+
+
+
+    .contenido {
+        display: flex;
+        flex-direction: row;
+        padding: var(--padding);
+        /* border: 4px solid pink;   */
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+    }
+
+
+
+ .conoce{
+    margin-top: 2rem;
+ }
+
+
+
+    .mesita-texto {
+        /* background-color:palegreen; */
+        width: 35%;
+    }
+
+
+
+
+
+    .ilustracion {
+        /*  */
+        width: 45%;
+        height: 300px;
+
+        border-radius: 4px;
+    }
+
+
+
+
+
+
+    .ilu {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
 }

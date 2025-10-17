@@ -1,7 +1,7 @@
 import './info.css'
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { Card, Location } from '../../component/cards/Cards';
+import { Card, Contacto, Location } from '../../component/cards/Cards';
 
 
 const Info = () => {
@@ -59,8 +59,12 @@ const Info = () => {
 
             <div className="horarios">
               <Card dia="Lunes a Sábado" horario="8:00 a 14:30" />
-              {/* <Card dia="Domingo" horario="cerrado" /> */}
+            
+
+             
+              <Contacto/>
               <Location />
+
 
             </div>
 

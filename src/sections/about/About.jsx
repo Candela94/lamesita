@@ -2,8 +2,17 @@ import './about.css'
 import { useState } from 'react';
 import { MdOutlineChangeCircle } from "react-icons/md";
 
+
+
+
+
+
+
 const About = () => {
     const [activeTab, setActiveTab] = useState('LA MESITA');
+
+
+
 
     const tabs = [
         {
@@ -17,18 +26,36 @@ const About = () => {
       
     ];
 
+
+
+
+
     const tabActivo = tabs.find(tab => tab.nombre === activeTab);
 
+
+
+
+
+
     return (
+
+
+        
         <section className='section section-about'>
+
+
+
             {tabActivo && (
+
+
+
                 <>
                     <img src={tabActivo.fondo} alt='img' className="imagen-fondo" />
 
                     <div className="fondo">
                         <h1 className='conoce'>CONOCE <br /> {tabActivo.nombre}</h1>
 
-                        <header className="subheader">
+                        {/* <header className="subheader">
                             <nav className="subheader-nav">
                                 <div className="subheader-tabs">
                                     {tabs
@@ -46,10 +73,13 @@ const About = () => {
                                         ))}
                                 </div>
                             </nav>
-                        </header>
+                        </header> */}
 
                         <section className="tab-content">
+                            
                             <div className="contenido">
+
+
                                 <div className="mesita-texto">
                                     {tabActivo.descripcion.split('\n').map((frase, i) => (
                                         <p key={i} className="contenido-parrafo">{frase}</p>
@@ -66,7 +96,16 @@ const About = () => {
                         </section>
                     </div>
                 </>
+
+
+
+
             )}
+
+
+
+
+
         </section>
     );
 };

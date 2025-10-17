@@ -19,6 +19,7 @@
   
     align-items: center;
     justify-content: center;
+    background-color: var(--background);
 
    
 }
@@ -38,7 +39,7 @@
     /* background-color: palegreen; */
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 
@@ -53,17 +54,17 @@
 .ilu-mercado{
     /* margin-top: 7.5rem;*/
     width: 100%;
-    height: 53vh;
+    height: 56vh;
     object-fit: cover;
-  position: absolute;
-  top: 17%;
-  right: 0;
+    position: absolute;
+    top: 16%;
+    right: 0;
     /* background-color: pink; */
 }
 
 
 .horarios{
-    width: 70%;
+    width: 73%;
     /* background-color: aqua; */
     display: flex;
     flex-direction: column;
@@ -73,9 +74,72 @@
     left: 0;
     bottom: 0%; */
     z-index: 10;
-    margin-bottom: 1rem;
+    
     padding: var(--padding);
    
 }
 
 
+
+
+
+@media (min-width:768px) {
+
+
+
+    .ubicacion{
+        /* background-color: pink; */
+        position: relative;
+    }
+
+    .mapa-card{
+
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    .imagen-mapa{
+        width: 60%;
+        height: 75vh;
+        /* border: 6px solid yellow; */
+        /* background-color: aqua; */
+        position: absolute;
+        display: flex;
+        justify-content: right;
+        right: -5%;
+        top: 15%;
+    }
+
+
+
+    .ilu-mercado{
+        width: 100%;
+        height: 100%;
+        position: static;
+        
+    }
+
+
+
+
+    .titulo-ubicacion{
+        font-size: 7vw;
+        width: 50%;
+    }
+
+
+
+    .mapa{
+        /* background-color: rebeccapurple; */
+        position: static;
+    }
+    
+
+
+    .horarios{
+        width: 30%;
+    }
+
+
+}
