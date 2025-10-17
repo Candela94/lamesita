@@ -13,29 +13,23 @@
 
    
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
   
-    align-items: center;
-    justify-content: center;
+  
     background-color: var(--background);
 
    
 }
 
-.mapa{
-    /* background-color: aqua; */
-    width: 100%;
-    position: relative;
-
-}
 
 
 
 .mapa-card{
     
     width: 100%;
+    height: 100%;
     /* background-color: palegreen; */
     display: flex;
     flex-direction: column;
@@ -46,36 +40,36 @@
 .imagen-mapa{
     /* background-color: pink; */
     width: 100%;
-    height: 40vh;
+    height: 50vh;
+    position: absolute;
+    top: 15%;
    
 }
 
 
 .ilu-mercado{
-    /* margin-top: 7.5rem;*/
+   
     width: 100%;
-    height: 56vh;
+    height:100%;
     object-fit: cover;
-    position: absolute;
-    top: 16%;
-    right: 0;
-    /* background-color: pink; */
+   
 }
 
 
 .horarios{
     width: 73%;
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
+    /* background-color: yellow; */
     gap: 0.5rem;
     align-items: center;
-    /* position: absolute;
-    left: 0;
-    bottom: 0%; */
+   
     z-index: 10;
     
     padding: var(--padding);
+
+    position: absolute;
+    bottom: 5%;
    
 }
 

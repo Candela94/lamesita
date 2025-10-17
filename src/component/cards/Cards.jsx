@@ -75,7 +75,7 @@ export const Contacto = () => {
       </div>
 
 
-  
+
 
 
     </>
@@ -321,12 +321,12 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                   initial="hidden"
                   animate="visible"
                 >
-                  <button className="btn-container" style={{color:caja.color}}>
-                  Personalizar cajita
+                  <button className="btn-container" style={{ color: caja.color }}>
+                    Personalizar cajita
                   </button>
                 </motion.div>
 
-                
+
               </motion.div>
             )}
 
@@ -340,35 +340,39 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 {caja.productos.map((prod, id) => (
                   <div key={id} className="producto-overlay">
                     <h3>{prod.nombre}</h3>
-                    <ul className="overlay-producto-tipos">
-                      {prod.tipos.map((tipo, idx) => (
-                     <li
-                     key={idx}
-                     className="tipos"
-                     onClick={() => handleSeleccion(prod.nombre, tipo)}
-                     style={
-                       seleccion[prod.nombre] === tipo
-                         ? {
-                          backgroundColor: 'var(--background)',
-                          color: caja.color,
-                          fontWeight: 'bold',
-                          boxShadow: '0.5px 0.5px 10px var(--background)',
-                          transform: 'scale(1.05)',
-                        }
-                      : {}
-                     }
-                   >
-                     {tipo}
-                   </li>
-                   
-                      ))}
-                    </ul>
+
+                    {prod.tipos.filter(t => t.trim() !== '').length > 0 && (
+                      <ul className="overlay-producto-tipos">
+                        {prod.tipos.map((tipo, idx) => (
+                          tipo.trim() !== '' && (
+                            <li
+                              key={idx}
+                              className="tipos"
+                              onClick={() => handleSeleccion(prod.nombre, tipo)}
+                              style={
+                                seleccion[prod.nombre] === tipo
+                                  ? {
+                                    backgroundColor: 'var(--background)',
+                                    color: caja.color,
+                                    fontWeight: 'bold',
+                                    boxShadow: '0.5px 0.5px 10px var(--background)',
+                                    transform: 'scale(1.05)',
+                                  }
+                                  : {}
+                              }
+                            >
+                              {tipo}
+                            </li>
+                          )
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
 
                 <input
                   type="text"
-                 
+
                   placeholder="Tu nombre"
                   value={nombreUsuario}
                   onChange={(e) => setNombreUsuario(e.target.value)}
@@ -384,8 +388,8 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                   initial="hidden"
                   animate="visible"
                 >
-                  <button className="btn-container" style={{color:caja.color, width:'90%'}}>
-                 Guardar productos en mi cajita
+                  <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
+                    Guardar productos en mi cajita
                   </button>
                 </motion.div>
 
@@ -430,8 +434,8 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                   initial="hidden"
                   animate="visible"
                 >
-                  <button className="btn-container" style={{color:caja.color, width:'70%'}}>
-                Contacta y haz tu pedido
+                  <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
+                    Contacta y haz tu pedido
                   </button>
                 </motion.div>
               </motion.div>

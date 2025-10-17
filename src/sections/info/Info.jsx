@@ -33,13 +33,14 @@ const Info = () => {
   return (
     <section className="section ubicacion">
 
-      <div className="mapa">
+     
+
         <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
 
 
 
 
-        <div className="mapa-card">
+        <main className="mapa-card">
 
 
 
@@ -83,11 +84,11 @@ const Info = () => {
 
 
 
-        </div>
+        </main>
 
 
-        
-      </div>
+
+    
 
     </section>
   );
