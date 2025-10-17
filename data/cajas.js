@@ -6,7 +6,7 @@ export const cajas = [
 
 
     {
-        nombre: 'APERITIVO',
+        nombre: 'CAJITA APERITIVO',
         precio: '30€',
         imagen: '',
         descripcion: 'Ligera, social y lista para disfrutar con un buen vino.',
@@ -74,7 +74,7 @@ export const cajas = [
 
 
     {
-        nombre: 'PICADA',
+        nombre: 'CAJITA PICADA',
         precio: '30€',
         descripcion: 'Más completa, con contraste de sabores, ideal para compartir',
         imagen: '',
@@ -129,7 +129,7 @@ export const cajas = [
 
 
     {
-        nombre: 'TABLA DE QUESOS',
+        nombre: 'CAJITA QUESOS',
         precio: '30€',
         imagen: '',
         descripcion:'Elegante, pensada para los amantes del queso y los maridajes.',
@@ -183,7 +183,54 @@ export const cajas = [
             },
         ],
         color: '#C04500'
+    },
+
+
+
+
+    {
+        nombre: 'HAZ TU PROPIA CAJITA',
+        precio: '30€',
+        imagen: '',
+        descripcion:'Crea tu cajita a medida, elige una base y 6 productos a elegir entre los disponibles',
+        productos: [
+            {
+                nombre: 'Base', tipos: ['Cava', 'Vino']
+            },
+            {
+                nombre: 'Jamón serrano 200g', tipos: ['']
+            },
+            {
+                nombre: 'Queso semicurado García Vaquero', tipos: ['']
+            },
+            {
+                nombre: 'Fuet (2ud)', tipos: ['']
+            },
+            {
+                nombre: 'Membrillo', tipos: ['']
+            },
+            {
+                nombre: 'Aceite de oliva virgen extra 250ml', tipos: ['']
+            },
+            {
+                nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto']
+            },
+            {
+                nombre: 'Miel', tipos: ['Romero', 'Azahar']
+            },
+            {
+                nombre: 'Salchichón ibérico 200g', tipos: ['']
+            },
+            {
+                nombre: 'Lomo de campo ibérico', tipos: ['']
+            },
+            {
+                nombre: 'Queso Maasdam 150g', tipos: ['']
+            },
+        ],
+        color: '#C04500'
     }
+
 
 
 ]
