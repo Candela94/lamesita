@@ -7,7 +7,7 @@ import { Card, Contacto, Location } from '../../component/cards/Cards';
 const Info = () => {
 
 
-    
+
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -33,44 +33,62 @@ const Info = () => {
   return (
     <section className="section ubicacion">
 
-        <div className="mapa">
-          <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
+      <div className="mapa">
+        <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
 
 
 
 
-          <div className="mapa-card">
-
-        
+        <div className="mapa-card">
 
 
 
-            <div className="imagen-mapa">
-              <img
-                ref={imgRef}
-                src="/img/mercado.png"
-                alt="mercado"
-                className="ilu-mercado"
-              />
 
 
 
-            </div>
 
-            <div className="horarios">
-              <Card dia="Lunes a Sábado" horario="8:00 a 14:30" />
-            
+          <div className="imagen-mapa">
+            <img
+              ref={imgRef}
+              src="/img/mercado.png"
+              alt="mercado"
+              className="ilu-mercado"
+            />
 
-             
-              <Contacto/>
-              <Location />
 
-
-            </div>
 
           </div>
+
+
+
+
+
+
+
+
+          <div className="horarios">
+            <Card dia="Lunes a Sábado" horario="8:00 a 14:30" />
+
+
+
+            <Contacto />
+            <Location />
+
+
+          </div>
+
+
+
+
+
+
+
         </div>
-   
+
+
+        
+      </div>
+
     </section>
   );
 };

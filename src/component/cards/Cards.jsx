@@ -368,7 +368,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
                 <input
                   type="text"
-                  style={{color:'var(--background'}}
+                 
                   placeholder="Tu nombre"
                   value={nombreUsuario}
                   onChange={(e) => setNombreUsuario(e.target.value)}
