@@ -119,6 +119,7 @@
 
     .titulo-ubicacion{
         font-size: 7vw;
+        margin-top: 3rem;
         width: 50%;
     }
 
@@ -133,6 +134,7 @@
 
     .horarios{
         width: 30%;
+        position: static;
     }
 
 

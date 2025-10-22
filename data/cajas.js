@@ -1,242 +1,107 @@
 
 
+export const extrasGlobales = [
+    {
+      id: 'chocolate',
+      nombre: 'Barra de chocolate artesano',
+      precio: 3
+    },
+    {
+      id: 'mermeladas',
+      nombre: 'Mermeladas Lorusso',
+      precio: 10,
+      tipos: [
+        'Fresa', 'Mora', 'Arándanos', 'Frutos rojos', 'Frambuesa',
+        'Higos', 'Pimiento Dulce', 'Mandarina', 'Naranja', 'Mango', 'Melocotón'
+      ]
+    }
+  ];
+  
+
+
+
+
+
 
 export const cajas = [
-
-
-
     {
-        nombre: 'CAJITA APERITIVO',
-        precio: '30€',
-        imagen: '',
-        descripcion: 'Ligera, social y lista para disfrutar con un buen vino.',
-        productos: [
-
-
-
-
-
-            {
-                nombre: 'Jamon serrano 200g', tipos: ['']
-            },
-
-
-
-
-
-            {
-                nombre: 'Queso semicurado García Vaquero', tipos: ['']
-            },
-
-
-
-
-
-            {
-                nombre: 'Fuet (2ud)', tipos: ['']
-            },
-
-
-
-            {
-                nombre: 'Membrillo', tipos: ['']
-            },
-
-
-
-
-            {
-                nombre: 'Aceite de oliva virgen extra 250ml', tipos: ['']
-            },
-
-
-
-            {
-                nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto']
-
-            },
-
-
-            {
-                nombre: 'Miel', tipos: ['Romero', 'Azahar']
-            },
-
-
-        ],
-        color: '#0000EE'
+      nombre: 'CAJITA APERITIVO',
+      precio: 30,
+      imagen: '/img/caja.jpeg',
+      descripcion: 'Ligera, social y lista para disfrutar con un buen vino.',
+      productos: [
+        { nombre: 'Jamon serrano 200g' },
+        { nombre: 'Queso semicurado García Vaquero' },
+        { nombre: 'Fuet (2ud)' },
+        { nombre: 'Membrillo' },
+        { nombre: 'Aceite de oliva virgen extra 250ml' },
+        { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] },
+        { nombre: 'Miel', tipos: ['Romero', 'Azahar'] }
+      ],
+      color: '#0000EE',
+      extrasDisponibles: ['chocolate']
     },
-
-
-
-
-
-
-
-
+  
     {
-        nombre: 'CAJITA PICADA',
-        precio: '30€',
-        descripcion: 'Más completa, con contraste de sabores, ideal para compartir',
-        imagen: '',
-        productos: [
-
-
-
-            {
-                nombre: 'Salchichón ibérico 200g ', tipos: ['']
-
-            },
-
-
-            {
-                nombre: 'Lomo de campo ibérico', tipos: ['']
-
-            },
-
-
-            {
-                nombre: 'Queso Maasdam 150g', tipos: ['']
-
-            },
-
-            {
-                nombre: 'Queso de oveja trufado 150g', tipos: ['']
-
-            },
-
-            {
-                nombre: 'Membrillo 200g ', tipos: ['']
-
-            },
-
-            {
-                nombre: 'Miel', tipos: ['De flor', 'De trufa']
-
-            },
-            {
-                nombre: 'Vino', tipos: ['Blanco', 'Tinto']
-
-            },
-
-            
-        ],
-        color: '#009889',
-
-        extra: true
+      nombre: 'CAJITA PICADA',
+      precio: 30,
+      descripcion: 'Más completa, con contraste de sabores, ideal para compartir',
+      imagen: '',
+      productos: [
+        { nombre: 'Salchichón ibérico 200g' },
+        
+        { nombre: 'Lomo de campo ibérico' },
+        { nombre: 'Queso Maasdam 150g' },
+        { nombre: 'Queso de oveja trufado 150g' },
+        { nombre: 'Membrillo 200g' },
+        { nombre: 'Miel', tipos: ['De flor', 'De trufa'] },
+        { nombre: 'Vino', tipos: ['Blanco', 'Tinto'] }
+      ],
+      color: '#009889',
+      extrasDisponibles: ['chocolate', 'mermeladas']
     },
-
-
-
-
+  
     {
-        nombre: 'CAJITA QUESOS',
-        precio: '30€',
-        imagen: '',
-        descripcion:'Elegante, pensada para los amantes del queso y los maridajes.',
-        productos: [
-            {
-                nombre: 'Cava', tipos: ['']
-
-            },
-
-
-
-            {
-                nombre: 'Queso artesanal de cabra 150g', tipos: ['']
-
-            },
-
-            {
-                nombre: 'Queso de oveja trufado 150g', tipos: ['']
-
-            },
-
-
-            {
-                nombre: 'Queso Maasdam 150g', tipos: ['']
-
-            },
-
-
-            {
-                nombre: 'Queso Havarti en lonchas 200g', tipos: ['']
-
-            },
-
-
-            {
-                nombre: 'Queso curado 200g', tipos: ['']
-
-            },
-
-
-            {
-                nombre: 'Membrillo 200g', tipos: ['']
-
-            },
-
-
-
-            {
-                nombre: 'Miel 500g', tipos: ['']
-
-            },
-        ],
-        color: '#C04500'
+      nombre: 'CAJITA QUESOS',
+      precio: 30,
+      imagen: '',
+      descripcion: 'Elegante, pensada para los amantes del queso y los maridajes.',
+      productos: [
+        { nombre: 'Cava' },
+        { nombre: 'Queso artesanal de cabra 150g' },
+        { nombre: 'Queso de oveja trufado 150g' },
+        { nombre: 'Queso Maasdam 150g' },
+        { nombre: 'Queso Havarti en lonchas 200g' },
+        { nombre: 'Queso curado 200g' },
+        { nombre: 'Membrillo 200g' },
+        { nombre: 'Miel 500g' }
+      ],
+      color: '#C04500',
+      extrasDisponibles: ['chocolate', 'mermeladas']
     },
-
-
-
-
+  
     {
-        nombre: 'HAZ TU PROPIA CAJITA',
-        precio: '30€',
-        imagen: '',
-        descripcion:'Crea tu cajita a medida, elige una base y 6 productos a elegir entre los disponibles',
-        productos: [
-            {
-                nombre: 'Base', tipos: ['Cava', 'Vino']
-            },
-            {
-                nombre: 'Jamón serrano 200g', tipos: ['']
-            },
-            {
-                nombre: 'Queso semicurado García Vaquero', tipos: ['']
-            },
-            {
-                nombre: 'Fuet (2ud)', tipos: ['']
-            },
-            {
-                nombre: 'Membrillo', tipos: ['']
-            },
-            {
-                nombre: 'Aceite de oliva virgen extra 250ml', tipos: ['']
-            },
-            {
-                nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto']
-            },
-            {
-                nombre: 'Miel', tipos: ['Romero', 'Azahar']
-            },
-            {
-                nombre: 'Salchichón ibérico 200g', tipos: ['']
-            },
-            {
-                nombre: 'Lomo de campo ibérico', tipos: ['']
-            },
-            {
-                nombre: 'Queso Maasdam 150g', tipos: ['']
-            },
-        ],
-        color: '#C04500'
+      nombre: 'HAZ TU PROPIA CAJITA',
+      precio: 30,
+      imagen: '',
+      descripcion: 'Crea tu cajita a medida, elige una base y 6 productos a elegir entre los disponibles',
+      productos: [
+        { nombre: 'Elige una base', tipos: ['Cava', 'Vino'] },
+        { nombre: 'Jamón serrano 200g' },
+        { nombre: 'Queso semicurado García Vaquero' },
+        { nombre: 'Fuet' },
+        { nombre: 'Membrillo' },
+        { nombre: 'Aceite de oliva virgen extra 250ml' },
+     
+        { nombre: 'Salchichón ibérico 200g' },
+        { nombre: 'Lomo de campo ibérico' },
+        { nombre: 'Queso Maasdam 150g' }
+      ],
+      color: '#C04500',
+      extrasDisponibles: ['chocolate']
     }
-
-
-
-]
-
-
-
+  ];
+  
 
 
 
