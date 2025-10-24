@@ -3,6 +3,8 @@ import { IoClose, IoAddCircle, IoLocationOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { extrasGlobales } from '../../../data/cajas';
+import { useMemo } from 'react';
+
 
 // ─────────────────────────────
 // CARD Y LOCATION (sin cambios)
@@ -91,6 +93,8 @@ export const Contacto = () => {
 // ─────────────────────────────
 
 
+
+
 export const Cajas = ({ caja, isOpen, onToggle }) => {
 
   const [overlay, setOverlay] = useState(false);
@@ -109,15 +113,28 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     caja.extrasDisponibles?.includes(extra.id)
   );
 
-  // Calcular precio total
-  const calcularPrecioTotal = () => {
+
+
+
+
+ 
+  const totalPrice = useMemo(() => {
     const precioBase = typeof caja.precio === 'number' ? caja.precio : 30;
     const precioExtras = extrasSeleccionados.reduce((total, extraId) => {
       const extra = extrasGlobales.find(e => e.id === extraId);
       return total + (extra?.precio || 0);
     }, 0);
     return precioBase + precioExtras;
-  };
+  }, [caja.precio, extrasSeleccionados]);
+  console.log('PRECIO TOTAL:', totalPrice);
+
+
+
+
+
+
+
+
 
   // Manejar selección de extras
   const handleExtraToggle = (extraId) => {
@@ -130,7 +147,12 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     });
   };
 
-  // MODIFICADO: Lógica para manejar selección en cajita personalizada
+
+
+
+
+
+
   const handleSeleccion = (productoNombre, tipo) => {
     if (esPersonalizada) {
       // Determinar si el producto es la base
@@ -170,45 +192,67 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     }
   };
 
+
+
+
   const handleGuardar = () => {
+
     if (!nombreUsuario.trim()) {
       alert('Por favor, introduce tu nombre 🙂');
       return;
     }
 
+
+  
     if (esPersonalizada) {
+
       const productosSeleccionados = Object.keys(seleccion).filter(
         p => p !== 'Elige una base'
       ).length;
-      const tieneBase = seleccion['Elige una base'];
 
+      const tieneBase = seleccion['Elige una base'];
+  
       if (!tieneBase) {
         alert('Por favor, selecciona una base (Cava o Vino) 🙂');
         return;
       }
 
+
+  
       if (productosSeleccionados !== 6) {
         alert(`Debes seleccionar exactamente 6 productos. Actualmente tienes ${productosSeleccionados} 🙂`);
         return;
       }
     } else {
-      const todosSeleccionados = caja.productos.every((prod) => seleccion[prod.nombre]);
-      if (!todosSeleccionados) {
-        alert('Por favor, selecciona un tipo de producto para personalizar tu cajita 🙂');
-        return;
+      // ✅ Solo validar si hay productos con tipos
+      const productosConTipos = caja.productos.filter(
+        (prod) => prod.tipos && prod.tipos.length > 0
+      );
+  
+      if (productosConTipos.length > 0) {
+        const todosSeleccionados = productosConTipos.every((prod) => seleccion[prod.nombre]);
+        if (!todosSeleccionados) {
+          alert('Por favor, selecciona un tipo de producto para personalizar tu cajita 🙂');
+          return;
+        }
       }
     }
-
+  
     setPasoFinal(true);
     setOverlay(false);
   };
+  
+
+
+
+
 
   const construirMensaje = () => {
     const productos = Object.entries(seleccion)
       .map(([producto, tipo]) => `- ${producto}: ${tipo}`)
       .join('\n');
 
-    let mensaje = `¡Hola! Soy ${nombreUsuario}, he seleccionado esta caja de La Mesita.\n\n${caja.nombre} (${caja.precio}€)\n\nHe escogido estos productos:\n\n${productos}`;
+    let mensaje = `¡Hola! Soy ${nombreUsuario}, he seleccionado ${caja.nombre} (${totalPrice}€) de La Mesita con los siguientes productos:\n\n${productos}`;
 
     if (extrasSeleccionados.length > 0) {
       const extras = extrasSeleccionados.map(extraId => {
@@ -218,10 +262,14 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
       mensaje += `\n\nExtras:\n${extras}`;
     }
 
-    mensaje += `\n\nPrecio total: ${calcularPrecioTotal()}€\n\n¡Muchas gracias!`;
+    mensaje += `\n\n¡Muchas gracias!`;
 
     return mensaje;
   };
+
+
+
+
 
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
@@ -234,6 +282,18 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   };
+
+
+
+
+
+  const handleVolverASeleccion = () => {
+    setOverlay(true);
+    setPasoFinal(false);
+  };
+
+
+
 
   // ANIMACIONES
   const containerVariants = {
@@ -269,6 +329,13 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.4 } }
   };
 
+
+
+
+
+
+
+
   return (
 
 
@@ -287,6 +354,10 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
           {isOpen ? <IoClose className='icons'/> : <IoAddCircle className='icons'/>}
         </motion.button>
       </div>
+
+
+
+
 
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -359,8 +430,11 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 {esPersonalizada ? (
                   //  Interfaz especial para cajita personalizada
                   <>
+
+
+
                     {caja.productos.map((prod, id) => {
-                      // NUEVO: Determinar si el producto tiene tipos (es la base)
+                      // si el producto tiene tipos (es la base)
                       const tieneTipos = prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0;
                       
                       return (
@@ -401,10 +475,19 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                           <h3 style={{
                             fontWeight: !tieneTipos && seleccion[prod.nombre] ? 'bold' : 'normal'
                           }}>
-                            {/* NUEVO: Mostrar checkmark si está seleccionado */}
+
+
+
+
+                            {/*Mostrar checkmark si está seleccionado */}
                             {!tieneTipos && seleccion[prod.nombre] && '✓ '}
                             {prod.nombre}
                           </h3>
+
+
+
+
+
 
                           {tieneTipos ? (
 
@@ -439,7 +522,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                       );
                     })}
 
-                    {/* MODIFICADO: Mostrar contador sin contar la base */}
+                    {/* Mostrar contador sin contar la base */}
                     <div style={{ marginTop: '10px', fontSize: '14px', textAlign: 'center', fontWeight: 'bold' }}>
                       Productos seleccionados: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6
                     </div>
@@ -511,9 +594,9 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 )}
 
                 {/* Precio Total */}
-                <div style={{ marginTop: '15px', textAlign: 'center' }}>
-                  <h3 className="total">Precio total: {calcularPrecioTotal()}€</h3>
-                </div>
+                <motion.div key={totalPrice} style={{ marginTop: '15px', textAlign: 'center' }}>
+                  <h3 className="total">Precio total: {totalPrice}€</h3>
+                </motion.div>
 
                 <input
                   type="text"
@@ -545,10 +628,10 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 transition={{ duration: 0.4, type: "spring" }}
               >
                 <img src="/img/caja.png" alt="caja" className="caja-img" />
-                <h2>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
+                <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
                 <div className="caja-info">
                   <h4>Productos:</h4>
-                  <ul>
+                  <ul className='info-resumen'>
                     {Object.entries(seleccion).map(([producto, tipo]) => (
                       <li key={producto}>
                         {producto}: <strong>{tipo}</strong>
@@ -572,8 +655,8 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                     </>
                   )}
 
-                  <h3 style={{ marginTop: '20px', fontSize: '20px' }}>
-                    Total: {calcularPrecioTotal()}€
+                  <h3 style={{ fontSize: '20px', marginTop:'2rem' }}>
+                    Total: {totalPrice}€
                   </h3>
                 </div>
 

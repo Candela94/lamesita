@@ -8,7 +8,7 @@ import './cajas.css'
 import { cajas } from '../../../data/cajas';
 import { Cajas } from '../../component/cards/Cards';
 import { useState } from 'react';
-
+import {motion, AnimatePresence} from 'framer-motion'
 import { Contacto } from '../../component/cards/Cards';
 
 
@@ -29,29 +29,42 @@ const CajasSection = () => {
             <section className="section section-cajas">
 
 
-                <h1 className='titulo-cajas'>ELIGE <br /> LO JUSTO PARA <br /> UN GRAN MOMENTO</h1>
 
 
-                <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit cum voluptate dolor! Dolore eligendi, debitis sunt eos nam error perspiciatis fugit labore, maxime nobis inventore commodi necessitatibus. Hic, amet nisi.
-                    Doloribus consectetur voluptatem officiis dignissimos illo facilis natus labore at dolor assumenda sit, eaque consequatur illum dicta sint eligendi quo, non nostrum nisi aliquid praesentium. Laborum unde minima aspernatur voluptatum?</p>
+                <div className="texto-cajas">
+
+                    
+                    <h1 className='titulo-cajas'>LO JUSTO PARA UN GRAN MOMENTO</h1>
 
 
+                    <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit cum voluptate dolor! Dolore eligendi, debitis sunt eos nam error perspiciatis fugit labore, maxime nobis inventore commodi necessitatibus. Hic, amet nisi.
+                        Doloribus consectetur voluptatem officiis dignissimos illo facilis natus labore at dolor assumenda sit</p>
 
 
-                <div className="galeria">
-
-
-                    {
-
-                        cajas.map((c, id) => (
-                            <ul className="galeria-cajas">
-                                <li key={id} className="cajas-li"><Cajas caja={c} isOpen={cajaAbierta === id} onToggle={() => handleToggle(id)}
-                                /></li>
-
-                            </ul>
-                        ))
-                    }
                 </div>
+
+
+...
+
+<div className="galeria">
+  <AnimatePresence>
+  {cajas.map((c, i) => (
+  <li
+    key={i}
+    className="cajas-li"
+    style={{ zIndex: i }} // 👈 Esto hace que la PRIMERA tenga el índice más bajo
+  >
+    <Cajas
+      caja={c}
+      isOpen={cajaAbierta === i}
+      onToggle={() => handleToggle(i)}
+    />
+  </li>
+))}
+
+
+  </AnimatePresence>
+</div>
 
 
 
