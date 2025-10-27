@@ -8,10 +8,19 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 
 const Info = () => {
+
+
+
   const [visible, setVisible] = useState(false);
+
   const [renderDesplegable, setRenderDesplegable] = useState(false);
+
   const desplegableRef = useRef(null);
+
   const opcionesRef = useRef([]);
+
+
+
 
   const handleToggle = () => {
     if (!visible) {
@@ -23,6 +32,9 @@ const Info = () => {
       setVisible(false);
     }
   };
+
+
+
 
   const imgRef = useRef(null);
 
@@ -46,7 +58,10 @@ const Info = () => {
 
   // Animación del desplegable
   useEffect(() => {
+
+
     if (visible && renderDesplegable) {
+
       // ABRIR: Anima el contenedor desplegable
       gsap.fromTo(
         desplegableRef.current,
@@ -100,13 +115,27 @@ const Info = () => {
         },
       });
     }
+
+
   }, [visible, renderDesplegable]);
 
   return (
-    <section className="section ubicacion">
-      <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
 
-      <main className="mapa-card">
+
+
+
+
+    <main className="mapa-card">
+
+
+
+      <div className="titulo-ilustracion">
+
+
+
+        <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
+
+
         <div className="imagen-mapa">
           <img
             ref={imgRef}
@@ -116,13 +145,20 @@ const Info = () => {
           />
         </div>
 
-        <div className="horarios">
-          <Card dia="Lunes a Sábado" horario="8:00 a 14:30" />
-          <Location />
-        </div>
+
+      </div>
 
 
-        <div className="footer">
+
+
+
+      <div className="horarios">
+        <Card dia="LUNES A SÁBADO" horario="8:00 a 14:30" />
+        <Location />
+      </div>
+
+
+      <div className="footer">
         <div className="mensaje">
           <ul className="mensaje-opciones">
             <div className="mensajito-wrapper">
@@ -132,18 +168,18 @@ const Info = () => {
               </div>
 
               {renderDesplegable && (
-                <ul 
+                <ul
                   ref={desplegableRef}
                   className="mensaje-opciones-desplegable"
                 >
-                  <li 
+                  <li
                     ref={el => opcionesRef.current[0] = el}
                     className="opcion-mensaje"
                   >
                     <IoLogoWhatsapp />
                     <h4 className="opcion">CHATÉANOS</h4>
                   </li>
-                  <li 
+                  <li
                     ref={el => opcionesRef.current[1] = el}
                     className="opcion-mensaje"
                   >
@@ -155,16 +191,19 @@ const Info = () => {
             </div>
 
             <div className="mensajito-phone">
-              <BsFillTelephoneFill />
+              {/* <BsFillTelephoneFill /> */}
               <h3 className="titulo">LLÁMANOS</h3>
             </div>
           </ul>
         </div>
-      </div>
-      </main>
+        </div>
 
-    
-    </section>
+
+
+    </main>
+
+
+
   );
 };
 

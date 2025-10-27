@@ -28,10 +28,10 @@ export const Location = () => (
     rel="noopener noreferrer"
     className="card-location card-gsap"
   >
-    <IoLocationOutline className='icon' />
+    {/* <IoLocationOutline className='icon' /> */}
     <div className="info">
-      <h4 className="dia">LA MESITA</h4>
-      <p className="calle">Mercado de Jesús (puestos 43/44), Valencia</p>
+      <h4 className="dia">ENCUENTRA LA MESITA</h4>
+      <p className="calle">M. JESÚS<br/> (PUESTOS 43/44)</p>
     </div>
   </a>
 );
