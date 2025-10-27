@@ -363,7 +363,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
         {isOpen && (
           <motion.div
             className="caja"
-            key="content"
+            key={overlay ? 'overlay' : pasoFinal ? 'resumen' : 'inicio'}
             initial="collapsed"
             animate="open"
             exit="collapsed"

@@ -1,12 +1,28 @@
 import './info.css'
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Card, Contacto, Location } from '../../component/cards/Cards';
-
+import { FaAngleDown } from "react-icons/fa";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { IoMail } from "react-icons/io5";
 
 const Info = () => {
+  const [visible, setVisible] = useState(false);
+  const [renderDesplegable, setRenderDesplegable] = useState(false);
+  const desplegableRef = useRef(null);
+  const opcionesRef = useRef([]);
 
-
+  const handleToggle = () => {
+    if (!visible) {
+      // Abriendo
+      setRenderDesplegable(true);
+      setVisible(true);
+    } else {
+      // Cerrando
+      setVisible(false);
+    }
+  };
 
   const imgRef = useRef(null);
 
@@ -28,68 +44,126 @@ const Info = () => {
     );
   }, []);
 
+  // Animación del desplegable
+  useEffect(() => {
+    if (visible && renderDesplegable) {
+      // ABRIR: Anima el contenedor desplegable
+      gsap.fromTo(
+        desplegableRef.current,
+        {
+          height: 0,
+          opacity: 0,
+        },
+        {
+          height: 'auto',
+          opacity: 1,
+          duration: 0.4,
+          ease: 'power2.out',
+        }
+      );
 
+      // ABRIR: Anima cada opción con delay
+      gsap.fromTo(
+        opcionesRef.current,
+        {
+          opacity: 0,
+          x: -20,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.3,
+          stagger: 0.15,
+          ease: 'power2.out',
+          delay: 0.2,
+        }
+      );
+    } else if (!visible && renderDesplegable) {
+      // CERRAR: Anima las opciones primero
+      gsap.to(opcionesRef.current, {
+        opacity: 0,
+        x: -20,
+        duration: 0.2,
+        stagger: 0.1,
+        ease: 'power2.in',
+      });
+
+      // CERRAR: Luego cierra el contenedor
+      gsap.to(desplegableRef.current, {
+        height: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.in',
+        delay: 0.2,
+        onComplete: () => {
+          setRenderDesplegable(false); // Quita del DOM cuando termina
+        },
+      });
+    }
+  }, [visible, renderDesplegable]);
 
   return (
     <section className="section ubicacion">
+      <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
 
-     
+      <main className="mapa-card">
+        <div className="imagen-mapa">
+          <img
+            ref={imgRef}
+            src="/img/merc.png"
+            alt="mercado"
+            className="ilu-mercado"
+          />
+        </div>
 
-        <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
-
-
-
-
-        <main className="mapa-card">
-
-
-
-
-
-
-
-          <div className="imagen-mapa">
-            <img
-              ref={imgRef}
-              src="/img/mercado.png"
-              alt="mercado"
-              className="ilu-mercado"
-            />
+        <div className="horarios">
+          <Card dia="Lunes a Sábado" horario="8:00 a 14:30" />
+          <Location />
+        </div>
 
 
+        <div className="footer">
+        <div className="mensaje">
+          <ul className="mensaje-opciones">
+            <div className="mensajito-wrapper">
+              <div className="mensajito" onClick={handleToggle}>
+                <h3 className="titulo">ENVÍA UN MENSAJITO</h3>
+                <FaAngleDown className={visible ? 'flecha-rotada' : ''} />
+              </div>
 
-          </div>
+              {renderDesplegable && (
+                <ul 
+                  ref={desplegableRef}
+                  className="mensaje-opciones-desplegable"
+                >
+                  <li 
+                    ref={el => opcionesRef.current[0] = el}
+                    className="opcion-mensaje"
+                  >
+                    <IoLogoWhatsapp />
+                    <h4 className="opcion">CHATÉANOS</h4>
+                  </li>
+                  <li 
+                    ref={el => opcionesRef.current[1] = el}
+                    className="opcion-mensaje"
+                  >
+                    <IoMail />
+                    <h4 className="opcion">ESCRÍBENOS</h4>
+                  </li>
+                </ul>
+              )}
+            </div>
 
-
-
-
-
-
-
-
-          <div className="horarios">
-            <Card dia="Lunes a Sábado" horario="8:00 a 14:30" />
-
-
-
-            <Contacto />
-            <Location />
-
-
-          </div>
-
-
-
-
-
-
-
-        </main>
-
-
+            <div className="mensajito-phone">
+              <BsFillTelephoneFill />
+              <h3 className="titulo">LLÁMANOS</h3>
+            </div>
+          </ul>
+        </div>
+      </div>
+      </main>
 
     
-
     </section>
   );
 };
