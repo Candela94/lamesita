@@ -1,7 +1,7 @@
 .titulo-ubicacion {
 
     color: var(--primary);
-    font-size: 9vw;
+    font-size: 10vw;
     width: 80%;
     height: auto;
     /* background-color: aquamarine; */
@@ -21,6 +21,7 @@
     background-color: var(--background);
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
 
 }

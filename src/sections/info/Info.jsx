@@ -177,7 +177,7 @@ const Info = () => {
                   <li
                     ref={el => opcionesRef.current[0] = el}
                     className="opcion-mensaje"
-                    onClick={() => window.open('https://wa.me/34654056208', '_blank')} 
+                    onClick={() => window.open('https://wa.me/34665940987', '_blank')} 
 
                   >
                    
@@ -191,7 +191,7 @@ const Info = () => {
                   <li
                     ref={el => opcionesRef.current[1] = el}
                     className="opcion-mensaje"
-                    onClick={() => window.location.href = 'mailto:tuemail@dominio.com'}
+                    onClick={() => window.location.href = 'mailto:hola@lamesita.es'}
 
                   >
                     {/* <IoMail /> */}
@@ -202,7 +202,7 @@ const Info = () => {
             </div>
 
             <div className="mensajito-phone"
-              onClick={() => window.location.href = 'tel:+34XXXXXXXXX'} // 👉 pon tu número aquí
+              onClick={() => window.location.href = 'tel:+34665940987'} 
 >
               {/* <BsFillTelephoneFill /> */}
               <h3 className="titulo">LLÁMANOS</h3>

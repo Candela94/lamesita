@@ -44,7 +44,7 @@ const CajasSection = () => {
                 </div>
 
 
-                ...
+            
 
                 <div className="galeria">
                     <AnimatePresence>

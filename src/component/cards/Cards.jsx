@@ -101,25 +101,48 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [extrasSeleccionados, setExtrasSeleccionados] = useState([]);
 
+
+
+
+
   // Verificar si es la cajita personalizada
   const esPersonalizada = caja.nombre === 'HAZ TU PROPIA CAJITA';
+
+
+
+
+
 
   const handleOpenOverlay = () => setOverlay(true);
 
   // Filtrar extras disponibles para esta caja
+
   const extrasDisponibles = extrasGlobales.filter(extra =>
     caja.extrasDisponibles?.includes(extra.id)
   );
 
+
+
   const totalPrice = useMemo(() => {
+
+
     const precioBase = typeof caja.precio === 'number' ? caja.precio : 30;
     const precioExtras = extrasSeleccionados.reduce((total, extraId) => {
       const extra = extrasGlobales.find(e => e.id === extraId);
       return total + (extra?.precio || 0);
+
+
     }, 0);
+
+
     return precioBase + precioExtras;
   }, [caja.precio, extrasSeleccionados]);
   console.log('PRECIO TOTAL:', totalPrice);
+
+
+
+
+
 
   // Manejar selección de extras
   const handleExtraToggle = (extraId) => {
@@ -132,46 +155,48 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     });
   };
 
-  const handleSeleccion = (productoNombre, tipo) => {
-    if (esPersonalizada) {
-      // Determinar si el producto es la base
-      const esBase = productoNombre === 'Elige una base';
 
-      if (esBase) {
-        // Para la base, simplemente actualizar el tipo seleccionado
-        setSeleccion((prev) => ({ ...prev, [productoNombre]: tipo }));
-      } else {
-        // Para productos sin tipos: toggle de selección
-        setSeleccion((prev) => {
-          const productosSeleccionados = Object.keys(prev).filter(
-            p => p !== 'Elige una base'
-          ).length;
 
-          // Si ya está seleccionado, deseleccionar
-          if (prev[productoNombre]) {
-            const nuevoSeleccion = { ...prev };
-            delete nuevoSeleccion[productoNombre];
-            return nuevoSeleccion;
-          }
 
-          // Si no está seleccionado, verificar límite de 6 productos
-          if (productosSeleccionados >= 6) {
-            alert('Solo puedes seleccionar hasta 6 productos 🙂');
-            return prev; // Retornar el estado anterior sin cambios
-          }
 
-          // Guardar con valor "Seleccionado" para productos sin tipos
-          return { ...prev, [productoNombre]: 'Seleccionado' };
-        });
-      }
+
+const handleSeleccion = (productoNombre, tipo) => {
+  if (esPersonalizada) {
+    const esBase = productoNombre === 'Elige una base';
+
+    if (esBase) {
+      setSeleccion((prev) => ({ ...prev, [productoNombre]: tipo }));
     } else {
-      // Para otras cajas, funciona igual que antes
-      setSeleccion((prev) => ({
-        ...prev,
-        [productoNombre]: tipo
-      }));
+      setSeleccion((prev) => {
+        const productosSeleccionados = Object.keys(prev).filter(
+          p => p !== 'Elige una base'
+        ).length;
+
+        if (productosSeleccionados >= 6 && !prev[productoNombre]) {
+          alert('Solo puedes seleccionar hasta 6 productos 🙂');
+          return prev;
+        }
+
+        const nuevoSeleccion = { ...prev };
+        if (nuevoSeleccion[productoNombre]) {
+          delete nuevoSeleccion[productoNombre];
+        } else {
+          nuevoSeleccion[productoNombre] = 'Seleccionado';
+        }
+        return nuevoSeleccion;
+      });
     }
-  };
+  } else {
+    setSeleccion((prev) => ({
+      ...prev,
+      [productoNombre]: tipo,
+    }));
+  }
+};
+
+
+
+
 
   const handleGuardar = () => {
     if (!nombreUsuario.trim()) {
@@ -217,6 +242,13 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     }, 100);
   };
 
+
+
+
+
+
+
+
   const construirMensaje = () => {
     const productos = Object.entries(seleccion)
       .map(([producto, tipo]) => `- ${producto}: ${tipo}`)
@@ -237,6 +269,12 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     return mensaje;
   };
 
+
+
+
+
+
+
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
       alert('Por favor, introduce tu nombre 🙂');
@@ -249,6 +287,13 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     window.open(url, '_blank');
   };
 
+
+
+
+
+
+
+
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
     setTimeout(() => {
@@ -256,35 +301,55 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     }, 100);
   };
 
+
+
+
+
+
+
+
   const handleToggleCaja = () => {
     onToggle();
     setOverlay(false);
     setPasoFinal(false);
   };
 
+
+
+
+
+
+
   // ANIMACIONES
   const containerVariants = {
-    collapsed: { opacity: 0, height: 0 },
+    collapsed: {
+      opacity: 0,
+      scale: 0.96, // 👈 da sensación de que se aleja
+      height: 0,
+      transition: { duration: 0.6, ease: 'easeInOut' }
+    },
     open: {
       opacity: 1,
+      scale: 1,
       height: 'auto',
-      transition: { when: "beforeChildren", staggerChildren: 0.15 }
+      transition: { duration: 1, ease: 'easeOut' }
     }
   };
-
+  
   const boxVariants = {
     initial: { scale: 0.95, opacity: 0 },
     animate: {
       scale: 1,
       opacity: 1,
-      transition: { type: "spring", stiffness: 300, damping: 20 }
+      transition: { type: "spring", stiffness: 200, damping: 25, duration: 0.8 }
     },
     exit: {
       scale: 0.95,
       opacity: 0,
-      transition: { duration: 0.6 }
+      transition: { duration: 0.6, ease: 'easeInOut' }
     }
   };
+  
 
   const textVariants = {
     hidden: { opacity: 0, y: 5 },
@@ -296,17 +361,31 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3, delay: 0.5 } }
   };
 
+
+
+
+
+
+
+
+  
+
   return (
     <div className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
       <div className="caja-header" onClick={handleToggleCaja}>
         <span className="nombre"><h2 className="nombre-caja">{caja.nombre}</h2></span>
 
         <motion.button
+
           className="caja-toggle"
           whileTap={{ scale: 0.9 }}
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.4 }}
+
         >
+
+
+
           {isOpen ? <IoClose className='icons' /> : <IoAddCircle className='icons' />}
         </motion.button>
       </div>
@@ -320,7 +399,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
             animate="open"
             exit="collapsed"
             variants={containerVariants}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
           >
             <motion.div
               variants={boxVariants}
@@ -336,7 +415,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                   className="caja-img"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
+                  transition={{ delay: 0.8, duration: 0.9, type: "spring" }}
                 />
               </div>
 
