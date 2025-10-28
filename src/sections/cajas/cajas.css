@@ -14,10 +14,10 @@
 
 
 .titulo-cajas {
-    font-size: 10vw;
+    font-size: 9vw;
     color: var(--primary);
     /* background-color: aqua; */
-    width: 90%;
+    width: 85%;
 
 
 }
@@ -53,6 +53,9 @@
     width: 78%;
     text-align: end;
 }
+
+
+
 .cajas-li {
     width: 100%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -87,7 +90,7 @@
 
     .titulo-cajas {
 
-        font-size: 10vw;
+        font-size: 9vw;
         width: 60%;
     }
 
@@ -128,8 +131,8 @@
 
     .titulo-cajas {
 
-        font-size: 8vw;
-        width:80%;
+        font-size: 7vw;
+        width:60%;
         /* background-color: aqua; */
     }
 

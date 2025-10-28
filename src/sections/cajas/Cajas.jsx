@@ -37,8 +37,8 @@ const CajasSection = () => {
                     <h1 className='titulo-cajas'>LO JUSTO PARA UN GRAN MOMENTO</h1>
 
 
-                    <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit cum voluptate dolor! Dolore eligendi, debitis sunt eos nam error perspiciatis fugit labore, maxime nobis inventore commodi necessitatibus. Hic, amet nisi.
-                        Doloribus consectetur voluptatem officiis dignissimos illo facilis natus labore at dolor assumenda sit</p>
+                    {/* <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit cum voluptate dolor! Dolore eligendi, debitis sunt eos nam error perspiciatis fugit labore, maxime nobis inventore commodi necessitatibus. Hic, amet nisi.
+                        Doloribus consectetur voluptatem officiis dignissimos illo facilis natus labore at dolor assumenda sit</p> */}
 
 
                 </div>

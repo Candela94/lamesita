@@ -138,14 +138,14 @@ const Info = () => {
         <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
 
 
-        <div className="imagen-mapa">
+         <div className="imagen-mapa"> 
           <img
             ref={imgRef}
             src="/img/merc.png"
             alt="mercado"
             className="ilu-mercado"
           />
-        </div>
+         </div> 
 
 
       </div>
