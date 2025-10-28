@@ -73,7 +73,7 @@
 
   .indicadores {
     position: absolute;
-    bottom: 3.5rem;
+    bottom: 4.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
