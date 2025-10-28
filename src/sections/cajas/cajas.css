@@ -1,6 +1,7 @@
 .section-cajas {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     gap: 1rem;
     padding: var(--padding);
@@ -13,10 +14,10 @@
 
 
 .titulo-cajas {
-    font-size: 8vw;
+    font-size: 10vw;
     color: var(--primary);
     /* background-color: aqua; */
-    width: 70%;
+    width: 90%;
 
 
 }
@@ -47,7 +48,11 @@
 }
 
 
-
+.precio{
+    /* background-color: aqua; */
+    width: 78%;
+    text-align: end;
+}
 .cajas-li {
     width: 100%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

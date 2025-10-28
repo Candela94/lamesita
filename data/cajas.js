@@ -80,26 +80,26 @@ export const cajas = [
       extrasDisponibles: ['chocolate', 'mermeladas']
     },
   
-    // {
-    //   nombre: 'HAZ TU PROPIA CAJITA',
-    //   precio: 30,
-    //   imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
-    //   descripcion: 'Crea tu cajita a medida, elige una base y 6 productos a elegir entre los disponibles',
-    //   productos: [
-    //     { nombre: 'Elige una base', tipos: ['Cava', 'Vino'] },
-    //     { nombre: 'Jamón serrano 200g' },
-    //     { nombre: 'Queso semicurado García Vaquero' },
-    //     { nombre: 'Fuet' },
-    //     { nombre: 'Membrillo' },
-    //     { nombre: 'Aceite de oliva virgen extra 250ml' },
+    {
+      nombre: 'HAZ TU PROPIA CAJITA',
+      precio: 30,
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
+      descripcion: 'Crea tu cajita a medida, elige una base y 6 productos a elegir entre los disponibles',
+      productos: [
+        { nombre: 'Elige una base', tipos: ['Cava', 'Vino'] },
+        { nombre: 'Jamón serrano 200g' },
+        { nombre: 'Queso semicurado García Vaquero' },
+        { nombre: 'Fuet' },
+        { nombre: 'Membrillo' },
+        { nombre: 'Aceite de oliva virgen extra 250ml' },
      
-    //     { nombre: 'Salchichón ibérico 200g' },
-    //     { nombre: 'Lomo de campo ibérico' },
-    //     { nombre: 'Queso Maasdam 150g' }
-    //   ],
-    //   color: '#046a42',
-    //   extrasDisponibles: ['chocolate']
-    // }
+        { nombre: 'Salchichón ibérico 200g' },
+        { nombre: 'Lomo de campo ibérico' },
+        { nombre: 'Queso Maasdam 150g' }
+      ],
+      color: '#046a42',
+      extrasDisponibles: ['chocolate']
+    }
   ];
   
 

@@ -119,13 +119,15 @@ const Info = () => {
 
   }, [visible, renderDesplegable]);
 
+  
+
   return (
 
 
 
 
 
-    <main className="mapa-card">
+    <main className="mapa-card section">
 
 
 
@@ -163,7 +165,7 @@ const Info = () => {
           <ul className="mensaje-opciones">
             <div className="mensajito-wrapper">
               <div className="mensajito" onClick={handleToggle}>
-                <h4 className="titulo">ENVÍA UN MENSAJITO</h4>
+                <h3 className="titulo">ENVÍA UN MENSAJITO</h3>
                 <FaAngleDown className={visible ? 'flecha-rotada' : ''} />
               </div>
 
@@ -179,7 +181,7 @@ const Info = () => {
 
                   >
                    
-                    <h5 className="opcion">CHATÉANOS</h5>
+                    <h4 className="opcion">CHATÉANOS</h4>
                     <IoLogoWhatsapp style={{marginBottom:'0.3rem'}}/>
                   </li>
 
@@ -193,7 +195,7 @@ const Info = () => {
 
                   >
                     {/* <IoMail /> */}
-                    <h5 className="opcion">ESCRIBE UN CORREITO</h5>
+                    <h4 className="opcion">ESCRIBE UN CORREITO</h4>
                   </li>
                 </ul>
               )}
@@ -203,7 +205,7 @@ const Info = () => {
               onClick={() => window.location.href = 'tel:+34XXXXXXXXX'} // 👉 pon tu número aquí
 >
               {/* <BsFillTelephoneFill /> */}
-              <h4 className="titulo">LLÁMANOS</h4>
+              <h3 className="titulo">LLÁMANOS</h3>
             </div>
           </ul>
         </div>
