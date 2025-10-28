@@ -23,7 +23,7 @@ const Introduccion = () => {
 
             <div className="intro-imagen">
 
-                <img src="/img/paisaje.jpg" alt="paisaje" className="imagen-fondo" />
+                {/* <img src="/img/paisaje.jpg" alt="paisaje" className="imagen-fondo" /> */}
 
                 <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo" />
 

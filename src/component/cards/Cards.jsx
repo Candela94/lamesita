@@ -320,41 +320,10 @@ const handleSeleccion = (productoNombre, tipo) => {
 
 
 
-  // ANIMACIONES
-  const containerVariants = {
-    collapsed: {
-      opacity: 0,
-      scale: 0.96, // 👈 da sensación de que se aleja
-      height: 0,
-      transition: { duration: 0.6, ease: 'easeInOut' }
-    },
-    open: {
-      opacity: 1,
-      scale: 1,
-      height: 'auto',
-      transition: { duration: 1, ease: 'easeOut' }
-    }
-  };
-  
-  const boxVariants = {
-    initial: { scale: 0.95, opacity: 0 },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 200, damping: 25, duration: 0.8 }
-    },
-    exit: {
-      scale: 0.95,
-      opacity: 0,
-      transition: { duration: 0.6, ease: 'easeInOut' }
-    }
-  };
+
   
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 5 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
+
 
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.9 },
@@ -398,11 +367,9 @@ const handleSeleccion = (productoNombre, tipo) => {
             initial="collapsed"
             animate="open"
             exit="collapsed"
-            variants={containerVariants}
             transition={{ duration: 1, ease: 'easeInOut' }}
           >
             <motion.div
-              variants={boxVariants}
               initial="initial"
               animate="animate"
               exit="exit"
@@ -421,9 +388,9 @@ const handleSeleccion = (productoNombre, tipo) => {
 
               <motion.div
                 className="caja-info"
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
+                // variants={textVariants}
+                // initial="hidden"
+                // animate="visible"
               >
                 <p className="descripcion">{caja.descripcion}</p>
                 <h3 className="precio">{caja.precio}€</h3>
@@ -451,7 +418,6 @@ const handleSeleccion = (productoNombre, tipo) => {
             initial="collapsed"
             animate="open"
             exit="collapsed"
-            variants={containerVariants}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
             <div className="card-options">
@@ -618,8 +584,6 @@ const handleSeleccion = (productoNombre, tipo) => {
             key="resumen"
             initial="collapsed"
             animate="open"
-            exit="collapsed"
-            variants={containerVariants}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
             <motion.div
