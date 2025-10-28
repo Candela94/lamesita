@@ -177,7 +177,7 @@ const Info = () => {
                   <li
                     ref={el => opcionesRef.current[0] = el}
                     className="opcion-mensaje"
-                    onClick={() => window.open('https://wa.me/34665940987', '_blank')} 
+                    onClick={() => window.location('https://wa.me/34665940987', '_blank')} 
 
                   >
                    
