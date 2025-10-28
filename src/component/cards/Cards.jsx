@@ -455,7 +455,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
                         <div 
-                          key={id} 
+                          key={prod.id} 
                           className="producto-overlay"
                           // NUEVO: Si no tiene tipos, el div completo es clickeable
                           onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
@@ -689,6 +689,187 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+export const PruebaCajas = ({ caja, isOpen, onToggle }) => {
+  const [overlay, setOverlay] = useState(false);
+  const [pasoFinal, setPasoFinal] = useState(false);
+  const [nombreUsuario, setNombreUsuario] = useState('');
+  const [seleccion, setSeleccion] = useState({});
+
+  const esPersonalizada = caja.nombre === 'HAZ TU PROPIA CAJITA';
+
+  const handleOpenOverlay = () => {
+    console.log('Abriendo overlay...');
+    setOverlay(true);
+  };
+
+  const handleSeleccion = (productoNombre, tipo) => {
+    if (esPersonalizada) {
+      const esBase = productoNombre === 'Elige una base';
+      if (esBase) {
+        setSeleccion({ ...seleccion, [productoNombre]: tipo });
+      } else {
+        if (seleccion[productoNombre]) {
+          const nuevoSeleccion = { ...seleccion };
+          delete nuevoSeleccion[productoNombre];
+          setSeleccion(nuevoSeleccion);
+        } else {
+          const productosSeleccionados = Object.keys(seleccion).filter(p => p !== 'Elige una base').length;
+          if (productosSeleccionados >= 6) {
+            alert('Solo puedes seleccionar hasta 6 productos 🙂');
+            return;
+          }
+          setSeleccion({ ...seleccion, [productoNombre]: 'Seleccionado' });
+        }
+      }
+    } else {
+      setSeleccion(prev => ({
+        ...prev,
+        [productoNombre]: tipo
+      }));
+    }
+  };
+
+  const handleToggleCaja = () => {
+    onToggle();
+    setOverlay(false);
+    setPasoFinal(false);
+  };
+
+  return (
+    <div className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
+      <div className="caja-header" onClick={handleToggleCaja}>
+        <span className="nombre"><h2 className="nombre-caja">{caja.nombre}</h2></span>
+        <button className="caja-toggle">
+          {isOpen ? <IoClose className='icons' /> : <IoAddCircle className='icons' />}
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="caja fade-in">
+
+          {!overlay && !pasoFinal && (
+            <div className="caja-contenido slide-in">
+              <div className="imagen-box">
+                <img src={caja.imagen} alt="caja" className="caja-img" />
+              </div>
+              <div className="caja-info">
+                <p className="descripcion">{caja.descripcion}</p>
+                <h3 className="precio">{caja.precio}€</h3>
+              </div>
+              <div onClick={handleOpenOverlay} className="caja-btn">
+                <button className="btn-container" style={{ color: caja.color }}>
+                  Personalizar cajita
+                </button>
+              </div>
+            </div>
+          )}
+
+          {overlay && (
+            <div className="card-options fade-in">
+              {caja.productos.map((prod) => {
+                const tieneTipos = prod.tipos && prod.tipos.length > 0;
+                return (
+                  <div
+                    key={prod.nombre}
+                    className="producto-overlay"
+                    onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
+                    style={{
+                      cursor: !tieneTipos ? 'pointer' : 'default',
+                      backgroundColor: !tieneTipos && seleccion[prod.nombre] ? 'var(--background)' : 'transparent',
+                      padding: '0.7rem',
+                      borderRadius: '8px',
+                      border: '1px solid var(--background)',
+                      marginBottom: '10px',
+                      color: !tieneTipos && seleccion[prod.nombre] ? caja.color : 'inherit',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    <h4>
+                      {!tieneTipos && seleccion[prod.nombre] && '✓ '}{prod.nombre}
+                    </h4>
+                    {tieneTipos && (
+                      <ul className="overlay-producto-tipos">
+                        {prod.tipos.map((tipo) => (
+                          <li
+                            key={tipo}
+                            onClick={() => handleSeleccion(prod.nombre, tipo)}
+                            style={
+                              seleccion[prod.nombre] === tipo
+                                ? {
+                                    backgroundColor: 'var(--background)',
+                                    color: caja.color,
+                                    fontWeight: 'bold'
+                                  }
+                                : {}
+                            }
+                          >
+                            {tipo}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                );
+              })}
+
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                value={nombreUsuario}
+                onChange={(e) => setNombreUsuario(e.target.value)}
+                className="input-nombre"
+              />
+              <div className="caja-btn">
+                <button
+                  onClick={() => {
+                    if (!nombreUsuario.trim()) {
+                      alert('Por favor, introduce tu nombre 🙂');
+                      return;
+                    }
+                    setPasoFinal(true);
+                    setOverlay(false);
+                  }}
+                  className="btn-container"
+                  style={{ color: caja.color }}
+                >
+                  Guardar productos en mi cajita
+                </button>
+              </div>
+            </div>
+          )}
+
+          {pasoFinal && (
+            <div className="caja caja-resumen fade-in">
+              <p style={{ padding: '1rem' }}>Resumen final de la cajita para {nombreUsuario}</p>
+              <ul>
+                {Object.entries(seleccion).map(([prod, tipo]) => (
+                  <li key={prod}>{prod}: {tipo}</li>
+                ))}
+              </ul>
+              <div className="caja-btn">
+                <button onClick={() => setPasoFinal(false)} className="btn-container" style={{ color: caja.color }}>
+                  Volver a editar
+                </button>
+              </div>
+            </div>
+          )}
+
+        </div>
+      )}
     </div>
   );
 };

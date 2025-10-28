@@ -175,14 +175,22 @@ const Info = () => {
                   <li
                     ref={el => opcionesRef.current[0] = el}
                     className="opcion-mensaje"
+                    onClick={() => window.open('https://wa.me/34654056208', '_blank')} 
+
                   >
                    
                     <h5 className="opcion">CHATÉANOS</h5>
                     <IoLogoWhatsapp style={{marginBottom:'0.3rem'}}/>
                   </li>
+
+
+
+
                   <li
                     ref={el => opcionesRef.current[1] = el}
                     className="opcion-mensaje"
+                    onClick={() => window.location.href = 'mailto:tuemail@dominio.com'}
+
                   >
                     {/* <IoMail /> */}
                     <h5 className="opcion">ESCRIBE UN CORREITO</h5>
@@ -191,7 +199,9 @@ const Info = () => {
               )}
             </div>
 
-            <div className="mensajito-phone">
+            <div className="mensajito-phone"
+              onClick={() => window.location.href = 'tel:+34XXXXXXXXX'} // 👉 pon tu número aquí
+>
               {/* <BsFillTelephoneFill /> */}
               <h4 className="titulo">LLÁMANOS</h4>
             </div>
