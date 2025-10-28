@@ -1,114 +1,77 @@
 .section-about {
+
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     /* border: 5px solid blue; */
-   min-height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+
 
 }
 
+
+
+.fondo-img {
+    width: 100%;
+    height: 100vh;
+}
 
 
 
 .fondo {
-    width: 100%;
-    display: flex;
-   
 
-    flex-direction: column;
-    background-color: var(--primary);
-    opacity: 0.8;
-    color: var(--background);
-    padding: 1rem;
     position: absolute;
+    width: 80%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    background-color: rgba(249, 242, 222, 0.7);
     border-radius: 4px;
-
-}
-
-.imagen-fondo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.subheader-nav {
-    /* background-color: palegoldenrod; */
-}
-
-.subheader-tabs {
-    display: flex;
-    gap: 2rem;
-    /* border: 5px gray solid; */
-}
-
-.tab-option {
-    font-family: gafiton;
-    cursor: pointer;
-    /* background-color: red; */
-    width: 100%;
+    /* padding: 1rem; */
 }
 
 
 
-
-
-.tab-icon {
-    display: flex;
-    justify-content: end;
-
-    /* background-color: pink; */
-    width: 100%;
-    gap: 1rem;
-    /* align-items: center; */
-}
 
 .conoce {
-    font-size: 10vw;
-}
-
-
-
-
-
-
-.mesita-texto{
-    text-align: start;
-}
-
-
-
-.contenido {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: 1rem;
     margin-top: 1rem;
+    font-size: 10vw;
+    color: var(--primary);
+    padding: 0 1rem;
 }
 
 
-.ilustracion {
-    width: 55%;
-    height: 25vh;
-    display: flex;
-    justify-content: end;
+
+
+
+
+.mesita-texto {
+    text-align: start;
+    color: var(--primary);
+    padding: 0.5rem 1rem
 }
 
-.ilu {
+
+
+
+
+
+.mesita-imagen {
     width: 100%;
-  
+    height: 36vh;
+    /* background-color: aqua; */
+
+}
+
+.imagen-about {
+    width: 100%;
     height: 100%;
     object-fit: cover;
-
-    background-color: var(--background);
-    border-radius: 8px;
-
 }
+
 
 
 
@@ -133,7 +96,7 @@
 
 
 
-    .tab-content{
+    .tab-content {
         /* background-color: green; */
         height: fit-content;
         height: 100%;
@@ -155,9 +118,9 @@
 
 
 
- .conoce{
-    margin-top: 2rem;
- }
+    .conoce {
+        margin-top: 2rem;
+    }
 
 
 

@@ -11,7 +11,7 @@ import { useMemo } from 'react';
 // ─────────────────────────────
 export const Card = ({ dia, horario }) => (
   <div className="card card-horario card-gsap">
-    <h5 className="dia">{dia}</h5>
+    <h4 className="dia">{dia}</h4>
     <p className="horario">{horario}</p>
   </div>
 );
@@ -295,6 +295,17 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
 
+
+  const handleToggleCaja = () => {
+    onToggle();           
+    setOverlay(false);    
+    setPasoFinal(false);  
+  };
+  
+
+
+
+
   // ANIMACIONES
   const containerVariants = {
     collapsed: { opacity: 0, height: 0 },
@@ -340,7 +351,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
     <div className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
-      <div className="caja-header" onClick={onToggle}>
+      <div className="caja-header" onClick={handleToggleCaja}>
         <span className="nombre"><h2 className="nombre-caja">{caja.nombre}</h2></span>
 
 
@@ -387,7 +398,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               >
                 <div className="imagen-box">
                   <motion.img
-                    src="/img/caja.jpeg"
+                    src={caja.imagen}
                     alt="caja"
                     className="caja-img"
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -419,6 +430,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 </motion.div>
               </motion.div>
             )}
+
 
             {overlay && (
               <motion.div
@@ -472,7 +484,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                             transition: 'all 0.3s ease',
                           }}
                         >
-                          <h3 style={{
+                          <h4 style={{
                             fontWeight: !tieneTipos && seleccion[prod.nombre] ? 'bold' : 'normal'
                           }}>
 
@@ -482,7 +494,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                             {/*Mostrar checkmark si está seleccionado */}
                             {!tieneTipos && seleccion[prod.nombre] && '✓ '}
                             {prod.nombre}
-                          </h3>
+                          </h4>
 
 
 
@@ -496,6 +508,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                             <ul className="overlay-producto-tipos">
                               {prod.tipos.map((tipo, idx) => (
                                 tipo.trim() !== '' && (
+
                                   <li
                                     key={idx}
                                     className="tipos"
@@ -627,7 +640,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, type: "spring" }}
               >
-                <img src="/img/caja.png" alt="caja" className="caja-img" />
+                <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
                 <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
                 <div className="caja-info">
                   <h4>Productos:</h4>

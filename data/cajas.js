@@ -27,7 +27,7 @@ export const cajas = [
     {
       nombre: 'CAJITA APERITIVO',
       precio: 30,
-      imagen: '/img/caja.jpeg',
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Ligera, social y lista para disfrutar con un buen vino.',
       productos: [
         { nombre: 'Jamon serrano 200g' },
@@ -46,7 +46,7 @@ export const cajas = [
       nombre: 'CAJITA PICADA',
       precio: 30,
       descripcion: 'Más completa, con contraste de sabores, ideal para compartir',
-      imagen: '',
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       productos: [
         { nombre: 'Salchichón ibérico 200g' },
         
@@ -57,14 +57,14 @@ export const cajas = [
         { nombre: 'Miel', tipos: ['De flor', 'De trufa'] },
         { nombre: 'Vino', tipos: ['Blanco', 'Tinto'] }
       ],
-      color: '#009889',
+      color: '#af2325',
       extrasDisponibles: ['chocolate', 'mermeladas']
     },
   
     {
       nombre: 'CAJITA QUESOS',
       precio: 30,
-      imagen: '',
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Elegante, pensada para los amantes del queso y los maridajes.',
       productos: [
         { nombre: 'Cava' },
@@ -76,14 +76,14 @@ export const cajas = [
         { nombre: 'Membrillo 200g' },
         { nombre: 'Miel 500g' }
       ],
-      color: '#C04500',
+      color: '#f7aa32',
       extrasDisponibles: ['chocolate', 'mermeladas']
     },
   
     {
       nombre: 'HAZ TU PROPIA CAJITA',
       precio: 30,
-      imagen: '',
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Crea tu cajita a medida, elige una base y 6 productos a elegir entre los disponibles',
       productos: [
         { nombre: 'Elige una base', tipos: ['Cava', 'Vino'] },
@@ -97,11 +97,15 @@ export const cajas = [
         { nombre: 'Lomo de campo ibérico' },
         { nombre: 'Queso Maasdam 150g' }
       ],
-      color: '#C04500',
+      color: '#046a42',
       extrasDisponibles: ['chocolate']
     }
   ];
   
+
+
+
+
 
 
 

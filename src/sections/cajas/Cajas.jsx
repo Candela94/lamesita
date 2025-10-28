@@ -8,7 +8,7 @@ import './cajas.css'
 import { cajas } from '../../../data/cajas';
 import { Cajas } from '../../component/cards/Cards';
 import { useState } from 'react';
-import {motion, AnimatePresence} from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Contacto } from '../../component/cards/Cards';
 
 
@@ -33,7 +33,7 @@ const CajasSection = () => {
 
                 <div className="texto-cajas">
 
-                    
+
                     <h1 className='titulo-cajas'>LO JUSTO PARA UN GRAN MOMENTO</h1>
 
 
@@ -44,27 +44,27 @@ const CajasSection = () => {
                 </div>
 
 
-...
+                ...
 
-<div className="galeria">
-  <AnimatePresence>
-  {cajas.map((c, i) => (
-  <li
-    key={i}
-    className="cajas-li"
-    style={{ zIndex: i }} // 👈 Esto hace que la PRIMERA tenga el índice más bajo
-  >
-    <Cajas
-      caja={c}
-      isOpen={cajaAbierta === i}
-      onToggle={() => handleToggle(i)}
-    />
-  </li>
-))}
+                <div className="galeria">
+                    <AnimatePresence>
+                        {cajas.map((c, i) => (
+                            <li
+                                key={i}
+                                className="cajas-li"
+                                style={{ zIndex: i }} // 👈 Esto hace que la PRIMERA tenga el índice más bajo
+                            >
+                                <Cajas
+                                    caja={c}
+                                    isOpen={cajaAbierta === i}
+                                    onToggle={() => handleToggle(i)}
+                                />
+                            </li>
+                        ))}
 
 
-  </AnimatePresence>
-</div>
+                    </AnimatePresence>
+                </div>
 
 
 

@@ -23,7 +23,7 @@ const About = () => {
             img: '/img/ilu-mercado.png',
             h1: 'CONOCE'
         },
-      
+
     ];
 
 
@@ -40,67 +40,49 @@ const About = () => {
     return (
 
 
-        
+
         <section className='section section-about'>
 
 
 
-            {tabActivo && (
-
-
-
-                <>
-                    <img src={tabActivo.fondo} alt='img' className="imagen-fondo" />
-
-                    <div className="fondo">
-                        <h1 className='conoce'>CONOCE <br /> {tabActivo.nombre}</h1>
-
-                        {/* <header className="subheader">
-                            <nav className="subheader-nav">
-                                <div className="subheader-tabs">
-                                    {tabs
-                                        .filter(tab => tab.nombre !== activeTab)
-                                        .map(tab => (
-                                            <div
-                                                key={tab.nombre}
-                                                className="tab-option"
-                                                onClick={() => setActiveTab(tab.nombre)}
-                                            >
-                                                <span className="tab-icon">
-                                                    <MdOutlineChangeCircle /> {tab.nombre}
-                                                </span>
-                                            </div>
-                                        ))}
-                                </div>
-                            </nav>
-                        </header> */}
-
-                        <section className="tab-content">
-                            
-                            <div className="contenido">
-
-
-                                <div className="mesita-texto">
-                                    {tabActivo.descripcion.split('\n').map((frase, i) => (
-                                        <p key={i} className="contenido-parrafo">{frase}</p>
-                                    ))}
-
-                                </div>
-
-
-                                <div className="ilustracion">
-                                    <img src={tabActivo.img} alt="ilu" className="ilu" />
-
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </>
+            <img src='/img/fondo-about.jpg' alt="fondo" className="fondo-img" />
 
 
 
 
-            )}
+
+            <div className="fondo">
+
+                {/* <h1 className='conoce'>CONOCE <br /> LA MESITA</h1> */}
+
+
+                <div className="mesita-imagen">
+                <img src="/img/mesita.png" alt="ilustración mesita" className="imagen-about" />
+            </div>
+
+
+                <div className="mesita-texto">
+                    {tabActivo.descripcion.split('\n').map((frase, i) => (
+                        <p key={i} className="contenido-parrafo">{frase}</p>
+                    ))}
+
+                </div>
+
+
+
+           
+
+
+
+
+            </div>
+
+          
+
+
+
+
+
 
 
 

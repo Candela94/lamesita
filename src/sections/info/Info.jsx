@@ -163,7 +163,7 @@ const Info = () => {
           <ul className="mensaje-opciones">
             <div className="mensajito-wrapper">
               <div className="mensajito" onClick={handleToggle}>
-                <h3 className="titulo">ENVÍA UN MENSAJITO</h3>
+                <h4 className="titulo">ENVÍA UN MENSAJITO</h4>
                 <FaAngleDown className={visible ? 'flecha-rotada' : ''} />
               </div>
 
@@ -176,15 +176,16 @@ const Info = () => {
                     ref={el => opcionesRef.current[0] = el}
                     className="opcion-mensaje"
                   >
-                    <IoLogoWhatsapp />
-                    <h4 className="opcion">CHATÉANOS</h4>
+                   
+                    <h5 className="opcion">CHATÉANOS</h5>
+                    <IoLogoWhatsapp style={{marginBottom:'0.3rem'}}/>
                   </li>
                   <li
                     ref={el => opcionesRef.current[1] = el}
                     className="opcion-mensaje"
                   >
-                    <IoMail />
-                    <h4 className="opcion">ESCRÍBENOS</h4>
+                    {/* <IoMail /> */}
+                    <h5 className="opcion">ESCRIBE UN CORREITO</h5>
                   </li>
                 </ul>
               )}
@@ -192,7 +193,7 @@ const Info = () => {
 
             <div className="mensajito-phone">
               {/* <BsFillTelephoneFill /> */}
-              <h3 className="titulo">LLÁMANOS</h3>
+              <h4 className="titulo">LLÁMANOS</h4>
             </div>
           </ul>
         </div>
