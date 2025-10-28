@@ -41,7 +41,7 @@ Porque los grandes momentos caben en una mesita.`;
                 className="fondo-img" />
 
             <div className="fondo">
-                <h1 className="conoce">CONOCE <br /> LA MESITA</h1>
+                {/* <h1 className="conoce">CONOCE <br /> LA MESITA</h1> */}
 
                 <div className="mesita-texto">
                     {descripcion.split('\n').map((frase, i) => (
@@ -51,13 +51,13 @@ Porque los grandes momentos caben en una mesita.`;
                     ))}
                 </div>
 
-                <div className="mesita-imagen">
+                {/* <div className="mesita-imagen">
                     <img
                         src="/img/mesita.png"
                         alt="ilustración mesita"
                         className="imagen-about"
                     />
-                </div>
+                </div> */}
             </div>
         </section>
     );

@@ -17,6 +17,7 @@
 .fondo-img {
     width: 100%;
     height: 100vh;
+    object-fit: cover;
 }
 
 
@@ -24,11 +25,11 @@
 .fondo {
 
     position: absolute;
-    width: 80%;
+    width: 90%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(249, 242, 222, 0.4);
+    background-color: rgba(249, 242, 222, 0.6);
     border-radius: 4px;
     /* padding: 1rem; */
 }
@@ -50,7 +51,7 @@
 
 .mesita-texto {
     text-align: start;
-    color: var(--primary);
+    color: var(--text);
     padding: 0.5rem 1rem
 }
 
@@ -88,8 +89,8 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 70%;
-        height: auto;
+        width: auto;
+       
         gap: 0;
     }
 

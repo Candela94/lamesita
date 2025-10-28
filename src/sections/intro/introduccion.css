@@ -33,7 +33,7 @@
     object-fit: cover;
     opacity: 0.9;
     /* padding:3rem; */
-    filter: grayscale(1) brightness(0.8) blur(1px) contrast(1.2);
+    filter: grayscale(1) brightness(0.7) blur(1px) contrast(1.2);
     opacity: 0.7;
 
     position: absolute;
@@ -86,11 +86,12 @@
 .logo {
 
     position: absolute;
-width: 80%;
+width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
+    padding: 1rem;
 
 
 }

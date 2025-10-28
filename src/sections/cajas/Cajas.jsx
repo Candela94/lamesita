@@ -6,7 +6,7 @@
 import './cajas.css'
 
 import { cajas } from '../../../data/cajas';
-import { PruebaCajas, Cajas } from '../../component/cards/Cards';
+import {  Cajas } from '../../component/cards/Cards';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { Contacto } from '../../component/cards/Cards';

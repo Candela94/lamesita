@@ -93,8 +93,6 @@ export const Contacto = () => {
 // ─────────────────────────────
 
 
-
-
 export const Cajas = ({ caja, isOpen, onToggle }) => {
 
   const [overlay, setOverlay] = useState(false);
@@ -113,11 +111,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     caja.extrasDisponibles?.includes(extra.id)
   );
 
-
-
-
-
- 
   const totalPrice = useMemo(() => {
     const precioBase = typeof caja.precio === 'number' ? caja.precio : 30;
     const precioExtras = extrasSeleccionados.reduce((total, extraId) => {
@@ -127,14 +120,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     return precioBase + precioExtras;
   }, [caja.precio, extrasSeleccionados]);
   console.log('PRECIO TOTAL:', totalPrice);
-
-
-
-
-
-
-
-
 
   // Manejar selección de extras
   const handleExtraToggle = (extraId) => {
@@ -147,12 +132,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     });
   };
 
-
-
-
-
-
-
   const handleSeleccion = (productoNombre, tipo) => {
     if (esPersonalizada) {
       // Determinar si el producto es la base
@@ -160,28 +139,30 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
       
       if (esBase) {
         // Para la base, simplemente actualizar el tipo seleccionado
-        setSeleccion({ ...seleccion, [productoNombre]: tipo });
+        setSeleccion((prev) => ({ ...prev, [productoNombre]: tipo }));
       } else {
         // Para productos sin tipos: toggle de selección
-        if (seleccion[productoNombre]) {
-          // Si ya está seleccionado, deseleccionar
-          const nuevoSeleccion = { ...seleccion };
-          delete nuevoSeleccion[productoNombre];
-          setSeleccion(nuevoSeleccion);
-        } else {
-          // Si no está seleccionado, verificar límite de 6 productos (sin contar base)
-          const productosSeleccionados = Object.keys(seleccion).filter(
+        setSeleccion((prev) => {
+          const productosSeleccionados = Object.keys(prev).filter(
             p => p !== 'Elige una base'
           ).length;
           
-          if (productosSeleccionados >= 6) {
-            alert('Solo puedes seleccionar hasta 6 productos 🙂');
-            return;
+          // Si ya está seleccionado, deseleccionar
+          if (prev[productoNombre]) {
+            const nuevoSeleccion = { ...prev };
+            delete nuevoSeleccion[productoNombre];
+            return nuevoSeleccion;
           }
           
-          // NUEVO: Guardar con valor "Seleccionado" para productos sin tipos
-          setSeleccion({ ...seleccion, [productoNombre]: 'Seleccionado' });
-        }
+          // Si no está seleccionado, verificar límite de 6 productos
+          if (productosSeleccionados >= 6) {
+            alert('Solo puedes seleccionar hasta 6 productos 🙂');
+            return prev; // Retornar el estado anterior sin cambios
+          }
+          
+          // Guardar con valor "Seleccionado" para productos sin tipos
+          return { ...prev, [productoNombre]: 'Seleccionado' };
+        });
       }
     } else {
       // Para otras cajas, funciona igual que antes
@@ -192,20 +173,13 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     }
   };
 
-
-
-
   const handleGuardar = () => {
-
     if (!nombreUsuario.trim()) {
       alert('Por favor, introduce tu nombre 🙂');
       return;
     }
 
-
-  
     if (esPersonalizada) {
-
       const productosSeleccionados = Object.keys(seleccion).filter(
         p => p !== 'Elige una base'
       ).length;
@@ -217,14 +191,12 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
         return;
       }
 
-
-  
       if (productosSeleccionados !== 6) {
         alert(`Debes seleccionar exactamente 6 productos. Actualmente tienes ${productosSeleccionados} 🙂`);
         return;
       }
     } else {
-      // ✅ Solo validar si hay productos con tipos
+      // Solo validar si hay productos con tipos
       const productosConTipos = caja.productos.filter(
         (prod) => prod.tipos && prod.tipos.length > 0
       );
@@ -238,14 +210,12 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
       }
     }
   
-    setPasoFinal(true);
+    // Primero cerrar overlay, luego abrir paso final
     setOverlay(false);
+    setTimeout(() => {
+      setPasoFinal(true);
+    }, 100);
   };
-  
-
-
-
-
 
   const construirMensaje = () => {
     const productos = Object.entries(seleccion)
@@ -267,10 +237,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     return mensaje;
   };
 
-
-
-
-
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
       alert('Por favor, introduce tu nombre 🙂');
@@ -283,28 +249,18 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     window.open(url, '_blank');
   };
 
-
-
-
-
   const handleVolverASeleccion = () => {
-    setOverlay(true);
     setPasoFinal(false);
+    setTimeout(() => {
+      setOverlay(true);
+    }, 100);
   };
-
-
-
-
 
   const handleToggleCaja = () => {
     onToggle();           
     setOverlay(false);    
     setPasoFinal(false);  
   };
-  
-
-
-
 
   // ANIMACIONES
   const containerVariants = {
@@ -340,21 +296,10 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.4 } }
   };
 
-
-
-
-
-
-
-
   return (
-
-
     <div className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
       <div className="caja-header" onClick={handleToggleCaja}>
         <span className="nombre"><h2 className="nombre-caja">{caja.nombre}</h2></span>
-
-
 
         <motion.button
           className="caja-toggle"
@@ -366,193 +311,107 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
         </motion.button>
       </div>
 
-
-
-
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
+      <AnimatePresence mode="wait" initial={false}>
+        {isOpen && !overlay && !pasoFinal && (
           <motion.div
             className="caja"
-            key={overlay ? 'overlay' : pasoFinal ? 'resumen' : 'inicio'}
+            key="inicio"
             initial="collapsed"
             animate="open"
             exit="collapsed"
             variants={containerVariants}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
+            <motion.div
+              variants={boxVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="caja-contenido"
+            >
+              <div className="imagen-box">
+                <motion.img
+                  src={caja.imagen}
+                  alt="caja"
+                  className="caja-img"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2, duration: 0.4, type: "spring" }}
+                />
+              </div>
 
-
-
-
-
-
-
-            {!overlay && !pasoFinal && (
               <motion.div
-                variants={boxVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                className="caja-contenido"
+                className="caja-info"
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
               >
-                <div className="imagen-box">
-                  <motion.img
-                    src={caja.imagen}
-                    alt="caja"
-                    className="caja-img"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.2, duration: 0.4, type: "spring" }}
-                  />
-                </div>
-
-                <motion.div
-                  className="caja-info"
-                  variants={textVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <p className="descripcion">{caja.descripcion}</p>
-                  <h3 className="precio">{caja.precio}€</h3>
-                </motion.div>
-
-                <motion.div
-                  onClick={handleOpenOverlay}
-                  className="caja-btn"
-                  variants={buttonVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <button className="btn-container" style={{ color: caja.color }}>
-                    Personalizar cajita
-                  </button>
-                </motion.div>
+                <p className="descripcion">{caja.descripcion}</p>
+                <h3 className="precio">{caja.precio}€</h3>
               </motion.div>
-            )}
 
-
-            {overlay && (
               <motion.div
-                className="card-options"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
+                onClick={handleOpenOverlay}
+                className="caja-btn"
+                variants={buttonVariants}
+                initial="hidden"
+                animate="visible"
               >
-                {esPersonalizada ? (
-                  //  Interfaz especial para cajita personalizada
-                  <>
+                <button className="btn-container" style={{ color: caja.color }}>
+                  Personalizar cajita
+                </button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
 
+        {isOpen && overlay && (
+          <motion.div
+            className="caja"
+            key="overlay"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={containerVariants}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            <div className="card-options">
+              {esPersonalizada ? (
+                <>
+                  {caja.productos.map((prod) => {
+                    const tieneTipos = prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0;
+                    const estaSeleccionado = !!seleccion[prod.nombre];
+                    
+                    return (
+                      <div 
+                        key={`producto-${prod.id || prod.nombre}`}
+                        className="producto-overlay"
+                        onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
+                        style={{
+                          cursor: !tieneTipos ? 'pointer' : 'default',
+                          padding: !tieneTipos ? '0.7rem' : undefined,
+                          border: !tieneTipos ? '1px solid var(--background)' : 'none',
+                          borderRadius: !tieneTipos ? '8px' : undefined,
+                          backgroundColor: !tieneTipos && estaSeleccionado
+                            ? 'var(--background)'
+                            : 'transparent',
+                          color: !tieneTipos && estaSeleccionado ? caja.color : 'inherit',
+                          transition: 'all 0.3s ease',
+                        }}
+                      >
+                        <h4 style={{
+                          fontWeight: !tieneTipos && estaSeleccionado ? 'bold' : 'normal'
+                        }}>
+                          {!tieneTipos && estaSeleccionado && '✓ '}
+                          {prod.nombre}
+                        </h4>
 
-
-                    {caja.productos.map((prod, id) => {
-                      // si el producto tiene tipos (es la base)
-                      const tieneTipos = prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0;
-                      
-                      return (
-
-
-
-
-                        <div 
-                          key={prod.id} 
-                          className="producto-overlay"
-                          // NUEVO: Si no tiene tipos, el div completo es clickeable
-                          onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
-
-
-
-
-                          style={{
-                            cursor: !tieneTipos ? 'pointer' : 'default',
-
-
-                            // NUEVO: Estilos por defecto y cuando está seleccionado
-
-                            padding: !tieneTipos ? '0.7rem' : undefined,
-
-                            border: !tieneTipos ? '1px solid var(--background)' : 'none',
-
-                            borderRadius: !tieneTipos ? '8px' : undefined,
-
-                            backgroundColor: !tieneTipos && seleccion[prod.nombre]
-
-                              ? 'var(--background)'
-                              : 'transparent',
-
-                            color: !tieneTipos && seleccion[prod.nombre] ? caja.color : 'inherit',
-                            transition: 'all 0.3s ease',
-                          }}
-                        >
-                          <h4 style={{
-                            fontWeight: !tieneTipos && seleccion[prod.nombre] ? 'bold' : 'normal'
-                          }}>
-
-
-
-
-                            {/*Mostrar checkmark si está seleccionado */}
-                            {!tieneTipos && seleccion[prod.nombre] && '✓ '}
-                            {prod.nombre}
-                          </h4>
-
-
-
-
-
-
-                          {tieneTipos ? (
-
-
-                            // CASO 1: Producto con tipos (Base) - mostrar opciones
-                            <ul className="overlay-producto-tipos">
-                              {prod.tipos.map((tipo, idx) => (
-                                tipo.trim() !== '' && (
-
-                                  <li
-                                    key={idx}
-                                    className="tipos"
-                                    onClick={() => handleSeleccion(prod.nombre, tipo)}
-                                    style={
-                                      seleccion[prod.nombre] === tipo
-                                        ? {
-                                            backgroundColor: 'var(--background)',
-                                            color: caja.color,
-                                            fontWeight: 'bold',
-                                            boxShadow: '0.5px 0.5px 10px var(--background)',
-                                            transform: 'scale(1.05)',
-                                          }
-                                        : {}
-                                    }
-                                  >
-                                    {tipo}
-                                  </li>
-                                )
-                              ))}
-                            </ul>
-                          ) : null}
-                        </div>
-                      );
-                    })}
-
-                    {/* Mostrar contador sin contar la base */}
-                    <div style={{ marginTop: '10px', fontSize: '14px', textAlign: 'center', fontWeight: 'bold' }}>
-                      Productos seleccionados: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6
-                    </div>
-                  </>
-                ) : (
-                  // Interfaz original para otras cajas
-                  <>
-                    {caja.productos.map((prod, id) => (
-                      <div key={id} className="producto-overlay">
-                        <h3>{prod.nombre}</h3>
-
-                        {prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0 && (
+                        {tieneTipos && (
                           <ul className="overlay-producto-tipos">
                             {prod.tipos.map((tipo, idx) => (
                               tipo.trim() !== '' && (
                                 <li
-                                  key={idx}
+                                  key={`tipo-${idx}-${tipo}`}
                                   className="tipos"
                                   onClick={() => handleSeleccion(prod.nombre, tipo)}
                                   style={
@@ -574,118 +433,165 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                           </ul>
                         )}
                       </div>
-                    ))}
+                    );
+                  })}
+
+                  <div style={{ marginTop: '10px', fontSize: '14px', textAlign: 'center', fontWeight: 'bold' }}>
+                    Productos seleccionados: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6
+                  </div>
+                </>
+              ) : (
+                <>
+                  {caja.productos.map((prod, id) => (
+                    <div key={`prod-${id}-${prod.nombre}`} className="producto-overlay">
+                      <h3>{prod.nombre}</h3>
+
+                      {prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0 && (
+                        <ul className="overlay-producto-tipos">
+                          {prod.tipos.map((tipo, idx) => (
+                            tipo.trim() !== '' && (
+                              <li
+                                key={`tipo-${idx}-${tipo}`}
+                                className="tipos"
+                                onClick={() => handleSeleccion(prod.nombre, tipo)}
+                                style={
+                                  seleccion[prod.nombre] === tipo
+                                    ? {
+                                        backgroundColor: 'var(--background)',
+                                        color: caja.color,
+                                        fontWeight: 'bold',
+                                        boxShadow: '0.5px 0.5px 10px var(--background)',
+                                        transform: 'scale(1.05)',
+                                      }
+                                    : {}
+                                }
+                              >
+                                {tipo}
+                              </li>
+                            )
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </>
+              )}
+
+              {extrasDisponibles.length > 0 && (
+                <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
+                  <h3 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h3>
+
+                  {extrasDisponibles.map((extra) => (
+                    <div key={`extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                      <input
+                        type="checkbox"
+                        className='check'
+                        id={`extra-checkbox-${extra.id}`}
+                        checked={extrasSeleccionados.includes(extra.id)}
+                        onChange={() => handleExtraToggle(extra.id)}
+                        style={{ 
+                          marginRight: '1rem',
+                          cursor: 'pointer',
+                          '--color-caja': caja.color,
+                          accentColor: caja.color,
+                        }}
+                      />
+                      <label htmlFor={`extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
+                        {extra.nombre} (+{extra.precio}€)
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div style={{ marginTop: '15px', textAlign: 'center' }}>
+                <h3 className="total">Precio total: {totalPrice}€</h3>
+              </div>
+
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                value={nombreUsuario}
+                onChange={(e) => setNombreUsuario(e.target.value)}
+                className="input-nombre"
+              />
+
+              <motion.div
+                onClick={handleGuardar}
+                className="caja-btn"
+                variants={buttonVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
+                  Guardar productos en mi cajita
+                </button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+
+        {isOpen && pasoFinal && (
+          <motion.div
+            className="caja"
+            key="resumen"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={containerVariants}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            <motion.div
+              className="caja-resumen"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, type: "spring" }}
+            >
+              <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
+              <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
+              <div className="caja-info">
+                <h4>Productos:</h4>
+                <ul className='info-resumen'>
+                  {Object.entries(seleccion).map(([producto, tipo]) => (
+                    <li key={`resumen-${producto}`}>
+                      {producto}: <strong>{tipo}</strong>
+                    </li>
+                  ))}
+                </ul>
+
+                {extrasSeleccionados.length > 0 && (
+                  <>
+                    <h4 style={{ marginTop: '15px' }}>Extras:</h4>
+                    <ul>
+                      {extrasSeleccionados.map(extraId => {
+                        const extra = extrasGlobales.find(e => e.id === extraId);
+                        return (
+                          <li key={`resumen-extra-${extraId}`}>
+                            {extra.nombre} <strong>(+{extra.precio}€)</strong>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </>
                 )}
 
-                {/* Sección de Extras */}
-                {extrasDisponibles.length > 0 && (
-                  <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
-                    <h3 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h3>
+                <h3 style={{ fontSize: '20px', marginTop:'2rem' }}>
+                  Total: {totalPrice}€
+                </h3>
+              </div>
 
-                    {extrasDisponibles.map((extra) => (
-                      <div key={extra.id} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                        <input
-                          type="checkbox"
-                          className='check'
-                          id={extra.id}
-                          checked={extrasSeleccionados.includes(extra.id)}
-                          onChange={() => handleExtraToggle(extra.id)}
-                          style={{ 
-                            marginRight: '1rem',
-                            cursor: 'pointer',
-                            '--color-caja': caja.color,
-                            accentColor: caja.color,
-                          }}
-                        />
-                        <label htmlFor={extra.id} style={{ cursor: 'pointer', flex: 1 }}>
-                          {extra.nombre} (+{extra.precio}€)
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Precio Total */}
-                <motion.div key={totalPrice} style={{ marginTop: '15px', textAlign: 'center' }}>
-                  <h3 className="total">Precio total: {totalPrice}€</h3>
-                </motion.div>
-
-                <input
-                  type="text"
-                  placeholder="Tu nombre"
-                  value={nombreUsuario}
-                  onChange={(e) => setNombreUsuario(e.target.value)}
-                  className="input-nombre"
-                />
-
-                <motion.div
-                  onClick={handleGuardar}
-                  className="caja-btn"
-                  variants={buttonVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
-                    Guardar productos en mi cajita
-                  </button>
-                </motion.div>
-              </motion.div>
-            )}
-
-            {pasoFinal && (
               <motion.div
-                className="caja caja-resumen"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, type: "spring" }}
+                onClick={handleEnviarWhatsApp}
+                className="caja-btn"
+                variants={buttonVariants}
+                initial="hidden"
+                animate="visible"
               >
-                <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
-                <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
-                <div className="caja-info">
-                  <h4>Productos:</h4>
-                  <ul className='info-resumen'>
-                    {Object.entries(seleccion).map(([producto, tipo]) => (
-                      <li key={producto}>
-                        {producto}: <strong>{tipo}</strong>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {extrasSeleccionados.length > 0 && (
-                    <>
-                      <h4 style={{ marginTop: '15px' }}>Extras:</h4>
-                      <ul>
-                        {extrasSeleccionados.map(extraId => {
-                          const extra = extrasGlobales.find(e => e.id === extraId);
-                          return (
-                            <li key={extraId}>
-                              {extra.nombre} <strong>(+{extra.precio}€)</strong>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </>
-                  )}
-
-                  <h3 style={{ fontSize: '20px', marginTop:'2rem' }}>
-                    Total: {totalPrice}€
-                  </h3>
-                </div>
-
-                <motion.div
-                  onClick={handleEnviarWhatsApp}
-                  className="caja-btn"
-                  variants={buttonVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
-                    Contacta y haz tu pedido
-                  </button>
-                </motion.div>
+                <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
+                  Contacta y haz tu pedido
+                </button>
               </motion.div>
-            )}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -700,176 +606,3 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
 
-
-
-
-export const PruebaCajas = ({ caja, isOpen, onToggle }) => {
-  const [overlay, setOverlay] = useState(false);
-  const [pasoFinal, setPasoFinal] = useState(false);
-  const [nombreUsuario, setNombreUsuario] = useState('');
-  const [seleccion, setSeleccion] = useState({});
-
-  const esPersonalizada = caja.nombre === 'HAZ TU PROPIA CAJITA';
-
-  const handleOpenOverlay = () => {
-    console.log('Abriendo overlay...');
-    setOverlay(true);
-  };
-
-  const handleSeleccion = (productoNombre, tipo) => {
-    if (esPersonalizada) {
-      const esBase = productoNombre === 'Elige una base';
-      if (esBase) {
-        setSeleccion({ ...seleccion, [productoNombre]: tipo });
-      } else {
-        if (seleccion[productoNombre]) {
-          const nuevoSeleccion = { ...seleccion };
-          delete nuevoSeleccion[productoNombre];
-          setSeleccion(nuevoSeleccion);
-        } else {
-          const productosSeleccionados = Object.keys(seleccion).filter(p => p !== 'Elige una base').length;
-          if (productosSeleccionados >= 6) {
-            alert('Solo puedes seleccionar hasta 6 productos 🙂');
-            return;
-          }
-          setSeleccion({ ...seleccion, [productoNombre]: 'Seleccionado' });
-        }
-      }
-    } else {
-      setSeleccion(prev => ({
-        ...prev,
-        [productoNombre]: tipo
-      }));
-    }
-  };
-
-  const handleToggleCaja = () => {
-    onToggle();
-    setOverlay(false);
-    setPasoFinal(false);
-  };
-
-  return (
-    <div className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
-      <div className="caja-header" onClick={handleToggleCaja}>
-        <span className="nombre"><h2 className="nombre-caja">{caja.nombre}</h2></span>
-        <button className="caja-toggle">
-          {isOpen ? <IoClose className='icons' /> : <IoAddCircle className='icons' />}
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="caja fade-in">
-
-          {!overlay && !pasoFinal && (
-            <div className="caja-contenido slide-in">
-              <div className="imagen-box">
-                <img src={caja.imagen} alt="caja" className="caja-img" />
-              </div>
-              <div className="caja-info">
-                <p className="descripcion">{caja.descripcion}</p>
-                <h3 className="precio">{caja.precio}€</h3>
-              </div>
-              <div onClick={handleOpenOverlay} className="caja-btn">
-                <button className="btn-container" style={{ color: caja.color }}>
-                  Personalizar cajita
-                </button>
-              </div>
-            </div>
-          )}
-
-          {overlay && (
-            <div className="card-options fade-in">
-              {caja.productos.map((prod) => {
-                const tieneTipos = prod.tipos && prod.tipos.length > 0;
-                return (
-                  <div
-                    key={prod.nombre}
-                    className="producto-overlay"
-                    onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
-                    style={{
-                      cursor: !tieneTipos ? 'pointer' : 'default',
-                      backgroundColor: !tieneTipos && seleccion[prod.nombre] ? 'var(--background)' : 'transparent',
-                      padding: '0.7rem',
-                      borderRadius: '8px',
-                      border: '1px solid var(--background)',
-                      marginBottom: '10px',
-                      color: !tieneTipos && seleccion[prod.nombre] ? caja.color : 'inherit',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    <h4>
-                      {!tieneTipos && seleccion[prod.nombre] && '✓ '}{prod.nombre}
-                    </h4>
-                    {tieneTipos && (
-                      <ul className="overlay-producto-tipos">
-                        {prod.tipos.map((tipo) => (
-                          <li
-                            key={tipo}
-                            onClick={() => handleSeleccion(prod.nombre, tipo)}
-                            style={
-                              seleccion[prod.nombre] === tipo
-                                ? {
-                                    backgroundColor: 'var(--background)',
-                                    color: caja.color,
-                                    fontWeight: 'bold'
-                                  }
-                                : {}
-                            }
-                          >
-                            {tipo}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })}
-
-              <input
-                type="text"
-                placeholder="Tu nombre"
-                value={nombreUsuario}
-                onChange={(e) => setNombreUsuario(e.target.value)}
-                className="input-nombre"
-              />
-              <div className="caja-btn">
-                <button
-                  onClick={() => {
-                    if (!nombreUsuario.trim()) {
-                      alert('Por favor, introduce tu nombre 🙂');
-                      return;
-                    }
-                    setPasoFinal(true);
-                    setOverlay(false);
-                  }}
-                  className="btn-container"
-                  style={{ color: caja.color }}
-                >
-                  Guardar productos en mi cajita
-                </button>
-              </div>
-            </div>
-          )}
-
-          {pasoFinal && (
-            <div className="caja caja-resumen fade-in">
-              <p style={{ padding: '1rem' }}>Resumen final de la cajita para {nombreUsuario}</p>
-              <ul>
-                {Object.entries(seleccion).map(([prod, tipo]) => (
-                  <li key={prod}>{prod}: {tipo}</li>
-                ))}
-              </ul>
-              <div className="caja-btn">
-                <button onClick={() => setPasoFinal(false)} className="btn-container" style={{ color: caja.color }}>
-                  Volver a editar
-                </button>
-              </div>
-            </div>
-          )}
-
-        </div>
-      )}
-    </div>
-  );
-};
