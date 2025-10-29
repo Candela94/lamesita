@@ -491,7 +491,7 @@ const handleSeleccion = (productoNombre, tipo) => {
                 <>
                   {caja.productos.map((prod, id) => (
                     <div key={`prod-${id}-${prod.nombre}`} className="producto-overlay">
-                      <h3>{prod.nombre}</h3>
+                      <h4>{prod.nombre}</h4>
 
                       {prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0 && (
                         <ul className="overlay-producto-tipos">
@@ -526,7 +526,7 @@ const handleSeleccion = (productoNombre, tipo) => {
 
               {extrasDisponibles.length > 0 && (
                 <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
-                  <h3 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h3>
+                  <h4 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h4>
 
                   {extrasDisponibles.map((extra) => (
                     <div key={`extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
@@ -552,7 +552,7 @@ const handleSeleccion = (productoNombre, tipo) => {
               )}
 
               <div key={totalPrice} style={{ marginTop: '15px', textAlign: 'center' }}>
-                <h3 className="total">Precio total: {totalPrice}€</h3>
+                <h2 className="total">Precio total: {totalPrice}€</h2>
               </div>
 
               <input
