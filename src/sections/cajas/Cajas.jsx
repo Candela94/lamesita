@@ -20,12 +20,16 @@ const CajasSection = () => {
     const cajasNormales = cajas.filter(c => c.nombre !== 'HAZ TU PROPIA CAJITA');
     const cajaPersonalizada = cajas.find(c => c.nombre === 'HAZ TU PROPIA CAJITA');
 
+
+
     return (
         <>
             <section className="section section-cajas">
                 <div className="texto-cajas">
                     <h1 className='titulo-cajas'>LO JUSTO PARA UN GRAN MOMENTO</h1>
                 </div>
+
+                <p className="texto">Pequeños momentos para disfrutar sin complicaciones. Cada cajita está pensada para compartir, regalar o darse un capricho con productos seleccionados de nuestra tienda. Combina sabores, abre una botella y deja que lo simple vuelva a ser especial.</p>
 
                 <div className="galeria">
                     <AnimatePresence>
