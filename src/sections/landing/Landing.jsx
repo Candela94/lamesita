@@ -20,7 +20,7 @@ const Landing = () => {
 
         <>
        
-        <Header />
+        {/* <Header /> */}
 
         
         <main className='section'>
