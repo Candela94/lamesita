@@ -97,7 +97,7 @@ li{
 
 .section {
   scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* IE 10+ */
+  -ms-overflow-style: none;  
 }
 
 .section::-webkit-scrollbar {

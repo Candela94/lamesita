@@ -10,13 +10,20 @@ import CajasSection from '../cajas/Cajas';
 import Galeria from '../../component/galeria/Galeria';
 
 import {Seccion} from '../../component/seccion/Seccion';
+import { Header } from '../../component/header/Header';
 
 
 const Landing = () => {
 
     return (
 
-        <div className='section'>
+
+        <>
+       
+        <Header />
+
+        
+        <main className='section'>
            <Seccion id='inicio'> <Introduccion /></Seccion>
            {/* <About />
            <Galeria />
@@ -33,7 +40,8 @@ const Landing = () => {
 
 
            
-        </div>
+        </main>
+        </>
     );
 }
 
