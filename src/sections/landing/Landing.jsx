@@ -17,23 +17,23 @@ const Landing = () => {
 
     return (
 
-        <>
-           <Introduccion />
-           <About />
+        <div className='section'>
+           <Seccion> <Introduccion /></Seccion>
+           {/* <About />
            <Galeria />
            <Info />
-           <CajasSection />
+           <CajasSection /> */}
 
              
-                {/* <Seccion><About /></Seccion>
+                <Seccion><About /></Seccion>
                 <Seccion><Galeria/></Seccion>
                 <Seccion><Info /></Seccion>
                
-                <Seccion><CajasSection /></Seccion> */}
+                <Seccion><CajasSection /></Seccion>
 
 
            
-        </>
+        </div>
     );
 }
 

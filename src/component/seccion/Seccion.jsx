@@ -1,24 +1,29 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import './seccion.css'
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import './seccion.css';
 
-export const Seccion = ({ children, index = 0 }) => {
+export const Seccion = ({ children }) => {
   const ref = useRef(null);
 
+  // Trackea el progreso del scroll dentro del elemento
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start end", "end start"]  // Empieza cuando entra al viewport y termina cuando sale
   });
 
-  // La sección se va "pegando" arriba mientras scrolleas
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  // Transiciones para la opacidad, escala y posición vertical
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.6, 1, 0.6]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5, 1], [10, 0, -10]);
 
   return (
-    <motion.section 
-      ref={ref} 
-      style={{ y, scale, opacity }} 
+    <motion.section
+      ref={ref}
+      style={{
+        opacity,
+        scale,
+        y: translateY,
+      }}
       className="seccion"
     >
       <div className="seccion-contenido">

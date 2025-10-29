@@ -28,9 +28,7 @@ const Introduccion = () => {
                 <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo" />
 
 
-                {/* <video src="https://res.cloudinary.com/dnz96cick/video/upload/v1761643191/4877881-sd_426_226_25fps_xcrvzb.mp4" autoPlay muted loop playsInline className='imagen'></video> */}
-
-                {/* <img src="/img/bolsa.png" alt="bolsa" className="mockup" /> */}
+             
                 
 
             </div>
@@ -42,10 +40,6 @@ const Introduccion = () => {
 
             </div> */}
         
-
-            
-
-
 
 
 
