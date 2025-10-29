@@ -17,19 +17,19 @@ const Landing = () => {
     return (
 
         <div className='section'>
-           <Seccion> <Introduccion /></Seccion>
+           <Seccion id='inicio'> <Introduccion /></Seccion>
            {/* <About />
            <Galeria />
            <Info />
            <CajasSection /> */}
 
              
-                <Seccion><About /></Seccion>
-                <Seccion><Galeria/></Seccion>
+                <Seccion id='about'><About /></Seccion>
+                <Seccion id='galeria'><Galeria/></Seccion>
                
                
-                <Seccion><CajasSection /></Seccion>
-                <Seccion><Info /></Seccion>
+                <Seccion id='cajas'><CajasSection /></Seccion>
+                <Seccion id='info'><Info /></Seccion>
 
 
            

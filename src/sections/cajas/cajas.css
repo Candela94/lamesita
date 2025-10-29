@@ -1,15 +1,27 @@
 .section-cajas {
+    height: 100vh; /* 👈 Fijo */
+    overflow-y: auto; /* 👈 Scroll interno */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  
     display: flex;
     flex-direction: column;
-
     gap: 1rem;
     padding: var(--padding);
-    width: 100%;
-    min-height: 120vh;
     background-color: var(--background);
+    margin-bottom: 3rem;
+
 }
 
 
+.section-cajas::-webkit-scrollbar {
+    width: 8px;
+  }
+  .section-cajas::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 4px;
+  }
+  
 
 
 .titulo-cajas {
@@ -30,7 +42,7 @@
     width: 100%;
     height: auto;
     position: relative;
-
+margin-bottom: 2rem;
 
 }
 

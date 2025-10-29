@@ -25,9 +25,18 @@ const Introduccion = () => {
 
                 <img src="/img/fondo--fondo.jpg" alt="paisaje" className="imagen-fondo" />
 
+
+
+        <div className="logo-cta">
                 <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo" />
 
+                <div className="btn-cont">
+                    <a className="boton-cta" href='#cajas'>
+                        Descubre nuestras cajas
+                    </a>
+                </div>
 
+                </div>
              
                 
 

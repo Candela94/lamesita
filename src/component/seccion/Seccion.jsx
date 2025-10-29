@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import './seccion.css';
 
-export const Seccion = ({ children }) => {
+export const Seccion = ({ children, id }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -17,6 +17,7 @@ export const Seccion = ({ children }) => {
 
   return (
     <motion.section
+    id={id}
       ref={ref}
       style={{
         opacity,
