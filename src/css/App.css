@@ -54,6 +54,10 @@ body{
 
   background-color: var(--background);
   color: var(--text);
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 
@@ -80,9 +84,24 @@ li{
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
+  scroll-snap-align: start; /* 👈 esto es CLAVE */
 
+
+  
   /* background-color: aquamarine; */
+}
+
+
+
+
+
+.section {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+.section::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari */
 }
 
 
