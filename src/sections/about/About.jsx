@@ -41,10 +41,9 @@ Porque los grandes momentos caben en una mesita.`;
                 className="fondo-img" />
 
             <div className="fondo">
-                <h1 className="conoce">TODO NACE   <br />DE LO SENCILLO</h1>
+                {/* <h1 className="conoce">TODO NACE   <br />DE LO SENCILLO</h1> */}
 
 
-                <div className="texto-imagen-container">
                     <div className="mesita-texto">
                         {descripcion.split('\n').map((frase, i) => (
                             <p key={i} className="contenido-parrafo">
@@ -53,17 +52,16 @@ Porque los grandes momentos caben en una mesita.`;
                         ))}
                     </div>
 
-                    <div className="mesita-imagen">
-                        <img
-                            src="/img/mesita.png"
-                            alt="ilustración mesita"
-                            className="imagen-about"
-                        />
-                    </div>
-                </div>
-
+                
 
             </div>
+
+
+
+ 
+           <div className="texto-final">
+                <h2 className='closing'>TODO NACE DE LO SENCILLO</h2>
+            </div> 
         </section>
     );
 };

@@ -1,5 +1,5 @@
 import './galeria.css'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { imagenesMercado } from '../../../data/cajas';
 
@@ -13,6 +13,53 @@ const Galeria = () => {
   const scrollContainerRef = useRef(null);
 
 
+
+
+
+
+  const scrollToIndex = (idx) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      container.scrollTo({
+        left: idx * container.offsetWidth,
+        behavior: 'smooth',
+      });
+    }
+  };
+  
+
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        goNext();
+      } else if (e.key === 'ArrowLeft') {
+        goPrev();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [indiceActual]); // importante para que tenga el índice actualizado
+  
+
+
+
+  const goPrev = () => {
+    if (indiceActual > 0) {
+      const nuevoIndice = indiceActual - 1;
+      setIndiceActual(nuevoIndice);
+      scrollToIndex(nuevoIndice);
+    }
+  };
+  
+  const goNext = () => {
+    if (indiceActual < imagenesMercado.length - 1) {
+      const nuevoIndice = indiceActual + 1;
+      setIndiceActual(nuevoIndice);
+      scrollToIndex(nuevoIndice);
+    }
+  };
 
   // Detectar scroll manual
   
@@ -49,7 +96,7 @@ const Galeria = () => {
         key={indiceFondo}
         className="fondo-dinamico"
         style={{ backgroundImage: `url(${imagenesMercado[indiceFondo]})` }}
-        initial={{ opacity: 0.8, scale: 1.2 }}
+        initial={{ opacity: 1, scale: 1.2 }}
         animate={{ opacity: 1, scale: 1.1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
 
@@ -75,7 +122,11 @@ const Galeria = () => {
       </div>
 
      
-
+{/* 🔁 Flechas para escritorio */}
+<div className="flechas-navegacion">
+  <button onClick={goPrev}>‹</button>
+  <button onClick={goNext}>›</button>
+</div>
 
 
 

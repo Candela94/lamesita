@@ -69,10 +69,22 @@ useEffect(() => {
   }
 }, [isOpen]);
 
+
+
+
+
+
+
   // Filtrar extras disponibles para esta caja
   const extrasDisponibles = extrasGlobales.filter(extra =>
     caja.extrasDisponibles?.includes(extra.id)
   );
+
+
+
+
+
+
 
   const totalPrice = useMemo(() => {
     const precioBase = typeof caja.precio === 'number' ? caja.precio : 30;
@@ -83,6 +95,11 @@ useEffect(() => {
 
     return precioBase + precioExtras;
   }, [caja.precio, extrasSeleccionados]);
+
+
+
+
+
 
   // Manejar selección de extras
   const handleExtraToggle = (extraId) => {
@@ -95,12 +112,25 @@ useEffect(() => {
     });
   };
 
+
+
+
+
+
+
   const handleSeleccion = (productoNombre, tipo) => {
     setSeleccion((prev) => ({
       ...prev,
       [productoNombre]: tipo,
     }));
   };
+
+
+
+
+
+
+
 
   const handleGuardar = () => {
     if (!nombreUsuario.trim()) {
@@ -128,6 +158,12 @@ useEffect(() => {
     }, 100);
   };
 
+
+
+
+
+
+
   const construirMensaje = () => {
     const productos = Object.entries(seleccion)
       .map(([producto, tipo]) => `- ${producto}: ${tipo}`)
@@ -148,6 +184,13 @@ useEffect(() => {
     return mensaje;
   };
 
+
+
+
+
+
+
+
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
       alert('Por favor, introduce tu nombre 🙂');
@@ -160,12 +203,23 @@ useEffect(() => {
     window.open(url, '_blank');
   };
 
+
+
+
+
+
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
     setTimeout(() => {
       setOverlay(true);
     }, 100);
   };
+
+
+
+
+
+
 
   const handleToggleCaja = () => {
     onToggle();
@@ -180,12 +234,25 @@ useEffect(() => {
   }
   };
 
+
+
+
+
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3, delay: 0.5 } }
   };
 
+
+
+
+
+
   return (
+
+
+
+    
     <div    ref={ref} className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
       <div className="caja-header" onClick={handleToggleCaja}>
         <span className="nombre">

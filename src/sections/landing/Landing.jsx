@@ -10,7 +10,6 @@ import CajasSection from '../cajas/Cajas';
 import Galeria from '../../component/galeria/Galeria';
 
 import {Seccion} from '../../component/seccion/Seccion';
-import { Contacto } from '../../component/cards/Cards';
 
 
 const Landing = () => {
@@ -27,9 +26,10 @@ const Landing = () => {
              
                 <Seccion><About /></Seccion>
                 <Seccion><Galeria/></Seccion>
-                <Seccion><Info /></Seccion>
+               
                
                 <Seccion><CajasSection /></Seccion>
+                <Seccion><Info /></Seccion>
 
 
            

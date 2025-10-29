@@ -62,6 +62,12 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
   }
+
+
+
+  .flechas-navegacion{
+    display: none;
+  }
   
   /* .imagen-wrapper:hover img {
     transform: scale(1.05);
@@ -122,4 +128,40 @@
     gap: 0.5rem;
     z-index: 3;
   }
+  }
+
+
+
+
+
+
+  @media (min-width: 1023px) {
+    .flechas-navegacion {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 2rem;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+  
+    .flechas-navegacion button {
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--background);
+      font-size: 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+  
+    .flechas-navegacion button:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+/*   
+    .indicadores {
+      display: none;
+    } */
   }

@@ -1,7 +1,7 @@
 import './info.css'
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { Card, Contacto, Location } from '../../component/cards/Cards';
+import { Card,  Location } from '../../component/cards/Cards';
 import { FaAngleDown } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
