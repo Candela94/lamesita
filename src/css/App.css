@@ -84,8 +84,8 @@ li{
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  scroll-snap-align: start; /* 👈 esto es CLAVE */
-
+  scroll-snap-align: start; 
+  background-color: var(--background);/* 👈 esto es CLAVE */
 
   
   /* background-color: aquamarine; */

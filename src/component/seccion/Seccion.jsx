@@ -5,16 +5,15 @@ import './seccion.css';
 export const Seccion = ({ children }) => {
   const ref = useRef(null);
 
-  // Trackea el progreso del scroll dentro del elemento
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]  // Empieza cuando entra al viewport y termina cuando sale
+    offset: ["start end", "end start"]
   });
 
-  // Transiciones para la opacidad, escala y posición vertical
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.6, 1, 0.6]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5, 1], [10, 0, -10]);
+  // La sección se desvanece más rápido después de pasar el punto medio
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 0.8], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0.8, 1, 1, 0.9]);
+  const translateY = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [15, 0, 0, -20]);
 
   return (
     <motion.section
