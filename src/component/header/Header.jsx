@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import './header.css';
 import { FaTiktok } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
+import { RiInstagramFill } from "react-icons/ri";
 
 
 export const Header = () => {
@@ -86,10 +86,10 @@ export const Header = () => {
                                         <p className="privacidad">POLÍTICA <br /> DE PRIVACIDAD</p>
 
                                         <div className="rrss">
-                                            <a  target="_blank" href="https://www.instagram.com/lamesita.valencia
-"><AiFillInstagram style={{ marginTop: '0.3rem' }} className="icons" /></a>
+                                            <a target="_blank" href="https://www.instagram.com/lamesita.valencia
+"><RiInstagramFill style={{ marginTop: '0.3rem' }} className="icons" /></a>
 
-                                            <a target="_blank"  href="https://www.tiktok.com/@lamesita.valencia"><FaTiktok className="icons" /></a>
+                                            <a target="_blank" href="https://www.tiktok.com/@lamesita.valencia"><FaTiktok className="icons" /></a>
 
 
 

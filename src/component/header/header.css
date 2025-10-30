@@ -105,7 +105,7 @@
  display: flex;
  justify-content: end;
  align-items: center;
- gap: 15%;
+ gap: 35%;
  padding: 0 1rem;
 width: 40%;
 margin-bottom: 0.3rem;
@@ -113,7 +113,7 @@ margin-bottom: 0.3rem;
 
 
 .icons{
-  font-size: 3vw;
+  font-size: 4vw;
   color: var(--background);
   cursor: pointer;
 }
