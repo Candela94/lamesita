@@ -135,7 +135,11 @@
     color: var(--background);
 }
 
-
+.texto{
+    font-size: 4vw;
+    width: 100%;
+    margin: 0.7rem 0;
+}
 
 .caja-contenido {
     /* background-color: palegoldenrod; */
@@ -170,6 +174,9 @@
     justify-content: space-around;
     align-items: first baseline;
 }
+
+
+
 
 
 
