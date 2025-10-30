@@ -43,8 +43,8 @@
 .tres {
     width: clamp(100px, 20vw, 300px); 
 
-    left: 30%;
-    top: 15%;
+    left: 40%;
+    top: 25%;
     rotate: -15deg;
 }
 
@@ -73,13 +73,29 @@
 
 .siete {
     right: 30%;
-    width: 120px;
-    bottom: 5px;
+    width: 20%;
+    bottom: 3%;
     rotate: -15deg;
 }
 
 
 
+.ocho{
+
+    bottom: 15%;
+    width: 15%;
+    left: 40%;
+    rotate: 20deg;
+
+}
+
+.nueve{
+
+    width: 10%;
+    top: 5%;
+    left: 15%;
+    rotate: -15deg;
+}
 
 
 
