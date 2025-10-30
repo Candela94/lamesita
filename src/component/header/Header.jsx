@@ -86,7 +86,7 @@ export const Header = () => {
                                         <p className="privacidad">POLÍTICA <br/> DE PRIVACIDAD</p>
 
                                         <div className="rrss">
-                                        <AiFillInstagram className="icons"/>
+                                        <AiFillInstagram  style={{marginTop:'0.3rem'}}className="icons"/>
 
                                         <FaTiktok className="icons"/>
 
