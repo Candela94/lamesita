@@ -20,7 +20,7 @@ const Landing = () => {
 
         <>
        
-        {/* <Header /> */}
+        <Header />
 
         
         <main className='section main-principal'>
@@ -32,12 +32,7 @@ const Landing = () => {
            <Info id='info'/>
 
              
-                {/* <Seccion id='about'><About /></Seccion>
-                <Seccion id='galeria'><Galeria/></Seccion>
-               
-               
-                <Seccion id='cajas'><CajasSection /></Seccion>
-                <Seccion id='info'><Info /></Seccion> */}
+
 
 
            

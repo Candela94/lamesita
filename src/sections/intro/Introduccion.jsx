@@ -33,7 +33,7 @@ const Introduccion = ({id}) => {
                         </div>
                         <div className="btn-cont">
                             <a className="boton-cta" href='#cajas'>
-                                DISFRUTA SIN COMPLICACIONES                    </a>
+                                Disfruta sin complicaciones                  </a>
                         </div>
 
                     </div>
