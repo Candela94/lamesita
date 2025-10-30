@@ -15,77 +15,79 @@
 
 
 
-.png{
+.png {
 
-    width: clamp(180px, 20vw, 300px); 
+    width: clamp(180px, 20vw, 300px);
     position: absolute;
 }
 
 
 
 
-.uno{
+.uno {
 
-    right: 16%;
-    top: 150px;
+    right: 17dvw;
+    top: 18dvh;
     rotate: 20deg;
-    width: 19%;
+    width: 22%;
 }
 
 
-.dos{
+.dos {
 
-    left: 0px;
-    bottom: 30px;
+    left: 0dvw;
+    bottom: 18dvh;
     rotate: -20deg;
-    width: 140px;
+    width: 25%;
 }
 
 .tres {
-    width: clamp(100px, 20vw, 300px); 
 
-    left: 40%;
-    top: 25%;
+
+    width: clamp(100px, 20vw, 300px);
+
+    left: 40dvw;
+    top: 25dvh;
     rotate: -15deg;
 }
 
 .cuatro {
-    right: 0px;
-    width: 130px;
-    bottom: 100px;
+    right: 0dvw;
+    width: 25%;
+    bottom: 20dvh;
     rotate: -18deg;
 }
 
 .cinco {
-    width: clamp(130px, 20vw, 300px); 
+    width: clamp(130px, 20vw, 300px);
 
-    left: 10px;
-    top: 200px;
+    left: 5dvw;
+    top: 25dvh;
     rotate: -15deg;
 }
 
 .seis {
-    width: clamp(130px, 20vw, 300px); 
+    width: clamp(130px, 20vw, 300px);
 
-    right: 0%;
-    top: 200px;
+    right: 0dvw;
+    top: 25dvh;
     rotate: 25deg;
 }
 
 .siete {
-    right: 30%;
+    right: 22%;
     width: 24%;
-    bottom: 3%;
+    bottom: 20dvw;
     rotate: -15deg;
 }
 
 
 
-.ocho{
+.ocho {
 
-    bottom: 15%;
+    bottom: 20dvh;
     width: 25%;
-    left: 40%;
+    left: 30dvw;
     rotate: 20deg;
 
 }
@@ -128,7 +130,7 @@
 
 
 
-.logo-cta{
+.logo-cta {
 
 
     display: flex;
@@ -137,35 +139,35 @@
 
     position: absolute;
     width: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-        padding-top: 8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding-top: 8rem;
 
 
 }
 
 
-.logo-container{
+.logo-container {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 1rem;
-    
+
 }
 
 
 
 .logo {
 
-width: 100%;
+    width: 100%;
 
 
 }
 
 
 
-.btn-cont{
+.btn-cont {
     /* background-color: yellow; */
     width: 100%;
     display: flex;
@@ -174,7 +176,7 @@ width: 100%;
 }
 
 
-.boton-cta{
+.boton-cta {
 
     background-color: var(--primary);
     border: none;
@@ -192,62 +194,62 @@ width: 100%;
 @media (min-width:768px) and (max-width:1023px) {
 
 
-    .uno{
+    .uno {
 
         right: 30px;
         top: 60px;
         rotate: 20deg;
     }
-    
-    
-    .dos{
-    
+
+
+    .dos {
+
         left: 0px;
         bottom: 30px;
         rotate: -20deg;
     }
-    
+
     .tres {
-        width: clamp(100px, 20vw, 300px); 
-    
+        width: clamp(100px, 20vw, 300px);
+
         left: 40%;
         top: 15%;
         rotate: -15deg;
     }
-    
+
     .cuatro {
         right: 0px;
         bottom: 100px;
         rotate: -18deg;
     }
-    
+
     .cinco {
-        width: clamp(130px, 15vw, 300px); 
-    
+        width: clamp(130px, 15vw, 300px);
+
         left: 10px;
         top: 130px;
         rotate: -15deg;
     }
-    
+
     .seis {
-        width: 100px; 
-    
+        width: 100px;
+
         right: 0%;
         top: 200px;
         rotate: 25deg;
     }
-    
+
     .siete {
         right: 30%;
         bottom: 5px;
         rotate: -15deg;
     }
-    
-    
-    
-    
 
-    
+
+
+
+
+
 }
 
 
@@ -256,63 +258,63 @@ width: 100%;
 
 
 
-@media (min-width:1024px)  {
+@media (min-width:1024px) {
 
 
-    .uno{
+    .uno {
 
         right: 300px;
         top: 60px;
         rotate: 20deg;
     }
-    
-    
-    .dos{
-    
+
+
+    .dos {
+
         left: 0px;
         bottom: 30px;
         rotate: -20deg;
     }
-    
+
     .tres {
-        width: clamp(100px, 20vw, 300px); 
-    
+        width: clamp(100px, 20vw, 300px);
+
         left: 40%;
         top: 15%;
         rotate: -15deg;
     }
-    
+
     .cuatro {
         right: 0px;
         bottom: 100px;
         rotate: -18deg;
     }
-    
+
     .cinco {
-        width: clamp(130px, 15vw, 300px); 
-    
+        width: clamp(130px, 15vw, 300px);
+
         left: 10px;
         top: 130px;
         rotate: -15deg;
     }
-    
+
     .seis {
-        width: 200px; 
-    
+        width: 200px;
+
         right: 0%;
         top: 200px;
         rotate: 25deg;
     }
-    
+
     .siete {
         right: 30%;
         bottom: 5px;
         rotate: -15deg;
     }
-    
-    
-    
-    
 
-    
+
+
+
+
+
 }
