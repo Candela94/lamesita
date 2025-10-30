@@ -26,28 +26,28 @@
 
 .uno {
 
-    right: 17dvw;
-    top: 18dvh;
+    right: 6dvw;
+    top: 27dvh;
     rotate: 20deg;
-    width: 22%;
+    width: 40%;
 }
 
 
 .dos {
 
-    left: 0dvw;
-    bottom: 18dvh;
+    left: -10dvw;
+    bottom: 15dvh;
     rotate: -20deg;
-    width: 25%;
+    width: 50%;
 }
 
 .tres {
 
 
-    width: clamp(100px, 20vw, 300px);
+    width: 25%;
 
-    left: 40dvw;
-    top: 25dvh;
+    left: 30dvw;
+    top: 35dvh;
     rotate: -15deg;
 }
 
@@ -61,23 +61,23 @@
 .cinco {
     width: clamp(130px, 20vw, 300px);
 
-    left: 5dvw;
-    top: 25dvh;
+    left: 0dvw;
+    top: 28dvh;
     rotate: -15deg;
 }
 
 .seis {
     width: clamp(130px, 20vw, 300px);
 
-    right: 0dvw;
-    top: 25dvh;
+    right: -10dvw;
+    top: 37dvh;
     rotate: 25deg;
 }
 
 .siete {
     right: 22%;
-    width: 24%;
-    bottom: 20dvw;
+    width: 35%;
+    bottom: 22dvw;
     rotate: -15deg;
 }
 
@@ -86,7 +86,7 @@
 .ocho {
 
     bottom: 20dvh;
-    width: 25%;
+    width: 30%;
     left: 30dvw;
     rotate: 20deg;
 
