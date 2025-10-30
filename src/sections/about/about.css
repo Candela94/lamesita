@@ -40,7 +40,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(249, 242, 222, 0.8);
+    background-color: rgba(249, 242, 222, 0.6);
     border-radius: 4px;
     /* background-color: pink; */
     padding: 1rem;
@@ -57,12 +57,13 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    bottom: 30%;
+    top: 13%;
 }
 
 
 .closing {
     color: var(--background);
+    text-align: center;
 
 }
 
@@ -113,7 +114,7 @@
 
 
 
-@media (min-width:768px) {
+@media (min-width:768px) and (max-width:1023px) {
 
 
     .fondo-about {
@@ -209,7 +210,8 @@
 @media (min-width:1024px) {
 
     .fondo {
-        width: 30%;
+        top:40%;
+        max-width: 30%;
     }
 
 

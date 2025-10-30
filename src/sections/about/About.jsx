@@ -2,7 +2,7 @@ import './about.css';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const About = () => {
+const About = ({id}) => {
 
 
 
@@ -34,7 +34,7 @@ Porque los grandes momentos caben en una mesita.`;
 
 
 
-        <section className="section section-about">
+        <section id={id}className="section section-about">
             <img
                 src="/img/fondo-about.jpg"
                 alt="fondo"
@@ -59,9 +59,9 @@ Porque los grandes momentos caben en una mesita.`;
 
 
  
-           <div className="texto-final">
+           {/* <div className="texto-final">
                 <h2 className='closing'>TODO NACE DE LO SENCILLO</h2>
-            </div> 
+            </div>  */}
         </section>
     );
 };

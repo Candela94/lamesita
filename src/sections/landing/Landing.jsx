@@ -23,20 +23,21 @@ const Landing = () => {
         {/* <Header /> */}
 
         
-        <main className='section'>
-           <Seccion id='inicio'> <Introduccion /></Seccion>
-           {/* <About />
-           <Galeria />
-           <Info />
-           <CajasSection /> */}
+        <main className='section main-principal'>
+        <Introduccion />
+           <About id='about'/>
+           <Galeria  id='galeria'/>
+         
+           <CajasSection id='cajas'/>
+           <Info id='info'/>
 
              
-                <Seccion id='about'><About /></Seccion>
+                {/* <Seccion id='about'><About /></Seccion>
                 <Seccion id='galeria'><Galeria/></Seccion>
                
                
                 <Seccion id='cajas'><CajasSection /></Seccion>
-                <Seccion id='info'><Info /></Seccion>
+                <Seccion id='info'><Info /></Seccion> */}
 
 
            

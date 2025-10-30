@@ -1,16 +1,14 @@
 .section-cajas {
-    height: 100vh; /* 👈 Fijo */
-    overflow-y: auto; /* 👈 Scroll interno */
+    min-height: 100vh; 
+    overflow-y: auto; 
     scroll-snap-align: start;
     scroll-snap-stop: always;
   
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+   
     padding: var(--padding);
     background-color: var(--background);
-    margin-bottom: 3rem;
 
 }
 
@@ -25,13 +23,14 @@
   
 
 
+
 .titulo-cajas {
     font-size: 10vw;
     color: var(--primary);
     /* background-color: aqua; */
-    width: 100%;
+    width: 90%;
 
-    margin-top: 3rem;
+    margin-top: 2rem;
 
 
 }
@@ -43,7 +42,7 @@
     width: 100%;
     height: auto;
     position: relative;
-margin-bottom: 2rem;
+    margin-top: 1rem;
 
 }
 
@@ -62,11 +61,7 @@ margin-bottom: 2rem;
 }
 
 
-.precio{
-    /* background-color: aqua; */
-    width: 78%;
-    text-align: end;
-}
+
 
 
 
@@ -88,24 +83,21 @@ margin-bottom: 2rem;
 }
 
 
-@media (min-width:768px) and (max-width:1023px) {
+@media (min-width:768px)  {
 
 
 
 
-    .texto-cajas {
-
-        /* background-color: pink; */
-        position: relative;
-
-    }
 
 
 
     .titulo-cajas {
 
-        font-size: 9vw;
-        width: 60%;
+        font-size: 8vw;
+  
+       
+        /* background-color: aqua;  */
+        width: 85%;
     }
 
 
@@ -121,7 +113,16 @@ margin-bottom: 2rem;
 
     }
 
+    .galeria{
+        margin-bottom: 2rem;
+    }
 
+
+
+  
+    .texto{
+        font-size: 2vw;
+    }
 
 
 
@@ -129,42 +130,3 @@ margin-bottom: 2rem;
 
 
 
-@media (min-width:1024px) {
-
-
-
-
-    .texto-cajas {
-
-        /* background-color: pink; */
-        position: relative;
-
-    }
-
-
-
-    .titulo-cajas {
-
-        font-size: 7vw;
-        width:60%;
-        /* background-color: aqua; */
-    }
-
-
-    .text {
-        position: absolute;
-        /* background-color: yellow; */
-        font-size: 16px;
-        width: 30%;
-        text-align: end;
-
-        top: 50%;
-        right: 1%;
-
-    }
-
-
-
-
-
-}

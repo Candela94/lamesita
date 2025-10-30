@@ -7,7 +7,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 
-const Info = () => {
+const Info = ({id}) => {
 
 
 
@@ -127,7 +127,7 @@ const Info = () => {
 
 
 
-    <main className="mapa-card section">
+    <main id={id} className="mapa-card section">
 
 
 
@@ -135,7 +135,7 @@ const Info = () => {
 
 
 
-        <h1 className="titulo-ubicacion">VEN A VERNOS AL MERCADO</h1>
+        <h1 className="titulo-ubicacion">VISÍTANOS EN EL MERCADO DE JESÚS</h1>
 
 
          <div className="imagen-mapa"> 

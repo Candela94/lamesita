@@ -1,82 +1,128 @@
-
-
-
-.header{
-
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 99;
+/* HEADER BASE */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  transition: color 0.4s ease;
 }
 
-
-
-
-.menu-container{
-    /* background-color: blue; */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 1rem;
-    position: relative;
-
+/* ESTILOS SEGÚN SECCIÓN */
+.header-ul.azul {
+  color: blue !important;
+  background-color: yellow !important;
 }
 
+.header-ul.blanco {
+  color: red !important;
+  background-color: green !important;
+}
+
+/* MENÚ */
+.menu-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Botón/icono de menú */
 .menu-icon-wrapper {
-    z-index: 100;
-    transition: color 0.3s ease; /* Transición suave del color */
-  }
-  
-  .menu-icon-wrapper.azul {
-    color: var(--primary);
-  }
-  
-  .menu-icon-wrapper.blanco {
-    color: var(--background);
-  }
-  
-  .menu-icon {
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-  
-  .header-ul {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    font-family: gafiton;
-    padding: 1rem 0rem;
-    width: 100%;
-   
-    position: absolute;
-    right: 0rem;
-    transition: color 0.3s ease; /* Transición suave del color */
-  }
-  
-  .header-ul.azul {
-    color: var(--primary);
-    background-color: var(--background);
-    height: auto;
-  }
-  
-  .header-ul.blanco {
-    color: var(--background);
-  }
-  
-  .header-li {
-    cursor: pointer;
-    margin-top: 0.1rem;
-  }
-  
-  .header-li a {
-    color: inherit; /* Hereda el color del padre */
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-  
-  .header-li a:hover {
-    opacity: 0.7;
-  }
-  
+  z-index: 100;
+  color: inherit;
+  transition: color 0.4s ease;
+}
 
+/* Texto MENÚ */
+.header-menu {
+  cursor: pointer;
+  color: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.4s ease;
+}
+
+/* Icono de cerrar */
+.menu-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: inherit;
+  transition: color 0.4s ease;
+}
+
+/* LISTA DESPLEGABLE */
+.header-ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: color 0.4s ease, background-color 0.4s ease;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Fondo del menú cuando estamos en sección azul */
+.header-ul.azul {
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Fondo del menú cuando estamos en sección blanca */
+.header-ul.blanco {
+  color: var(--background);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Items de lista */
+.header-li {
+  list-style: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Enlaces */
+.header-li a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+.header-li a:hover {
+  opacity: 0.7;
+}
+
+/* Opcional: línea decorativa en hover */
+.header-li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.header-li a:hover::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-ul {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    align-items: center;
+  }
+}

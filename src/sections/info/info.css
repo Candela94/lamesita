@@ -1,13 +1,13 @@
 .titulo-ubicacion {
 
     color: var(--primary);
-    font-size: 10vw;
+    font-size: 9.5vw;
     width: 80%;
     height: auto;
     /* background-color: aquamarine; */
     padding: 0 1rem;
-    line-height: 0.9;
-    margin-top: 2rem;
+    line-height: 01;
+    margin-top: 4rem;
     background-color: transparent;
 
 }
@@ -204,9 +204,9 @@
 
 
     .titulo-ubicacion {
-        font-size: 6.5vw;
+        font-size: 6vw;
         margin-top: 3rem;
-        width: 40%;
+        width: 50%;
         word-wrap: break-word;
         /* background-color: blueviolet; */
     }
@@ -218,7 +218,7 @@
 
 
     .imagen-mapa {
-        width: 65%;
+        width: 55%;
         height: auto;
         /* border: 6px solid yellow; */
         display: flex;
@@ -226,6 +226,7 @@
         position: absolute;
         right: -5%;
         top: 8%;
+        margin-top: 3rem;
 
     }
 

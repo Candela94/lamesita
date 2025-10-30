@@ -49,16 +49,30 @@
 
 
 
+html {
+  /* scroll-snap-type: y proximity; proximity permite scroll interno más fácil */
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+    overflow-x: hidden;
+
+}
 
 body{
 
   background-color: var(--background);
   color: var(--text);
   height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+    overflow-x: hidden;
+
+ 
 }
+
+
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 
 
 
@@ -110,18 +124,7 @@ a{
 }
 
 
-.main-principal{
 
-  display: flex;
-  flex-direction: column;
-}
-
-/* 
-.main-contenido{
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-} */
 
 
 

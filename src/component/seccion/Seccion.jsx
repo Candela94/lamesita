@@ -10,19 +10,21 @@ export const Seccion = ({ children, id }) => {
     offset: ["start end", "end start"]
   });
 
-  // La sección se desvanece más rápido después de pasar el punto medio
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 0.8], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0.8, 1, 1, 0.9]);
-  const translateY = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [15, 0, 0, -20]);
+  // Efecto slider con transiciones más marcadas
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.5, 0.9, 1], [0.8, 1, 1, 1, 0.8]);
+  const translateY = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [100, 0, 0, -100]);
 
   return (
     <motion.section
-    id={id}
+      id={id}
       ref={ref}
       style={{
         opacity,
         scale,
         y: translateY,
+        scrollSnapAlign: 'start',
+        scrollSnapStop: 'always',
       }}
       className="seccion"
     >
