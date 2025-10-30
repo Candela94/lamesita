@@ -85,7 +85,7 @@
 
 .ocho {
 
-    bottom: 20dvh;
+    bottom: 25dvh;
     width: 30%;
     left: 30dvw;
     rotate: 20deg;
@@ -172,7 +172,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 1.5rem;
+    
 }
 
 
@@ -190,131 +190,162 @@
 
 
 
-
-@media (min-width:768px) and (max-width:1023px) {
-
-
+/* === TABLET VERTICAL === */
+@media (min-width: 768px) and (max-width: 1023px) {
     .uno {
-
-        right: 30px;
-        top: 60px;
-        rotate: 20deg;
+      right: 5dvw;
+      top: 10dvh;
+      rotate: 18deg;
+      width: 28%;
     }
-
-
+  
     .dos {
-
-        left: 0px;
-        bottom: 30px;
-        rotate: -20deg;
+      left: -5dvw;
+      bottom: 10dvh;
+      rotate: -20deg;
+      width: 35%;
     }
-
+  
     .tres {
-        width: clamp(100px, 20vw, 300px);
-
-        left: 40%;
-        top: 15%;
-        rotate: -15deg;
+      width: 20%;
+      left: 35dvw;
+      top: 25dvh;
+      rotate: -10deg;
     }
-
+  
     .cuatro {
-        right: 0px;
-        bottom: 100px;
-        rotate: -18deg;
+      right: 5dvw;
+      bottom: 15dvh;
+      width: 20%;
+      rotate: -18deg;
     }
-
+  
     .cinco {
-        width: clamp(130px, 15vw, 300px);
-
-        left: 10px;
-        top: 130px;
-        rotate: -15deg;
+      width: 18%;
+      left: 2dvw;
+      top: 25dvh;
+      rotate: -10deg;
     }
-
+  
     .seis {
-        width: 100px;
-
-        right: 0%;
-        top: 200px;
-        rotate: 25deg;
+      width: 15%;
+      right: 3dvw;
+      top: 30dvh;
+      rotate: 20deg;
     }
-
+  
     .siete {
-        right: 30%;
-        bottom: 5px;
-        rotate: -15deg;
+      right: 25%;
+      width: 22%;
+      bottom: 12dvh;
+      rotate: -12deg;
     }
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-@media (min-width:1024px) {
-
-
+  }
+  
+  
+  /* === TABLET HORIZONTAL / DESKTOP PEQUEÑO === */
+  @media (min-width: 1024px) and (max-width: 1279px) {
     .uno {
-
-        right: 300px;
-        top: 60px;
-        rotate: 20deg;
+      right: 12dvw;
+      top: 8dvh;
+      width: 25%;
+      rotate: 20deg;
     }
-
-
+  
     .dos {
-
-        left: 0px;
-        bottom: 30px;
-        rotate: -20deg;
+      left: -5dvw;
+      bottom: 8dvh;
+      width: 32%;
+      rotate: -20deg;
     }
-
+  
     .tres {
-        width: clamp(100px, 20vw, 300px);
-
-        left: 40%;
-        top: 15%;
-        rotate: -15deg;
+      left: 38dvw;
+      top: 18dvh;
+      width: 18%;
+      rotate: -15deg;
     }
-
+  
     .cuatro {
-        right: 0px;
-        bottom: 100px;
-        rotate: -18deg;
+      right: 0;
+      bottom: 10dvh;
+      width: 18%;
+      rotate: -18deg;
     }
-
+  
     .cinco {
-        width: clamp(130px, 15vw, 300px);
-
-        left: 10px;
-        top: 130px;
-        rotate: -15deg;
+      left: 2dvw;
+      top: 22dvh;
+      width: 16%;
+      rotate: -12deg;
     }
-
+  
     .seis {
-        width: 200px;
-
-        right: 0%;
-        top: 200px;
-        rotate: 25deg;
+      right: 5dvw;
+      top: 25dvh;
+      width: 13%;
+      rotate: 25deg;
     }
-
+  
     .siete {
-        right: 30%;
-        bottom: 5px;
-        rotate: -15deg;
+      right: 20%;
+      bottom: 10dvh;
+      width: 22%;
+      rotate: -10deg;
     }
-
-
-
-
-
-
-}
+  }
+  
+  
+  /* === DESKTOP GRANDE === */
+  @media (min-width: 1280px) {
+    .uno {
+      right: 18dvw;
+      top: 6dvh;
+      width: 22%;
+      rotate: 20deg;
+    }
+  
+    .dos {
+      left: -2dvw;
+      bottom: 6dvh;
+      width: 28%;
+      rotate: -20deg;
+    }
+  
+    .tres {
+      left: 40dvw;
+      top: 12dvh;
+      width: 16%;
+      rotate: -15deg;
+    }
+  
+    .cuatro {
+      right: 3dvw;
+      bottom: 8dvh;
+      width: 16%;
+      rotate: -18deg;
+    }
+  
+    .cinco {
+      left: 3dvw;
+      top: 20dvh;
+      width: 14%;
+      rotate: -10deg;
+    }
+  
+    .seis {
+      right: 8dvw;
+      top: 22dvh;
+      width: 12%;
+      rotate: 25deg;
+    }
+  
+    .siete {
+      right: 25%;
+      bottom: 8dvh;
+      width: 20%;
+      rotate: -12deg;
+    }
+  }
+  
+  
