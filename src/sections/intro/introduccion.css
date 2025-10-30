@@ -126,12 +126,11 @@
     gap: 3rem;
 
     position: absolute;
-    width: 90%;
+    width: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1000;
-        padding: 1rem;
         padding-top: 8rem;
 
 
@@ -139,9 +138,9 @@
 
 
 .logo-container{
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 1rem;
-    border-radius: 8px;
     
 }
 
