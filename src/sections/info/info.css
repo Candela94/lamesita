@@ -187,7 +187,6 @@
     .mapa-card {
         /* border: 7px solid salmon; */
         width: 100%;
-        height: 100vh;
         margin-top: 2rem;
         display: flex;
         flex-direction: column;
