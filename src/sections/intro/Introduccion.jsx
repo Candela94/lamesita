@@ -57,13 +57,13 @@ const Introduccion = ({id}) => {
 
 
 
-        {/* <picture className="png">
+        <picture className="png">
 
         <source media="(min-width:768px)" srcSet="/img/desktop.png" />
-        <img src="/img/fondo/intro-mobile.jpg" alt="Fondo" className="imagen-fondo" />
+        <img src="/img/MOBILE.png" alt="Fondo" className="imagen-fondo" />
 
 
-        </picture> */}
+        </picture>
       
 
 

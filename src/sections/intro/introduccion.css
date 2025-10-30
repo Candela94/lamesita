@@ -193,9 +193,9 @@
 
 .png{
     position: absolute;
-    border: 6px solid salmon;
-    top: 50%;
-    left: 50%;
+    /* border: 6px solid salmon; */
+    width: 100dvw;
+    height: 100dvh;
 }
 
 
@@ -207,7 +207,7 @@
 
     .png{
 
-        width: 90%;
+        width: 0%;
         height: 100%;
     }
 
