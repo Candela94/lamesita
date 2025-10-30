@@ -57,15 +57,14 @@ const Introduccion = ({id}) => {
 
 
 
+        {/* <picture className="png">
 
-        <img src="/img/png/botella.png" alt="botella" className="png uno" />
-        <img src="/img/png/copa.png" alt="copa" className="png dos" />
-        <img src="/img/png/miel.png" alt="miel" className="png tres" />
-        <img src="/img/png/pan.png" alt="pan" className="png cuatro" />
-        <img src="/img/png/queso.png" alt="queso" className="png cinco" />
-        <img src="/img/png/sacacorchos.png" alt="sacacorchos" className="png seis" />
-        <img src="/img/png/tabla.png" alt="tabla" className="png siete" />      
-        <img src="/img/png/miel.png" alt="miel" className="png ocho" />
+        <source media="(min-width:768px)" srcSet="/img/desktop.png" />
+        <img src="/img/fondo/intro-mobile.jpg" alt="Fondo" className="imagen-fondo" />
+
+
+        </picture> */}
+      
 
 
 

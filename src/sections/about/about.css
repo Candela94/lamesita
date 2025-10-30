@@ -132,6 +132,13 @@
 
 
 
+.png{
+    position: absolute;
+    border: 6px solid salmon;
+}
+
+
+
     .fondo-img {
         filter: brightness(0.9);
     }
@@ -210,7 +217,7 @@
 
     .fondo {
         top:40%;
-        max-width: 30%;
+        width: 25%;
     }
 
 
