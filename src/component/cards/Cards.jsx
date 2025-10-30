@@ -166,7 +166,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     }
 
     const mensaje = construirMensaje();
-    const numero = '34654068208';
+    const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   };
@@ -498,7 +498,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     }
 
     const mensaje = construirMensaje();
-    const numero = '34654068208';
+    const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   };

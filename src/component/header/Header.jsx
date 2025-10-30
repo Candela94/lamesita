@@ -83,16 +83,17 @@ export const Header = () => {
 
 
                                     <div className="politica-redes">
-                                        <p className="privacidad">POLÍTICA <br/> DE PRIVACIDAD</p>
+                                        <p className="privacidad">POLÍTICA <br /> DE PRIVACIDAD</p>
 
                                         <div className="rrss">
-                                        <AiFillInstagram  style={{marginTop:'0.3rem'}}className="icons"/>
+                                            <a  target="_blank" href="https://www.instagram.com/lamesita.valencia
+"><AiFillInstagram style={{ marginTop: '0.3rem' }} className="icons" /></a>
 
-                                        <FaTiktok className="icons"/>
+                                            <a target="_blank"  href="https://www.tiktok.com/@lamesita.valencia"><FaTiktok className="icons" /></a>
 
 
 
-                                     
+
 
 
                                         </div>

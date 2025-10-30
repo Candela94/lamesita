@@ -115,4 +115,5 @@ margin-bottom: 0.3rem;
 .icons{
   font-size: 3vw;
   color: var(--background);
+  cursor: pointer;
 }

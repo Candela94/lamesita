@@ -12,6 +12,19 @@ import { FondoIntro } from '../../component/fondo-intro/FondoIntro';
 
 const Introduccion = ({id}) => {
 
+    const handleScrollTo = (e, targetId) => {
+        e.preventDefault();
+        const target = document.getElementById(targetId);
+        if (target) {
+          document.documentElement.style.scrollSnapType = "none";
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          setTimeout(() => {
+            document.documentElement.style.scrollSnapType = "y proximity";
+          }, 1000);
+        }
+      };
+      
+
 
     return (
 
@@ -32,7 +45,7 @@ const Introduccion = ({id}) => {
                         <img src="/img/LOGO_AZUL_1.png" alt="logo" className="logo" />
                         </div>
                         <div className="btn-cont">
-                            <a className="boton-cta" href='#cajas'>
+                            <a className="boton-cta"  onClick={(e) => handleScrollTo(e, 'cajas')}>
                                 Disfruta sin complicaciones                  </a>
                         </div>
 
