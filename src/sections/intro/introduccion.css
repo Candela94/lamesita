@@ -37,18 +37,20 @@
     left: 0px;
     bottom: 30px;
     rotate: -20deg;
+    width: 140px;
 }
 
 .tres {
     width: clamp(100px, 20vw, 300px); 
 
     left: 30%;
-    top: 25%;
+    top: 15%;
     rotate: -15deg;
 }
 
 .cuatro {
     right: 0px;
+    width: 130px;
     bottom: 100px;
     rotate: -18deg;
 }
@@ -71,6 +73,7 @@
 
 .siete {
     right: 30%;
+    width: 120px;
     bottom: 5px;
     rotate: -15deg;
 }
