@@ -490,17 +490,18 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
     return mensaje;
   };
-
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
       alert('Por favor, introduce tu nombre 🙂');
       return;
     }
-
+  
     const mensaje = construirMensaje();
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
+    
+    // En lugar de window.open(), usa:
+    window.location.href = url;
   };
 
   const handleVolverASeleccion = () => {
