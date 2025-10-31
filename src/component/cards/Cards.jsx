@@ -319,7 +319,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
           <div className="caja-resumen caja-resumen-scale">
             <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
             <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
-            <div className="caja-info">
+            <div className="caja-info-resumen">
               <h4>Productos:</h4>
               <ul className='info-resumen'>
                 {Object.entries(seleccion).map(([producto, tipo]) => (
@@ -678,7 +678,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
           <div className="caja-resumen caja-resumen-scale">
             <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
             <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
-            <div className="caja-info">
+            <div className="caja-info-resumen">
               <h4>Productos:</h4>
               <ul className='info-resumen'>
                 {Object.entries(seleccion).map(([producto, tipo]) => (
