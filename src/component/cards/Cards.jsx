@@ -159,17 +159,40 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     return mensaje;
   };
 
+
+
+
+
+
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
       alert('Por favor, introduce tu nombre 🙂');
       return;
     }
-
+  
     const mensaje = construirMensaje();
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
+    
+    // Guardar el estado antes de ir a WhatsApp
+    sessionStorage.setItem('volviendoDeWhatsApp', 'true');
+    
+    // Redirigir a WhatsApp
+    window.location.href = url;
   };
+  
+  // Añade este useEffect al componente para detectar cuando vuelves
+  useEffect(() => {
+    const volviendoDeWhatsApp = sessionStorage.getItem('volviendoDeWhatsApp');
+    
+    if (volviendoDeWhatsApp === 'true') {
+      sessionStorage.removeItem('volviendoDeWhatsApp');
+      // Forzar recarga completa si detectamos problemas
+      if (document.readyState !== 'complete') {
+        window.location.reload();
+      }
+    }
+  }, []);
 
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
@@ -490,6 +513,9 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
     return mensaje;
   };
+ 
+
+
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
       alert('Por favor, introduce tu nombre 🙂');
@@ -500,9 +526,25 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     
-    // En lugar de window.open(), usa:
+    // Guardar el estado antes de ir a WhatsApp
+    sessionStorage.setItem('volviendoDeWhatsApp', 'true');
+    
+    // Redirigir a WhatsApp
     window.location.href = url;
   };
+  
+  // Añade este useEffect al componente para detectar cuando vuelves
+  useEffect(() => {
+    const volviendoDeWhatsApp = sessionStorage.getItem('volviendoDeWhatsApp');
+    
+    if (volviendoDeWhatsApp === 'true') {
+      sessionStorage.removeItem('volviendoDeWhatsApp');
+      // Forzar recarga completa si detectamos problemas
+      if (document.readyState !== 'complete') {
+        window.location.reload();
+      }
+    }
+  }, []);
 
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
