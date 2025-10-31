@@ -42,7 +42,7 @@ const Introduccion = ({id}) => {
 
                     <div className="logo-cta">
                         <div className="logo-container">
-                        <img src="/img/LOGO_AZUL_1.png" alt="logo" className="logo" />
+                        <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo" />
                         </div>
                         <div className="btn-cont">
                             <a className="boton-cta"  onClick={(e) => handleScrollTo(e, 'cajas')}>
@@ -57,13 +57,13 @@ const Introduccion = ({id}) => {
 
 
 
-        <picture className="png">
+        {/* <picture className="png">
 
         <source media="(min-width:768px)" srcSet="/img/desktop.png" />
         <img src="/img/MOBILE.png" alt="Fondo" className="imagen-fondo" />
 
 
-        </picture>
+        </picture> */}
       
 
 
