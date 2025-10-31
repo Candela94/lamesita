@@ -49,7 +49,9 @@
 
 
 
-
+.contenido-parrafo{
+    margin-bottom: 01rem;
+}
 
 .texto-final {
     width: 100%;

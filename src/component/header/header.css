@@ -116,4 +116,111 @@ width: 40%;
   font-size: 4vw;
   color: var(--background);
   cursor: pointer;
+
+
+
+
+
+}
+
+
+
+
+
+.header-desk{display: none;}
+
+
+
+
+
+
+
+
+@media (min-width:1023px) {
+
+
+  .header{
+    display: none;
+    
+  }
+
+
+
+  .header-desk{
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    /* background-color: blueviolet; */
+  }
+
+
+
+
+  .desk-nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  .desk-ul{
+    display: flex;
+    justify-content: space-between;
+    color: var(--primary);
+    gap: 2rem;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
+   padding: 0.7rem 0.7rem 0.7rem 2rem;
+    /* background-color: aqua; */
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 55%;
+    border-radius: 8px;
+    
+  }
+
+
+.desk-li{
+  /* background-color: pink; */
+  width: 30%;
+  text-align: start;
+
+
+}
+
+
+
+  .desk-li a{
+    color: inherit;
+  
+  }
+
+
+
+
+.desk-li:hover{
+  
+
+
+}
+
+
+
+  .redes-lista{
+    display: flex;
+    gap: 2.5rem;
+    /* background-color: pink; */
+
+  }
+
+.redes-icons a{
+
+  color: inherit;
+
+}
+
+
+  
 }

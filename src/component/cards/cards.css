@@ -655,6 +655,7 @@ input:focus {
         background-color: rgba(0, 0, 0, 0.1);
         margin: 1rem;
         z-index: 0;
+        height: auto;
 
     }
 

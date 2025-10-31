@@ -23,6 +23,11 @@
   src: url('/fonts/DMSans-Regular.ttf');
 }
 
+@font-face {
+  font-family: sans-black;
+  src: url('/fonts/DMSans_18pt-Black.ttf');
+}
+
 :root {
 
 
@@ -61,7 +66,9 @@ body{
 
   background-color: var(--background);
   color: var(--text);
-  height: 100vh;
+
+
+min-height:100dvh ; 
     overflow-x: hidden;
 
  
@@ -97,12 +104,11 @@ li{
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   scroll-snap-align: start; 
-  background-color: var(--background);/* 👈 esto es CLAVE */
+  background-color: var(--background);
 
   
-  /* background-color: aquamarine; */
 }
 
 

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import './header.css';
 import { FaTiktok } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
-
+import { NavLink } from "react-router";
 
 export const Header = () => {
     const [menuAbierto, setMenuAbierto] = useState(false);
@@ -12,6 +12,10 @@ export const Header = () => {
     const handleToggleMenu = () => {
         setMenuAbierto((prev) => !prev);
     };
+
+
+
+
 
     const handleLinkClick = (e) => {
         e.preventDefault();
@@ -83,7 +87,7 @@ export const Header = () => {
 
 
                                     <div className="politica-redes">
-                                        <p className="privacidad">POLÍTICA <br /> DE PRIVACIDAD</p>
+                                       <NavLink to='/privacy'> <p className="privacidad">POLÍTICA <br /> DE PRIVACIDAD</p></NavLink>
 
                                         <div className="rrss">
                                             <a target="_blank" href="https://www.instagram.com/lamesita.valencia
@@ -109,3 +113,37 @@ export const Header = () => {
         </header>
     );
 };
+
+
+
+
+
+
+export const HeaderDesk = () => {
+
+    return (
+
+
+        <>
+            <header className="header-desk">
+                <nav className="desk-nav">
+                    <ul className="desk-ul">
+                        <li className="desk-li"><a href="#about">LA MESITA</a></li>
+                        <li className="desk-li"><a href="#cajas">NUESTRAS CAJITAS</a></li>
+                        <li className="desk-li"><a href="#info">VISÍTANOS</a></li>
+
+
+                       
+                            <ul className="redes-lista">
+
+                                <li className="redes-icons"> <a target="_blank" href="https://www.instagram.com/lamesita.valencia"><RiInstagramFill className="icons-desk" /></a></li>
+                                <li className="redes-icons"> <a target="_blank" href="https://www.tiktok.com/@lamesita.valencia"><FaTiktok className="icons-desk" /></a></li>
+                            </ul>
+                       
+                    </ul>
+                </nav>
+            </header>
+
+        </>
+    );
+}

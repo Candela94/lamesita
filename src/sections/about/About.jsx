@@ -8,7 +8,7 @@ const About = ({id}) => {
 
 
     // Texto de "La Mesita"
-    const descripcion = `No hace falta una gran mesa.
+    const descripcion = `No hace falta una gran mesa. 
 Ni mantel de lino, ni invitación formal.
 El mejor momento cabe en un rincón del balcón, la encimera de la cocina, la pausa entre dos cosas, el brindis antes de la comida.
 La Mesita nace de ahí.
