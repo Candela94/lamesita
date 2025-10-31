@@ -45,4 +45,5 @@ color: inherit;
     font-family: gafiton;
     color: var(--primary);
     margin-top: 1rem;
+    cursor: pointer;
 }

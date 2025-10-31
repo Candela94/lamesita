@@ -196,11 +196,8 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
-    setTimeout(() => {
-      setOverlay(true);
-    }, 100);
+    setOverlay(true);
   };
-
   const handleToggleCaja = () => {
     onToggle();
   
@@ -244,7 +241,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               <h3 className="precio">{caja.precio}€</h3>
             </div>
 
-            <div onClick={handleOpenOverlay} className="caja-btn caja-btn-delayed">
+            <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
               <button className="btn-container" style={{ color: caja.color }}>
                 Personalizar cajita
               </button>
@@ -328,7 +325,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               className="input-nombre"
             />
 
-            <div onClick={handleGuardar} className="caja-btn caja-btn-delayed">
+            <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
               <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
                 Guardar productos en mi cajita
               </button>
@@ -378,6 +375,12 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 Contacta y haz tu pedido
               </button>
             </div>
+
+            <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
+              <button className="btn-container " style={{ border: '2px solid var(--background', background:'none', color: 'var(--background)', width: '70%' }}>
+                Volver a editar mi cajita
+              </button>
+            </div>
           </div>
         </div>
         )}
@@ -385,7 +388,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
     </div>
   );
 };
-
 
 
 
@@ -513,8 +515,6 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
     return mensaje;
   };
- 
-
 
   const handleEnviarWhatsApp = () => {
     if (!nombreUsuario) {
@@ -548,9 +548,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
-    setTimeout(() => {
-      setOverlay(true);
-    }, 100);
+    setOverlay(true);
   };
 
   const handleToggleCaja = () => {
@@ -596,7 +594,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
               <h3 className="precio">{caja.precio}€</h3>
             </div>
 
-            <div onClick={handleOpenOverlay} className="caja-btn caja-btn-delayed">
+            <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
               <button className="btn-container" style={{ color: caja.color }}>
                 Personalizar cajita
               </button>
@@ -707,7 +705,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
               className="input-nombre"
             />
 
-            <div onClick={handleGuardar} className="caja-btn caja-btn-delayed">
+            <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
               <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
                 Guardar productos en mi cajita
               </button>
@@ -726,7 +724,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
               <ul className='info-resumen'>
                 {Object.entries(seleccion).map(([producto, tipo]) => (
                   <li key={`personalizada-resumen-${producto}`}>
-                    {producto}: <strong>{tipo}</strong>
+                    {tipo === 'Seleccionado' ? producto : `${producto}: `}<strong>{tipo !== 'Seleccionado' && tipo}</strong>
                   </li>
                 ))}
               </ul>
@@ -755,6 +753,11 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
             <div onClick={handleEnviarWhatsApp} className="caja-btn caja-btn-delayed">
               <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
                 Contacta y haz tu pedido
+              </button>
+            </div>
+            <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
+              <button className="btn-container " style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
+                Volver a editar mi cajita
               </button>
             </div>
           </div>
