@@ -82,7 +82,7 @@ export const cajas = [
   
     {
       nombre: 'HAZ TU PROPIA CAJITA',
-      precio: 40,
+      precio: 39.90,
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Crea tu cajita a medida, escoge una base y 6 productos a elegir entre los disponibles',
       productos: [
