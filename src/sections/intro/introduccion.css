@@ -48,7 +48,7 @@
     height: 100%;
     object-fit: cover;
     opacity: 1;
-    filter: brightness(0.7);
+   
     /* padding:3rem; */
 
 
@@ -66,9 +66,7 @@
 
     position: absolute;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+   bottom: 20dvh;
     z-index: 10;
     padding-top: 8rem;
 
@@ -245,53 +243,11 @@
   
   /* === DESKTOP GRANDE === */
   @media (min-width: 1280px) {
-    .uno {
-      right: 18dvw;
-      top: 6dvh;
-      width: 22%;
-      rotate: 20deg;
-    }
   
-    .dos {
-      left: -2dvw;
-      bottom: 6dvh;
-      width: 28%;
-      rotate: -20deg;
-    }
-  
-    .tres {
-      left: 40dvw;
-      top: 12dvh;
-      width: 16%;
-      rotate: -15deg;
-    }
-  
-    .cuatro {
-      right: 3dvw;
-      bottom: 8dvh;
-      width: 16%;
-      rotate: -18deg;
-    }
-  
-    .cinco {
-      left: 3dvw;
-      top: 20dvh;
-      width: 14%;
-      rotate: -10deg;
-    }
-  
-    .seis {
-      right: 8dvw;
-      top: 22dvh;
-      width: 12%;
-      rotate: 25deg;
-    }
-  
-    .siete {
-      right: 25%;
-      bottom: 8dvh;
-      width: 20%;
-      rotate: -12deg;
+
+    .logo-cta{
+
+      bottom: 10dvh;
     }
   }
   
