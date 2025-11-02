@@ -204,14 +204,14 @@
 
     display: flex;
     justify-content: center;
-    padding: 1rem 0.5rem;
+   
     width: 100%;
     /* border: 6px solid yellow; */
 
     
 }
 
-.caja-uno, .caja-dos{
+ .caja-dos{
     margin-bottom: 1rem;
 }
 

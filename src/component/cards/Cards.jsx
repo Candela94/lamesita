@@ -314,7 +314,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
             )}
 
             <div key={totalPrice} style={{ marginTop: '15px', textAlign: 'center' }}>
-              <h2 className="total">Precio total: {totalPrice}€</h2>
+              <h2 className="productos">Precio total: {totalPrice}€</h2>
             </div>
 
 
@@ -374,7 +374,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                 </>
               )}
 
-              <h3 style={{ fontSize: '20px', marginTop: '2rem' }}>
+              <h3 style={{ marginTop: '2rem' }}>
                 Total: {totalPrice}€
               </h3>
             </div>
@@ -710,7 +710,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
               )}
 
               <div key={`price-${totalPrice}`} style={{ marginTop: '15px', textAlign: 'center' }}>
-                <h2 className="total">Precio total: {totalPrice}€</h2>
+                <h2 className="productos">Precio total: {totalPrice}€</h2>
               </div>
 
               <input
