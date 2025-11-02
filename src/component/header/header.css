@@ -25,7 +25,6 @@
 .header-menu {
   font-size: 1.2rem;
   cursor: pointer;
-  user-select: none;
   z-index: 40;
   position: relative;
   color: var(--background);
@@ -35,7 +34,7 @@
 .header-menu{
 
   background-color: var(--primary);
-  padding: 0.5rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 8px;
 }
 

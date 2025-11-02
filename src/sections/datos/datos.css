@@ -44,6 +44,18 @@ color: inherit;
 
     font-family: gafiton;
     color: var(--primary);
-    margin-top: 1rem;
+    margin-top: 2rem;
     cursor: pointer;
+    font-size: 2vw;
+}
+
+
+
+
+@media (min-width:1024px) {
+
+
+    .datos-titulo{
+        font-size: 9vw;
+    }
 }

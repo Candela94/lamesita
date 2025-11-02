@@ -628,6 +628,7 @@ input:focus {
         align-items: center;
         justify-content: space-between;
         padding-bottom: 2rem;
+        padding: 0 1rem 1rem 0.4rem;
     }
 
 
@@ -687,6 +688,16 @@ input:focus {
 }
 
 
+
+
+
+@media (min-width:1024) {
+
+    .caja-contenido{
+        padding: 1rem;
+    }
+    
+}
 
 
 

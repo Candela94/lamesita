@@ -25,7 +25,7 @@ const Datos = () => {
                 transition={{ duration: 0.5 }}
             >
                 <h1 className="datos-titulo">
-                    TU PRIVACIDAD <br /> SE QUEDA EN <br />LA MESITA
+                    TU PRIVACIDAD <br /> SE QUEDA  <br /> EN LA MESITA
                 </h1>
 
                 <div className="texto-datos-container">
