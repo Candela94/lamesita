@@ -78,9 +78,13 @@ export const FondoIntroDesk = () => {
 
     const fondos = [
 
-        {id:1, src: 'img/fondo-ajustado.png'},
+        {id:1, src:  
+            'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_2_j1vvpo.jpg',
 
-        {id:2, src: 'img/fondo-bolsa-uno.png'},
+        },
+
+        {id:2, src:    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-8_jdccar.jpg' 
+        },
 
 
         
