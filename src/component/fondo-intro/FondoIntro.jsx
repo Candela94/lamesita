@@ -11,7 +11,7 @@ export const FondoIntro = () => {
 
         {id:1, src: 'img/fondo-ajustado.png'},
 
-        {id:2, src: 'img/fondo-bolsa.png'},
+        {id:2, src: 'img/fondo-bolsa-uno.png'},
 
      
     
