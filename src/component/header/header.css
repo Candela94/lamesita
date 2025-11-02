@@ -154,62 +154,69 @@ width: 40%;
 
   .header{
     display: none;
-    
   }
-
-
-
-  .header-desk{
-    display: block;
-    width: 100%;
+  .header-desk {
+    display: flex;
+    justify-content: center; /* centra el bloque completo horizontalmente */
     position: fixed;
     top: 0;
+    width: 100%;
+    /* background-color: aqua; */
     z-index: 9999;
-    /* background-color: blueviolet; */
   }
-
-
-
-
-  .desk-nav{
+  
+  .desk-nav {
     width: 100%;
     display: flex;
+    justify-content: center; /* centra el ul principal */
     align-items: center;
-    justify-content: center;
   }
-
-
-
-  .desk-ul{
+  
+  .desk-ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* mantiene el equilibrio entre los extremos */
     align-items: center;
     color: var(--primary);
     gap: 2rem;
-    margin-top: 0.2rem;
-    margin-right: 0.2rem;
-   padding: 0.7rem 0.7rem 0.7rem 2rem;
-    /* background-color: aqua; */
     background-color: rgba(255, 255, 255, 0.5);
-    width: 55%;
     border-radius: 8px;
-    
+    padding: 0.7rem 2rem;
+    width: 70%;
+    max-width: 1100px; /* evita que se ensanche demasiado en pantallas grandes */
+    margin: 0 auto; /* centra horizontalmente */
+  }
+  
+  .desk-li {
+    text-align: center;
+     /* evita deformaciones */
   }
 
 
-.desk-li{
-  /* background-color: pink; */
-  width: 30%;
-  text-align: center;
-  /* border: 2px solid black; */
+  .desk-logo{
+    display: flex;
+    justify-content: center;
+    /* background-color: aquamarine; */
+    width: 30%;
+  }
+  
+  .redes-lista {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
 
 
+.header-li{
+  background-color: pink;
 }
 
+  
 
 
   .desk-li a{
     color: inherit;
+    width: 100%;
   
   }
 
@@ -226,12 +233,14 @@ width: 40%;
 .text-header{
 
   font-family:sans-black ;
+  width: auto;
 }
 
 
   .redes-lista{
     display: flex;
-    gap: 2.5rem;
+    align-items: center;
+   
     /* background-color: pink; */
 
   }
@@ -239,13 +248,15 @@ width: 40%;
 .redes-icons a{
 
   color: inherit;
+  
+ 
 
 }
 
 
 .logo-header{
-  width: 55%;
-  margin-top: 0.5rem;
+  width: 100px;
+ 
   height: fit-content;
   /* background-color: aqua; */
 }

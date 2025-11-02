@@ -4,12 +4,12 @@ export const extrasGlobales = [
     {
       id: 'chocolate',
       nombre: 'Barra de chocolate artesano',
-      precio: 3
+      precio: 4.50
     },
     {
       id: 'mermeladas',
       nombre: 'Mermeladas Lorusso',
-      precio: 10,
+      precio: 7,
       tipos: [
         'Fresa', 'Mora', 'Arándanos', 'Frutos rojos', 'Frambuesa',
         'Higos', 'Pimiento Dulce', 'Mandarina', 'Naranja', 'Mango', 'Melocotón'

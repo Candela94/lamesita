@@ -28,7 +28,7 @@ const Landing = () => {
 
         
         <main className='section main-principal'>
-         <Introduccion />
+         <Introduccion id='intro' />
            <About id='about'/>
            <Galeria  id='galeria'/>
          

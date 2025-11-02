@@ -36,13 +36,13 @@ const Datos = () => {
                     </p>
 
                     <p className="datos-texto">
-                        <strong>No guardamos información para campañas, ni compartimos tus datos con nadie.</strong>
+                        <strong>No guardamos información para campañas, ni compartimos tus datos con nadie. </strong>
                         Tu conversación con nosotros se queda entre nosotros, como una charla de confianza al otro lado de la mesa.
                     </p>
 
                     <p className="datos-texto">
                         Cuidamos tu privacidad con el mismo cuidado que ponemos en cada detalle: con
-                        <strong> respeto, cercanía y atención.</strong>
+                        <strong> respeto, cercanía y atención. </strong>
                         Porque los buenos momentos —y las buenas conversaciones— siempre empiezan con confianza.
                     </p>
                 </div>
