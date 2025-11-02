@@ -175,6 +175,7 @@ width: 40%;
   .desk-nav{
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 
@@ -183,13 +184,14 @@ width: 40%;
   .desk-ul{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: var(--primary);
     gap: 2rem;
     margin-top: 0.2rem;
     margin-right: 0.2rem;
    padding: 0.7rem 0.7rem 0.7rem 2rem;
     /* background-color: aqua; */
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     width: 55%;
     border-radius: 8px;
     
@@ -199,7 +201,8 @@ width: 40%;
 .desk-li{
   /* background-color: pink; */
   width: 30%;
-  text-align: start;
+  text-align: center;
+  /* border: 2px solid black; */
 
 
 }
@@ -221,6 +224,11 @@ width: 40%;
 }
 
 
+.text-header{
+
+  font-family:sans-black ;
+}
+
 
   .redes-lista{
     display: flex;
@@ -233,6 +241,14 @@ width: 40%;
 
   color: inherit;
 
+}
+
+
+.logo-header{
+  width: 55%;
+  margin-top: 0.5rem;
+  height: fit-content;
+  /* background-color: aqua; */
 }
 
 

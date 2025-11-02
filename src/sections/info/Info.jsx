@@ -6,6 +6,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
+import { NavLink } from 'react-router';
 
 const Info = ({id}) => {
 
@@ -125,7 +126,7 @@ const Info = ({id}) => {
 
 
 
-
+<>
 
     <main id={id} className="mapa-card section">
 
@@ -215,8 +216,17 @@ const Info = ({id}) => {
 
     </main>
 
+    <footer className="footer-privacy">
 
 
+      <NavLink to='/privacy'><div className="footer-info">
+        <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo-img" />
+        <p className="parrafo">- 2025 - Política de privacidad</p>
+      </div></NavLink>
+
+    </footer>
+
+    </>
   );
 };
 

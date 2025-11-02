@@ -17,7 +17,7 @@
 .mapa-card {
 
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: var(--background);
     display: flex;
     flex-direction: column;
@@ -174,7 +174,9 @@
 
 
 
-
+.footer-privacy{
+    display: none;
+}
 
 
 
@@ -281,4 +283,67 @@
 
 
 
+}
+
+
+
+
+@media (min-width:1024px) {
+
+
+    .footer-privacy{
+
+        display: block;
+        background-color: var(--primary);
+        padding: 0.5rem;
+            border-radius: 10px 10px 0 0 ;
+    cursor: pointer;
+    
+    }
+    
+    
+    .footer-info{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .logo-img{
+        width: 100px;
+    }
+    
+    .parrafo{
+        color: var(--background);
+    }
+    
+    
+
+    .titulo-ubicacion {
+        font-size: 6vw;
+        margin-top: 1rem;
+        width: 80%;
+        word-wrap: break-word;
+        /* background-color: blueviolet; */
+    }
+
+
+
+
+
+    .imagen-mapa {
+        width: 55%;
+        height: auto;
+        /* border: 6px solid yellow; */
+        display: flex;
+        justify-content: right;
+        position: absolute;
+        right: -5%;
+        top: 0%;
+        margin-top: 3rem;
+
+    }
+
+    
 }

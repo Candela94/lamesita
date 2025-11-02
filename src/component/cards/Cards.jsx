@@ -393,7 +393,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
 
-
 export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   const [overlay, setOverlay] = useState(false);
   const [seleccion, setSeleccion] = useState({});
@@ -415,22 +414,6 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
       }, 100);
     }
   }, [isOpen]);
-
-  // Detectar cuando el usuario vuelve a la página (opcional)
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        // La página volvió a ser visible después de ir a WhatsApp
-        console.log('Usuario volvió a la página');
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
 
   const extrasDisponibles = extrasGlobales.filter(extra =>
     caja.extrasDisponibles?.includes(extra.id)
@@ -541,13 +524,15 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     
-    // En móviles, window.open abre WhatsApp y mantiene la página activa
-    // En escritorio, abre en nueva pestaña
-    const ventana = window.open(url, '_blank');
+    // Solución optimizada para móvil y escritorio
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
-    // Fallback: si el navegador bloquea popups, usar location.href
-    if (!ventana || ventana.closed || typeof ventana.closed === 'undefined') {
+    if (isMobile) {
+      // En móvil, redirigir directamente (más confiable)
       window.location.href = url;
+    } else {
+      // En escritorio, abrir en nueva pestaña
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -613,7 +598,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
           <div className="card-options">
 
          
-             {/* 🔹 CAMBIO AQUÍ: primero mostramos la base y luego el bloque de productos */}
+             {/* Primero mostramos la base y luego el bloque de productos */}
              {(() => {
                 const base = caja.productos.find(p => p.nombre === 'Elige una base');
                 const otrosProductos = caja.productos.filter(p => p.nombre !== 'Elige una base');
@@ -704,7 +689,6 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                   </>
                 );
               })()}
-              {/* 🔹 FIN DEL CAMBIO */}
 
           
 
@@ -809,4 +793,3 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     </div>
   );
 };
-

@@ -131,9 +131,9 @@ export const HeaderDesk = () => {
             <header className="header-desk">
                 <nav className="desk-nav">
                     <ul className="desk-ul">
-                        <li className="desk-li"><a href="#about">LA MESITA</a></li>
-                        <li className="desk-li"><a href="#cajas">NUESTRAS CAJITAS</a></li>
-                        <li className="desk-li"><a href="#info">VISÍTANOS</a></li>
+                        <li className="desk-li"><a href="#about"><img src="img/LOGO_AZUL_1.png" alt="" className="logo-header" /></a></li>
+                        <li className="desk-li text-header"><a href="#cajas">NUESTRAS CAJITAS</a></li>
+                        <li className="desk-li text-header"><a href="#info">VISÍTANOS</a></li>
 
 
                        
