@@ -113,13 +113,40 @@ export const cajas = [
 export const imagenesMercado = [
 
 
-    'https://i.pinimg.com/1200x/fc/2d/10/fc2d10c76e3eaa6e3c0c8db125bf59bd.jpg',
-    'https://i.pinimg.com/736x/56/c5/19/56c519ed60f27956f3ba6a6a6d96f12b.jpg',
+  
+  'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_3_1_wf2v2v.jpg', 
 
-    'https://i.pinimg.com/736x/be/2c/b0/be2cb0443a69a4ed0b5459d1f5dbf7fd.jpg',
-    'https://i.pinimg.com/736x/56/c5/19/56c519ed60f27956f3ba6a6a6d96f12b.jpg',
-    'https://i.pinimg.com/736x/c3/89/89/c38989af6148b6419cd2976219b155d4.jpg',
-    'https://i.pinimg.com/1200x/1f/6f/d6/1f6fd6bd4c20b251a03df32d2fc040bd.jpg'
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/IMG_4150_whzsuw.jpg',
+
+
+   
+
+'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_bfpalv.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/IMG_4174_hei7qr.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/LAMESITA_-5_fcxjpa.jpg', 
+    
+
+  
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_2_j1vvpo.jpg',
+
+
+
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-4_mcxscn.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-9_qlfvkq.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-3_dlb8d0.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/IMG_4155_mrsrwd.jpg',
+      
+     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/LAMESITA_-1_ubogek.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/IMG_4161_c09dql.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/LAMESITA_-7_f09udm.jpg', 
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA__gfsbko.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/IMG_4147_l3ivk8.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-2_ixuasc.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762087458/Foto_24_aqjgaf.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/LAMESITA_-6_gg6uzk.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762087459/Foto_25_lziraa.jpg',
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-8_jdccar.jpg', 
+    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_1_b102ar.jpg'
 
 
 ]

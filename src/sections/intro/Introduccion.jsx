@@ -36,14 +36,14 @@ const Introduccion = ({id}) => {
 
                 <div className="intro-imagen">
 
-                    <img src="/img/fondo--fondo.jpg" alt="paisaje" className="imagen-fondo" />
+                    <img src="https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_3_1_wf2v2v.jpg" alt="paisaje" className="imagen-fondo" />
 
 
 
                     <div className="logo-cta">
-                        <div className="logo-container">
-                        <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo" />
-                        </div>
+                        {/* <div className="logo-container">
+                        <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo" /> */}
+                        {/* </div> */}
                         <div className="btn-cont">
                             <a className="boton-cta"  onClick={(e) => handleScrollTo(e, 'cajas')}>
                                 Disfruta sin complicaciones                  </a>
