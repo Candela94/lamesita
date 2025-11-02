@@ -139,117 +139,24 @@
 
 
 
-    .uno {
-      right: 5dvw;
-      top: 10dvh;
-      rotate: 18deg;
-      width: 28%;
-    }
-  
-    .dos {
-      left: -5dvw;
-      bottom: 10dvh;
-      rotate: -20deg;
-      width: 35%;
-    }
-  
-    .tres {
-      width: 20%;
-      left: 35dvw;
-      top: 25dvh;
-      rotate: -10deg;
-    }
-  
-    .cuatro {
-      right: 5dvw;
-      bottom: 15dvh;
-      width: 20%;
-      rotate: -18deg;
-    }
-  
-    .cinco {
-      width: 18%;
-      left: 2dvw;
-      top: 25dvh;
-      rotate: -10deg;
-    }
-  
-    .seis {
-      width: 15%;
-      right: 3dvw;
-      top: 30dvh;
-      rotate: 20deg;
-    }
-  
-    .siete {
-      right: 25%;
-      width: 22%;
-      bottom: 12dvh;
-      rotate: -12deg;
-    }
+
   }
   
   
-  /* === TABLET HORIZONTAL / DESKTOP PEQUEÑO === */
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .uno {
-      right: 12dvw;
-      top: 8dvh;
-      width: 25%;
-      rotate: 20deg;
-    }
-  
-    .dos {
-      left: -5dvw;
-      bottom: 8dvh;
-      width: 32%;
-      rotate: -20deg;
-    }
-  
-    .tres {
-      left: 38dvw;
-      top: 18dvh;
-      width: 18%;
-      rotate: -15deg;
-    }
-  
-    .cuatro {
-      right: 0;
-      bottom: 10dvh;
-      width: 18%;
-      rotate: -18deg;
-    }
-  
-    .cinco {
-      left: 2dvw;
-      top: 22dvh;
-      width: 16%;
-      rotate: -12deg;
-    }
-  
-    .seis {
-      right: 5dvw;
-      top: 25dvh;
-      width: 13%;
-      rotate: 25deg;
-    }
-  
-    .siete {
-      right: 20%;
-      bottom: 10dvh;
-      width: 22%;
-      rotate: -10deg;
-    }
-  }
-  
+
   
   /* === DESKTOP GRANDE === */
-  @media (min-width: 1280px) {
+  @media (min-width: 1034px) {
   
 
     .logo-cta{
 
       bottom: 10dvh;
+    }
+
+
+    .boton-cta{
+      font-size: 3vw;
     }
   }
   
