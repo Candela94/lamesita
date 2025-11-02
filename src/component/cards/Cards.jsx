@@ -394,7 +394,6 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
 
-
 export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   const [overlay, setOverlay] = useState(false);
   const [seleccion, setSeleccion] = useState({});
@@ -416,6 +415,22 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
       }, 100);
     }
   }, [isOpen]);
+
+  // Detectar cuando el usuario vuelve a la página (opcional)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        // La página volvió a ser visible después de ir a WhatsApp
+        console.log('Usuario volvió a la página');
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
 
   const extrasDisponibles = extrasGlobales.filter(extra =>
     caja.extrasDisponibles?.includes(extra.id)
@@ -517,7 +532,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   };
 
   const handleEnviarWhatsApp = () => {
-    if (!nombreUsuario) {
+    if (!nombreUsuario.trim()) {
       alert('Por favor, introduce tu nombre 🙂');
       return;
     }
@@ -526,25 +541,15 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     
-    // Guardar el estado antes de ir a WhatsApp
-    sessionStorage.setItem('volviendoDeWhatsApp', 'true');
+    // En móviles, window.open abre WhatsApp y mantiene la página activa
+    // En escritorio, abre en nueva pestaña
+    const ventana = window.open(url, '_blank');
     
-    // Redirigir a WhatsApp
-    window.location.href = url;
-  };
-  
-  // Añade este useEffect al componente para detectar cuando vuelves
-  useEffect(() => {
-    const volviendoDeWhatsApp = sessionStorage.getItem('volviendoDeWhatsApp');
-    
-    if (volviendoDeWhatsApp === 'true') {
-      sessionStorage.removeItem('volviendoDeWhatsApp');
-      // Forzar recarga completa si detectamos problemas
-      if (document.readyState !== 'complete') {
-        window.location.reload();
-      }
+    // Fallback: si el navegador bloquea popups, usar location.href
+    if (!ventana || ventana.closed || typeof ventana.closed === 'undefined') {
+      window.location.href = url;
     }
-  }, []);
+  };
 
   const handleVolverASeleccion = () => {
     setPasoFinal(false);
@@ -612,7 +617,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
               return (
                 <div
-                  key={`personalizada-prod-${idx}-${prod.nombre}`}
+                  key={`${caja.nombre}-prod-${prod.nombre}-${idx}`}
                   className="producto-overlay"
                   onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
                   style={{
@@ -638,7 +643,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                     <ul className="overlay-producto-tipos">
                       {prod.tipos.filter(t => t.trim() !== '').map((tipo, tipoIdx) => (
                         <li
-                          key={`personalizada-tipo-${idx}-${tipoIdx}-${tipo}`}
+                          key={`${caja.nombre}-tipo-${prod.nombre}-${tipo}-${tipoIdx}`}
                           className="tipos"
                           onClick={() => handleSeleccion(prod.nombre, tipo)}
                           style={
@@ -671,11 +676,11 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                 <h4 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h4>
 
                 {extrasDisponibles.map((extra) => (
-                  <div key={`personalizada-extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                  <div key={`${caja.nombre}-extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
                     <input
                       type="checkbox"
                       className='check'
-                      id={`personalizada-extra-checkbox-${extra.id}`}
+                      id={`${caja.nombre}-extra-checkbox-${extra.id}`}
                       checked={extrasSeleccionados.includes(extra.id)}
                       onChange={() => handleExtraToggle(extra.id)}
                       style={{
@@ -685,7 +690,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                         accentColor: caja.color,
                       }}
                     />
-                    <label htmlFor={`personalizada-extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
+                    <label htmlFor={`${caja.nombre}-extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
                       {extra.nombre} (+{extra.precio}€)
                     </label>
                   </div>
@@ -693,7 +698,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
               </div>
             )}
 
-            <div key={totalPrice} style={{ marginTop: '15px', textAlign: 'center' }}>
+            <div key={`price-${totalPrice}`} style={{ marginTop: '15px', textAlign: 'center' }}>
               <h2 className="total">Precio total: {totalPrice}€</h2>
             </div>
 
@@ -723,7 +728,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
               <h4>Productos:</h4>
               <ul className='info-resumen'>
                 {Object.entries(seleccion).map(([producto, tipo]) => (
-                  <li key={`personalizada-resumen-${producto}`}>
+                  <li key={`resumen-${caja.nombre}-${producto}`}>
                     {tipo === 'Seleccionado' ? producto : `${producto}: `}<strong>{tipo !== 'Seleccionado' && tipo}</strong>
                   </li>
                 ))}
@@ -736,7 +741,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                     {extrasSeleccionados.map(extraId => {
                       const extra = extrasGlobales.find(e => e.id === extraId);
                       return (
-                        <li key={`personalizada-resumen-extra-${extraId}`}>
+                        <li key={`resumen-extra-${caja.nombre}-${extraId}`}>
                           {extra.nombre} <strong>(+{extra.precio}€)</strong>
                         </li>
                       );
@@ -767,6 +772,4 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     </div>
   );
 };
-
-
 
