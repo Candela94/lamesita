@@ -19,13 +19,7 @@ export const Seccion = ({ children, id }) => {
     <motion.section
       id={id}
       ref={ref}
-      style={{
-        opacity,
-        scale,
-        y: translateY,
-        scrollSnapAlign: 'start',
-        scrollSnapStop: 'always',
-      }}
+  
       className="seccion"
     >
       <div className="seccion-contenido">

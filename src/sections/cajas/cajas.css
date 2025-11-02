@@ -83,6 +83,11 @@
 }
 
 
+.texto{
+    color: var(--primary);
+}
+
+
 @media (min-width:768px)  {
 
 

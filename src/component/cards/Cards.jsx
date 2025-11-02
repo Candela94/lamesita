@@ -611,65 +611,102 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
         {isOpen && overlay && (
           <div className="caja caja-fade-in">
           <div className="card-options">
-            {caja.productos.map((prod, idx) => {
-              const tieneTipos = prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0;
-              const estaSeleccionado = !!seleccion[prod.nombre];
 
-              return (
-                <div
-                  key={`${caja.nombre}-prod-${prod.nombre}-${idx}`}
-                  className="producto-overlay"
-                  onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
-                  style={{
-                    cursor: !tieneTipos ? 'pointer' : 'default',
-                    padding: !tieneTipos ? '0.7rem' : undefined,
-                    border: !tieneTipos ? '1px solid var(--background)' : 'none',
-                    borderRadius: !tieneTipos ? '8px' : undefined,
-                    backgroundColor: !tieneTipos && estaSeleccionado
-                      ? 'var(--background)'
-                      : 'transparent',
-                    color: !tieneTipos && estaSeleccionado ? caja.color : 'inherit',
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  <h4 style={{
-                    fontWeight: !tieneTipos && estaSeleccionado ? 'bold' : 'normal'
-                  }}>
-                    {!tieneTipos && estaSeleccionado && '✓ '}
-                    {prod.nombre}
-                  </h4>
-
-                  {tieneTipos && Array.isArray(prod.tipos) && prod.tipos.length > 0 && (
-                    <ul className="overlay-producto-tipos">
-                      {prod.tipos.filter(t => t.trim() !== '').map((tipo, tipoIdx) => (
-                        <li
-                          key={`${caja.nombre}-tipo-${prod.nombre}-${tipo}-${tipoIdx}`}
-                          className="tipos"
-                          onClick={() => handleSeleccion(prod.nombre, tipo)}
-                          style={
-                            seleccion[prod.nombre] === tipo
-                              ? {
-                                backgroundColor: 'var(--background)',
-                                color: caja.color,
-                                fontWeight: 'bold',
-                                boxShadow: '0.5px 0.5px 10px var(--background)',
-                                transform: 'scale(1.05)',
+         
+             {/* 🔹 CAMBIO AQUÍ: primero mostramos la base y luego el bloque de productos */}
+             {(() => {
+                const base = caja.productos.find(p => p.nombre === 'Elige una base');
+                const otrosProductos = caja.productos.filter(p => p.nombre !== 'Elige una base');
+                return (
+                  <>
+                    {base && (
+                      <div className="producto-overlay">
+                        <h4>{base.nombre}</h4>
+                        <ul className="overlay-producto-tipos">
+                          {base.tipos.filter(t => t.trim() !== '').map((tipo, tipoIdx) => (
+                            <li
+                              key={`${caja.nombre}-tipo-base-${tipoIdx}`}
+                              className="tipos"
+                              onClick={() => handleSeleccion(base.nombre, tipo)}
+                              style={
+                                seleccion[base.nombre] === tipo
+                                  ? {
+                                      backgroundColor: 'var(--background)',
+                                      color: caja.color,
+                                      fontWeight: 'bold',
+                                      boxShadow: '0.5px 0.5px 10px var(--background)',
+                                      transform: 'scale(1.05)',
+                                    }
+                                  : {}
                               }
-                              : {}
-                          }
-                        >
-                          {tipo}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              );
-            })}
+                            >
+                              {tipo}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
-            <div style={{ marginTop: '10px', fontSize: '14px', textAlign: 'center', fontWeight: 'bold' }}>
-              Productos seleccionados: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6
-            </div>
+                    <div style={{ textAlign: 'center', fontWeight: 'bold', marginTop: '1.5rem' }}>
+                      <h4>Elige 6 productos: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6</h4>
+                    </div>
+
+                    {otrosProductos.map((prod, idx) => {
+                      const tieneTipos = prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0;
+                      const estaSeleccionado = !!seleccion[prod.nombre];
+                      return (
+                        <div
+                          key={`${caja.nombre}-prod-${prod.nombre}-${idx}`}
+                          className="producto-overlay"
+                          onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
+                          style={{
+                            cursor: !tieneTipos ? 'pointer' : 'default',
+                            padding: !tieneTipos ? '0.7rem' : undefined,
+                            border: !tieneTipos ? '1px solid var(--background)' : 'none',
+                            borderRadius: !tieneTipos ? '8px' : undefined,
+                            backgroundColor: !tieneTipos && estaSeleccionado ? 'var(--background)' : 'transparent',
+                            color: !tieneTipos && estaSeleccionado ? caja.color : 'inherit',
+                            transition: 'all 0.3s ease',
+                          }}
+                        >
+                          <h4 style={{ fontWeight: !tieneTipos && estaSeleccionado ? 'bold' : 'normal' }}>
+                            {!tieneTipos && estaSeleccionado && '✓ '}
+                            {prod.nombre}
+                          </h4>
+
+                          {tieneTipos && Array.isArray(prod.tipos) && prod.tipos.length > 0 && (
+                            <ul className="overlay-producto-tipos">
+                              {prod.tipos.filter(t => t.trim() !== '').map((tipo, tipoIdx) => (
+                                <li
+                                  key={`${caja.nombre}-tipo-${prod.nombre}-${tipo}-${tipoIdx}`}
+                                  className="tipos"
+                                  onClick={() => handleSeleccion(prod.nombre, tipo)}
+                                  style={
+                                    seleccion[prod.nombre] === tipo
+                                      ? {
+                                          backgroundColor: 'var(--background)',
+                                          color: caja.color,
+                                          fontWeight: 'bold',
+                                          boxShadow: '0.5px 0.5px 10px var(--background)',
+                                          transform: 'scale(1.05)',
+                                        }
+                                      : {}
+                                  }
+                                >
+                                  {tipo}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </>
+                );
+              })()}
+              {/* 🔹 FIN DEL CAMBIO */}
+
+          
 
             {extrasDisponibles.length > 0 && (
               <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
