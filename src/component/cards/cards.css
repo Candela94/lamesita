@@ -453,7 +453,7 @@ input:focus {
 
 
 .productos{
-    font-size: 2.7vw;
+    font-size: 3.3vw;
 }
 
 
@@ -507,7 +507,7 @@ input:focus {
 
 
 
-.pagos-texto{
+.pagos-texto, .total{
     font-size: 2vw;
     text-align: center;
 }
@@ -731,6 +731,11 @@ input:focus {
 
     .pagos-texto{
         font-size: 1vw;
+    }
+
+
+    .productos, .total{
+        font-size: 2.7vw;
     }
 }
 
