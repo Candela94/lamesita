@@ -452,6 +452,9 @@ input:focus {
 }
 
 
+.productos{
+    font-size: 2.7vw;
+}
 
 
 
@@ -506,6 +509,7 @@ input:focus {
 
 .pagos-texto{
     font-size: 2vw;
+    text-align: center;
 }
 
 
@@ -618,6 +622,9 @@ input:focus {
 
 
 
+.pagos{
+    width: 80%;
+}
 
 
 
@@ -698,18 +705,33 @@ input:focus {
     }
 
 
+
+
+  
+
 }
 
 
+@media (min-width:768px) and (max-width:1023px){
 
-
-
-@media (min-width:1024) {
-
-    .caja-contenido{
-        padding: 1rem;
+    /* .pagos{
+        width: 70%;
     }
-    
+    .pagos-texto{
+        font-size: 1.5vw;
+        width: 100%;
+        text-align: center;
+    } */
+
+}
+
+
+@media (min-width:1024px) {
+
+
+    .pagos-texto{
+        font-size: 1vw;
+    }
 }
 
 

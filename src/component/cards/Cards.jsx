@@ -255,7 +255,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
           <div className="card-options">
             {caja.productos.map((prod, id) => (
               <div key={`prod-${id}-${prod.nombre}`} className="producto-overlay">
-                <h4>{prod.nombre}</h4>
+                <h4 className='productos'>{prod.nombre}</h4>
 
                 {prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0 && (
                   <ul className="overlay-producto-tipos">
@@ -319,9 +319,9 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
             <div className="pagos">
-              <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo</p>
-              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en 24 horas hábiles una vez realizado el pedido</p>
-              <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte</p>
+              <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo.</p>
+              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido.</p>
+              <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte.</p>
 
 
             </div>
@@ -602,7 +602,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                   <>
                     {base && (
                       <div className="producto-overlay">
-                        <h4>{base.nombre}</h4>
+                        <h4 className='productos'>{base.nombre}</h4>
                         <ul className="overlay-producto-tipos">
                           {base.tipos.filter(t => typeof t === 'string' && t.trim() !== '').map((tipo, tipoIdx) => (
                             <li
@@ -629,7 +629,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                     )}
 
                     <div style={{ textAlign: 'center', fontWeight: 'bold', marginTop: '1.5rem' }}>
-                      <h4>Elige 6 productos: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6</h4>
+                      <h4 className='productos'>Elige 6 productos: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6</h4>
                     </div>
 
                     {otrosProductos.map((prod, idx) => {
@@ -727,7 +727,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
               <div className="pagos">
               <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo</p>
-              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en 24 horas hábiles una vez realizado el pedido</p>
+              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido</p>
               <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte</p>
 
 
