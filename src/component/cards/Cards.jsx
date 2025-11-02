@@ -410,16 +410,15 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   const [extrasSeleccionados, setExtrasSeleccionados] = useState([]);
 
   const handleOpenOverlay = () => setOverlay(true);
-
   const ref = useRef(null);
 
   useEffect(() => {
     if (isOpen && ref.current) {
       setTimeout(() => {
         try {
-          ref.current.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
+          ref.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
           });
         } catch (err) {
           console.warn('scrollIntoView falló en móvil:', err);
@@ -438,33 +437,26 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
       const extra = extrasGlobales.find(e => e.id === extraId);
       return total + (extra?.precio || 0);
     }, 0);
-
     return precioBase + precioExtras;
   }, [caja.precio, extrasSeleccionados]);
 
   const handleExtraToggle = (extraId) => {
-    setExtrasSeleccionados(prev => {
-      if (prev.includes(extraId)) {
-        return prev.filter(id => id !== extraId);
-      } else {
-        return [...prev, extraId];
-      }
-    });
+    setExtrasSeleccionados(prev =>
+      prev.includes(extraId)
+        ? prev.filter(id => id !== extraId)
+        : [...prev, extraId]
+    );
   };
 
   const handleSeleccion = (productoNombre, tipo) => {
-    if (!productoNombre) return; // ✅ evita error Safari
+    if (!productoNombre) return;
 
     const esBase = productoNombre === 'Elige una base';
-
     if (esBase) {
-      setSeleccion((prev) => ({ ...prev, [productoNombre]: tipo }));
+      setSeleccion(prev => ({ ...prev, [productoNombre]: tipo }));
     } else {
-      setSeleccion((prev) => {
-        const productosSeleccionados = Object.keys(prev).filter(
-          p => p !== 'Elige una base'
-        ).length;
-
+      setSeleccion(prev => {
+        const productosSeleccionados = Object.keys(prev).filter(p => p !== 'Elige una base').length;
         if (productosSeleccionados >= 6 && !prev[productoNombre]) {
           alert('Solo puedes seleccionar hasta 6 productos 🙂');
           return prev;
@@ -487,10 +479,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
       return;
     }
 
-    const productosSeleccionados = Object.keys(seleccion).filter(
-      p => p !== 'Elige una base'
-    ).length;
-
+    const productosSeleccionados = Object.keys(seleccion).filter(p => p !== 'Elige una base').length;
     const tieneBase = seleccion['Elige una base'];
 
     if (!tieneBase) {
@@ -504,9 +493,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     }
 
     setOverlay(false);
-    setTimeout(() => {
-      setPasoFinal(true);
-    }, 100);
+    setTimeout(() => setPasoFinal(true), 100);
   };
 
   const construirMensaje = () => {
@@ -514,18 +501,20 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
       .map(([producto, tipo]) => `- ${producto}: ${tipo}`)
       .join('\n');
 
-    let mensaje = `¡Hola! Soy ${nombreUsuario}, he seleccionado "${caja.nombre}" de La Mesita, por ${totalPrice}€. \n En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
+    let mensaje = `¡Hola! Soy ${nombreUsuario}, he seleccionado "${caja.nombre}" de La Mesita, por ${totalPrice}€. 
+En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
 
     if (extrasSeleccionados.length > 0) {
-      const extras = extrasSeleccionados.map(extraId => {
-        const extra = extrasGlobales.find(e => e.id === extraId);
-        return `- ${extra.nombre} (+${extra.precio}€)`;
-      }).join('\n');
+      const extras = extrasSeleccionados
+        .map(extraId => {
+          const extra = extrasGlobales.find(e => e.id === extraId);
+          return `- ${extra.nombre} (+${extra.precio}€)`;
+        })
+        .join('\n');
       mensaje += `\n\nExtras:\n${extras}`;
     }
 
     mensaje += `\n\n¡Muchas gracias!`;
-
     return mensaje;
   };
 
@@ -534,11 +523,11 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
       alert('Por favor, introduce tu nombre 🙂');
       return;
     }
-  
+
     const mensaje = construirMensaje();
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    
+
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
       window.location.href = url;
@@ -554,7 +543,6 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
   const handleToggleCaja = () => {
     onToggle();
-  
     if (isOpen) {
       setOverlay(false);
       setPasoFinal(false);
@@ -602,7 +590,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                   <>
                     {base && (
                       <div className="producto-overlay">
-                        <h4 className='productos'>{base.nombre}</h4>
+                        <h4>{base.nombre}</h4>
                         <ul className="overlay-producto-tipos">
                           {base.tipos.filter(t => typeof t === 'string' && t.trim() !== '').map((tipo, tipoIdx) => (
                             <li
@@ -629,7 +617,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                     )}
 
                     <div style={{ textAlign: 'center', fontWeight: 'bold', marginTop: '1.5rem' }}>
-                      <h4 className='productos'>Elige 6 productos: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6</h4>
+                      <h4>Elige 6 productos: {Object.keys(seleccion).filter(p => p !== 'Elige una base').length} / 6</h4>
                     </div>
 
                     {otrosProductos.map((prod, idx) => {
@@ -642,9 +630,10 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                           onClick={
                             !tieneTipos
                               ? (e) => {
-                                  e.stopPropagation(); // ✅ evita doble firing en móvil
-                                  if (!prod?.nombre) return;
-                                  requestAnimationFrame(() => handleSeleccion(prod.nombre, null));
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  // ✅ Fix Safari/iOS: ejecuta después del frame
+                                  setTimeout(() => handleSeleccion(prod.nombre, null), 0);
                                 }
                               : undefined
                           }
@@ -724,15 +713,6 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                 <h2 className="total">Precio total: {totalPrice}€</h2>
               </div>
 
-
-              <div className="pagos">
-              <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo</p>
-              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda <strong>24 horas hábiles tras haber realizado el pedido.</strong></p>
-              <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte.</p>
-
-
-            </div>
-
               <input
                 type="text"
                 placeholder="Tu nombre"
@@ -792,7 +772,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                 </button>
               </div>
               <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
-                <button className="btn-container " style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
+                <button className="btn-container" style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
                   Volver a editar mi cajita
                 </button>
               </div>
