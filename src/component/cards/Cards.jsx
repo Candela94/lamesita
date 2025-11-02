@@ -320,7 +320,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
             <div className="pagos">
               <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo.</p>
-              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido.</p>
+              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda <strong> 24 horas hábiles tras haber realizado el pedido.</strong></p>
               <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte.</p>
 
 
@@ -727,8 +727,8 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
               <div className="pagos">
               <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo</p>
-              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido</p>
-              <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte</p>
+              <p className="pagos-texto">Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda <strong>24 horas hábiles tras haber realizado el pedido.</strong></p>
+              <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte.</p>
 
 
             </div>
