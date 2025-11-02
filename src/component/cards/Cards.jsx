@@ -407,10 +407,14 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   useEffect(() => {
     if (isOpen && ref.current) {
       setTimeout(() => {
-        ref.current.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center' 
-        });
+        try {
+          ref.current.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        } catch (err) {
+          console.warn('scrollIntoView falló en móvil:', err);
+        }
       }, 100);
     }
   }, [isOpen]);
@@ -440,6 +444,8 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   };
 
   const handleSeleccion = (productoNombre, tipo) => {
+    if (!productoNombre) return; // ✅ evita error Safari
+
     const esBase = productoNombre === 'Elige una base';
 
     if (esBase) {
@@ -524,14 +530,10 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     const numero = '34665940987';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     
-    // Solución optimizada para móvil y escritorio
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    
     if (isMobile) {
-      // En móvil, redirigir directamente (más confiable)
       window.location.href = url;
     } else {
-      // En escritorio, abrir en nueva pestaña
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
@@ -559,10 +561,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
         <span className="nombre">
           <h2 className="nombre-caja">{caja.nombre}</h2>
         </span>
-
-        <button
-          className={`caja-toggle ${isOpen ? 'rotated' : ''}`}
-        >
+        <button className={`caja-toggle ${isOpen ? 'rotated' : ''}`}>
           {isOpen ? <IoClose className='icons' /> : <FaAngleDown className='icons' />}
         </button>
       </div>
@@ -571,35 +570,23 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
         {isOpen && !overlay && !pasoFinal && (
           <div className="caja caja-fade-in">
             <div className="caja-contenido">
-            {/* <div className="imagen-box">
-              <img
-                src={caja.imagen}
-                alt="caja"
-                className="caja-img caja-img-scale"
-              />
-            </div> */}
-
-            <div className="caja-info">
-              <p className="descripcion">{caja.descripcion}</p>
-              <h3 className="precio">{caja.precio}€</h3>
-            </div>
-
-            <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
-              <button className="btn-container" style={{ color: caja.color }}>
-                Personalizar cajita
-              </button>
+              <div className="caja-info">
+                <p className="descripcion">{caja.descripcion}</p>
+                <h3 className="precio">{caja.precio}€</h3>
+              </div>
+              <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
+                <button className="btn-container" style={{ color: caja.color }}>
+                  Personalizar cajita
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         )}
 
         {isOpen && overlay && (
           <div className="caja caja-fade-in">
-          <div className="card-options">
-
-         
-             {/* Primero mostramos la base y luego el bloque de productos */}
-             {(() => {
+            <div className="card-options">
+              {(() => {
                 const base = caja.productos.find(p => p.nombre === 'Elige una base');
                 const otrosProductos = caja.productos.filter(p => p.nombre !== 'Elige una base');
                 return (
@@ -608,7 +595,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                       <div className="producto-overlay">
                         <h4>{base.nombre}</h4>
                         <ul className="overlay-producto-tipos">
-                          {base.tipos.filter(t => t.trim() !== '').map((tipo, tipoIdx) => (
+                          {base.tipos.filter(t => typeof t === 'string' && t.trim() !== '').map((tipo, tipoIdx) => (
                             <li
                               key={`${caja.nombre}-tipo-base-${tipoIdx}`}
                               className="tipos"
@@ -637,13 +624,21 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                     </div>
 
                     {otrosProductos.map((prod, idx) => {
-                      const tieneTipos = prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0;
+                      const tieneTipos = prod.tipos && prod.tipos.filter(t => typeof t === 'string' && t.trim() !== '').length > 0;
                       const estaSeleccionado = !!seleccion[prod.nombre];
                       return (
                         <div
                           key={`${caja.nombre}-prod-${prod.nombre}-${idx}`}
                           className="producto-overlay"
-                          onClick={!tieneTipos ? () => handleSeleccion(prod.nombre, null) : undefined}
+                          onClick={
+                            !tieneTipos
+                              ? (e) => {
+                                  e.stopPropagation(); // ✅ evita doble firing en móvil
+                                  if (!prod?.nombre) return;
+                                  requestAnimationFrame(() => handleSeleccion(prod.nombre, null));
+                                }
+                              : undefined
+                          }
                           style={{
                             cursor: !tieneTipos ? 'pointer' : 'default',
                             padding: !tieneTipos ? '0.7rem' : undefined,
@@ -661,7 +656,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
 
                           {tieneTipos && Array.isArray(prod.tipos) && prod.tipos.length > 0 && (
                             <ul className="overlay-producto-tipos">
-                              {prod.tipos.filter(t => t.trim() !== '').map((tipo, tipoIdx) => (
+                              {prod.tipos.filter(t => typeof t === 'string' && t.trim() !== '').map((tipo, tipoIdx) => (
                                 <li
                                   key={`${caja.nombre}-tipo-${prod.nombre}-${tipo}-${tipoIdx}`}
                                   className="tipos"
@@ -690,104 +685,101 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
                 );
               })()}
 
-          
+              {extrasDisponibles.length > 0 && (
+                <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
+                  <h4 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h4>
+                  {extrasDisponibles.map((extra) => (
+                    <div key={`${caja.nombre}-extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                      <input
+                        type="checkbox"
+                        className='check'
+                        id={`${caja.nombre}-extra-checkbox-${extra.id}`}
+                        checked={extrasSeleccionados.includes(extra.id)}
+                        onChange={() => handleExtraToggle(extra.id)}
+                        style={{
+                          marginRight: '1rem',
+                          cursor: 'pointer',
+                          '--color-caja': caja.color,
+                          accentColor: caja.color,
+                        }}
+                      />
+                      <label htmlFor={`${caja.nombre}-extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
+                        {extra.nombre} (+{extra.precio}€)
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              )}
 
-            {extrasDisponibles.length > 0 && (
-              <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
-                <h4 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h4>
-
-                {extrasDisponibles.map((extra) => (
-                  <div key={`${caja.nombre}-extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                    <input
-                      type="checkbox"
-                      className='check'
-                      id={`${caja.nombre}-extra-checkbox-${extra.id}`}
-                      checked={extrasSeleccionados.includes(extra.id)}
-                      onChange={() => handleExtraToggle(extra.id)}
-                      style={{
-                        marginRight: '1rem',
-                        cursor: 'pointer',
-                        '--color-caja': caja.color,
-                        accentColor: caja.color,
-                      }}
-                    />
-                    <label htmlFor={`${caja.nombre}-extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
-                      {extra.nombre} (+{extra.precio}€)
-                    </label>
-                  </div>
-                ))}
+              <div key={`price-${totalPrice}`} style={{ marginTop: '15px', textAlign: 'center' }}>
+                <h2 className="total">Precio total: {totalPrice}€</h2>
               </div>
-            )}
 
-            <div key={`price-${totalPrice}`} style={{ marginTop: '15px', textAlign: 'center' }}>
-              <h2 className="total">Precio total: {totalPrice}€</h2>
-            </div>
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                value={nombreUsuario}
+                onChange={(e) => setNombreUsuario(e.target.value)}
+                className="input-nombre"
+              />
 
-            <input
-              type="text"
-              placeholder="Tu nombre"
-              value={nombreUsuario}
-              onChange={(e) => setNombreUsuario(e.target.value)}
-              className="input-nombre"
-            />
-
-            <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
-              <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
-                Guardar productos en mi cajita
-              </button>
+              <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
+                <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
+                  Guardar productos en mi cajita
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         )}
 
         {isOpen && pasoFinal && (
           <div className="caja caja-fade-in">
-          <div className="caja-resumen caja-resumen-scale">
-            <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
-            <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
-            <div className="caja-info-resumen">
-              <h4>Productos:</h4>
-              <ul className='info-resumen'>
-                {Object.entries(seleccion).map(([producto, tipo]) => (
-                  <li key={`resumen-${caja.nombre}-${producto}`}>
-                    {tipo === 'Seleccionado' ? producto : `${producto}: `}<strong>{tipo !== 'Seleccionado' && tipo}</strong>
-                  </li>
-                ))}
-              </ul>
+            <div className="caja-resumen caja-resumen-scale">
+              <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
+              <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
+              <div className="caja-info-resumen">
+                <h4>Productos:</h4>
+                <ul className='info-resumen'>
+                  {Object.entries(seleccion).map(([producto, tipo]) => (
+                    <li key={`resumen-${caja.nombre}-${producto}`}>
+                      {tipo === 'Seleccionado' ? producto : `${producto}: `}<strong>{tipo !== 'Seleccionado' && tipo}</strong>
+                    </li>
+                  ))}
+                </ul>
 
-              {extrasSeleccionados.length > 0 && (
-                <>
-                  <h4 style={{ marginTop: '15px' }}>Extras:</h4>
-                  <ul>
-                    {extrasSeleccionados.map(extraId => {
-                      const extra = extrasGlobales.find(e => e.id === extraId);
-                      return (
-                        <li key={`resumen-extra-${caja.nombre}-${extraId}`}>
-                          {extra.nombre} <strong>(+{extra.precio}€)</strong>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </>
-              )}
+                {extrasSeleccionados.length > 0 && (
+                  <>
+                    <h4 style={{ marginTop: '15px' }}>Extras:</h4>
+                    <ul>
+                      {extrasSeleccionados.map(extraId => {
+                        const extra = extrasGlobales.find(e => e.id === extraId);
+                        return (
+                          <li key={`resumen-extra-${caja.nombre}-${extraId}`}>
+                            {extra.nombre} <strong>(+{extra.precio}€)</strong>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                )}
 
-              <h3 style={{ fontSize: '20px', marginTop: '2rem' }}>
-                Total: {totalPrice}€
-              </h3>
-            </div>
+                <h3 style={{ fontSize: '20px', marginTop: '2rem' }}>
+                  Total: {totalPrice}€
+                </h3>
+              </div>
 
-            <div onClick={handleEnviarWhatsApp} className="caja-btn caja-btn-delayed">
-              <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
-                Contacta y haz tu pedido
-              </button>
-            </div>
-            <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
-              <button className="btn-container " style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
-                Volver a editar mi cajita
-              </button>
+              <div onClick={handleEnviarWhatsApp} className="caja-btn caja-btn-delayed">
+                <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
+                  Contacta y haz tu pedido
+                </button>
+              </div>
+              <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
+                <button className="btn-container " style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
+                  Volver a editar mi cajita
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         )}
       </div>
     </div>
