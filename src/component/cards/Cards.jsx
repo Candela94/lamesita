@@ -586,13 +586,13 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
         {isOpen && !overlay && !pasoFinal && (
           <div className="caja caja-fade-in">
             <div className="caja-contenido">
-            <div className="imagen-box">
+            {/* <div className="imagen-box">
               <img
                 src={caja.imagen}
                 alt="caja"
                 className="caja-img caja-img-scale"
               />
-            </div>
+            </div> */}
 
             <div className="caja-info">
               <p className="descripcion">{caja.descripcion}</p>

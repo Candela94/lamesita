@@ -26,7 +26,7 @@ const Galeria = () => {
       });
     }
   };
-
+  
 
 
   useEffect(() => {
@@ -37,11 +37,11 @@ const Galeria = () => {
         goPrev();
       }
     };
-
+  
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [indiceActual]); // importante para que tenga el índice actualizado
-
+  
 
 
 
@@ -52,7 +52,7 @@ const Galeria = () => {
       scrollToIndex(nuevoIndice);
     }
   };
-
+  
   const goNext = () => {
     if (indiceActual < imagenesMercado.length - 1) {
       const nuevoIndice = indiceActual + 1;
@@ -62,7 +62,7 @@ const Galeria = () => {
   };
 
   // Detectar scroll manual
-
+  
   const handleScroll = () => {
 
 
@@ -72,7 +72,7 @@ const Galeria = () => {
       const scrollPos = container.scrollLeft;
       const itemWidth = container.offsetWidth;
       const newIndex = Math.round(scrollPos / itemWidth);
-
+      
       if (newIndex !== indiceActual) {
         setIndiceActual(newIndex);
       }
@@ -104,7 +104,7 @@ const Galeria = () => {
 
       />
 
-      <div
+      <div 
 
         ref={scrollContainerRef}
         className="scroll-container"
@@ -116,27 +116,22 @@ const Galeria = () => {
             key={id}
             className="imagen-wrapper"
           >
-            <img
-              src={src.replace("/upload/", "/upload/f_auto,q_auto,w_1200/")}
-              alt={`mercado-${id}`}
-              loading="lazy"
-            />
-
+            <img src={src} alt={`mercado-${id}`} loading="lazy" />
           </div>
         ))}
       </div>
 
+     
+{/* 🔁 Flechas para escritorio */}
+<div className="flechas-navegacion">
+  <button onClick={goPrev}>‹</button>
+  <button onClick={goNext}>›</button>
+</div>
 
-      {/* 🔁 Flechas para escritorio */}
-      <div className="flechas-navegacion">
-        <button onClick={goPrev}>‹</button>
-        <button onClick={goNext}>›</button>
-      </div>
 
 
-
-      {/* Indicadores */}
-      <div className="indicadores">
+     {/* Indicadores */}
+     <div className="indicadores">
         {imagenesMercado.map((_, idx) => (
           <button
             key={idx}

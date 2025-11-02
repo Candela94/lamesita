@@ -7,13 +7,14 @@
 
 .header-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   padding: 1rem;
 }
 
 .menu-container {
   position: relative;
+
 }
 
 .menu-icon-wrapper {
@@ -41,8 +42,8 @@
 .header-ul {
   position: fixed;
   top: 4px;
-  left: 4px;
-  width: 60vw;
+  right: 4px;
+  width: 90vw;
   height: calc(100dvh - 8px);
   background-color: var(--primary);
   box-shadow: 1px 1px 10px var(--primary);
@@ -52,13 +53,26 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border-radius: 10px 20px 20px 10px;
+  border-radius: 20px 10px 10px 20px;
 }
 
 .header-li a {
   text-decoration: none;
+  text-align: end;
+  width: 100%;
   color: var(--background);
-  font-size: 5.5vw;
+  font-size: 14vw;
+}
+
+
+
+.header-li{
+  /* background-color: pink; */
+  display: flex;
+  justify-content: end;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--background);
 }
 
 /* Fondo desenfocado */

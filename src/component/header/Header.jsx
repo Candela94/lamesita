@@ -5,6 +5,8 @@ import './header.css';
 import { FaTiktok } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { NavLink } from "react-router";
+import { FiMenu } from "react-icons/fi";
+
 
 export const Header = () => {
     const [menuAbierto, setMenuAbierto] = useState(false);
@@ -46,9 +48,9 @@ export const Header = () => {
                         {menuAbierto ? (
                             <IoClose onClick={handleToggleMenu} className="menu-icon" />
                         ) : (
-                            <p className="header-menu" onClick={handleToggleMenu}>
-                                MENÚ
-                            </p>
+                            <div className="header-menu" onClick={handleToggleMenu}>
+                             <FiMenu style={{marginTop:'0.3rem'}}/>
+                            </div>
                         )}
                     </div>
 
@@ -70,9 +72,10 @@ export const Header = () => {
 
 
                                     className='header-ul'
-                                    initial={{ x: '-100%', opacity: 0 }}
+                                    initial={{ x: '100%', opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
-                                    exit={{ x: '-100%', opacity: 0 }}
+                                    exit={{ x: '100%', opacity: 0 }}
+                                    
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                 >
                                     <li className="header-li">
