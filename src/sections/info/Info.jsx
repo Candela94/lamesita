@@ -195,8 +195,11 @@ const Info = ({id}) => {
                     onClick={() => window.location.href = 'mailto:hola@lamesita.es'}
 
                   >
+                  
                     {/* <IoMail /> */}
-                    <h4 className="opcion">ESCRIBE UN CORREITO</h4>
+                    <div className="correo">
+                    <h4 style={{lineHeight:'1'}}className="opcion">ESCRIBE UN CORREITO  </h4>
+                    <p className="correo-p">hola@lamesita.es</p></div>
                   </li>
                 </ul>
               )}

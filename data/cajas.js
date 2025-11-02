@@ -136,10 +136,8 @@ export const imagenesMercado = [
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/IMG_4155_mrsrwd.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-8_jdccar.jpg', 
 
-    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/IMG_4161_c09dql.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/LAMESITA_-7_f09udm.jpg', 
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/IMG_4147_l3ivk8.jpg',
-    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/LAMESITA_-6_gg6uzk.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762087459/Foto_25_lziraa.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_1_b102ar.jpg'
 

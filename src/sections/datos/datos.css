@@ -1,5 +1,13 @@
 
 
+.section-datos{display: flex;
+flex-direction: column;
+
+margin-top: 1rem;
+min-height: 100dvh;
+}
+
+
 
 .datos-main{
 
@@ -56,6 +64,10 @@ color: inherit;
 
 
     .datos-titulo{
-        font-size: 9vw;
+        font-size: 6.8vw;
+    }
+
+    .datos-texto{
+        font-size: 2vw;
     }
 }

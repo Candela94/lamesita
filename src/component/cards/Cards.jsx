@@ -28,7 +28,7 @@ export const Card = ({ dia, horario }) => (
 
 export const Location = () => (
   <a
-    href="https://www.google.com/maps/place/Plaza+de+Jes%C3%BAs,+Valencia"
+    href="https://www.google.com/maps/dir//Mercado+Municipal+de+Jes%C3%BAs+-+Patraix,+Jes%C3%BAs,+46007+Valencia/@39.454811,-0.3654215,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0xd604faf9064664b:0xa0ffcb3e23a9a0b2!2m2!1d-0.3885811!2d39.4599901?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D"
     target="_blank"
     rel="noopener noreferrer"
     className="card-location card-gsap"
@@ -242,7 +242,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
             </div>
 
             <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
-              <button className="btn-container " style={{ color: caja.color }}>
+              <button className="btn-container personalizar " style={{ color: caja.color }}>
                 Personalizar cajita
               </button>
             </div>

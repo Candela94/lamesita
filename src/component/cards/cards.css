@@ -135,7 +135,7 @@
     color: var(--background);
 }
 
-.texto{
+.texto {
     font-size: 4vw;
     width: 100%;
     margin: 0.7rem 0;
@@ -204,15 +204,15 @@
 
     display: flex;
     justify-content: center;
-   
-   margin-bottom: 1rem;
+
+    margin-bottom: 1rem;
     width: 100%;
     /* border: 6px solid yellow; */
 
-    
+
 }
 
- .caja-dos{
+.caja-dos {
     margin-bottom: 1rem;
 }
 
@@ -291,12 +291,12 @@
 
 
 
-.caja-resumen {
-}
+.caja-resumen {}
+
 .caja-info {
     display: flex;
 
-    
+
     justify-content: space-between;
     align-items: center;
 
@@ -311,7 +311,7 @@
     display: flex;
     flex-direction: column;
 
-    
+
     justify-content: space-between;
     align-items: center;
 
@@ -338,7 +338,7 @@
     margin-top: 1rem;
     font-size: 5vw;
 
-    
+
 }
 
 
@@ -453,7 +453,7 @@ input:focus {
 }
 
 
-.productos{
+.productos {
     font-size: 3.3vw;
 }
 
@@ -465,50 +465,52 @@ input:focus {
 /* Botón de toggle con rotación */
 .caja-toggle {
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .caja-toggle.rotated {
+}
+
+.caja-toggle.rotated {
     transform: rotate(180deg);
-  }
-  
-  /* ACORDEÓN SUAVE CON MAX-HEIGHT */
-  .caja-accordion {
+}
+
+/* ACORDEÓN SUAVE CON MAX-HEIGHT */
+.caja-accordion {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-10px);
     transition:
-      max-height 2s cubic-bezier(0.65, 0, 0.35, 1),
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-  
-  .caja-accordion.accordion-open {
+        max-height 2s cubic-bezier(0.65, 0, 0.35, 1),
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.caja-accordion.accordion-open {
     max-height: 5000px;
     opacity: 1;
     transform: translateY(0);
-  }
-  
-  
-  .caja-accordion-content {
+}
+
+
+.caja-accordion-content {
     /* Este contenedor interno no tiene restricciones de altura */
-  }
-  
-  /* Contenedor principal de la caja */
-  .caja {
-    overflow: visible; /* Cambiado para no cortar la imagen */
-  }
-  
-  /* Fade in para contenido */
-  .caja-fade-in {
+}
+
+/* Contenedor principal de la caja */
+.caja {
+    overflow: visible;
+    /* Cambiado para no cortar la imagen */
+}
+
+/* Fade in para contenido */
+.caja-fade-in {
     animation: fadeInSlide 0.5s ease-out forwards;
-  }
-  
+}
 
 
 
 
-.pagos-texto, .total{
+
+.pagos-texto,
+.total {
     font-size: 2vw;
     text-align: center;
 }
@@ -518,78 +520,82 @@ input:focus {
 
 
 
-  @keyframes fadeInSlide {
+@keyframes fadeInSlide {
     from {
-      opacity: 0;
-      transform: translateY(-10px);
+        opacity: 0;
+        transform: translateY(-10px);
     }
+
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
-  /* Imagen con scale */
-  .caja-img-scale {
+}
+
+/* Imagen con scale */
+.caja-img-scale {
     animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
-  }
-  
-  @keyframes scaleIn {
+}
+
+@keyframes scaleIn {
     from {
-      opacity: 0;
-      transform: scale(0.9);
+        opacity: 0;
+        transform: scale(0.9);
     }
+
     to {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
-  }
-  
-  /* Botón con delay */
-  .caja-btn-delayed {
+}
+
+/* Botón con delay */
+.caja-btn-delayed {
     animation: fadeInButton 0.4s ease-out 0.5s both;
-  }
-  
-  @keyframes fadeInButton {
+}
+
+@keyframes fadeInButton {
     from {
-      opacity: 0;
-      transform: scale(0.95);
+        opacity: 0;
+        transform: scale(0.95);
     }
+
     to {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
-  }
-  
-  /* Resumen con scale suave */
-  .caja-resumen-scale {
+}
+
+/* Resumen con scale suave */
+.caja-resumen-scale {
     animation: scaleInResumen 0.4s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
-  }
-  
-  @keyframes scaleInResumen {
+}
+
+@keyframes scaleInResumen {
     from {
-      opacity: 0;
-      transform: scale(0.95);
+        opacity: 0;
+        transform: scale(0.95);
     }
+
     to {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
-  }
-  
-  /* Transiciones para elementos interactivos */
-  .tipos,
-  .btn-container {
+}
+
+/* Transiciones para elementos interactivos */
+.tipos,
+.btn-container {
     transition: all 0.3s ease;
-  }
-  
-  .tipos:hover {
+}
+
+.tipos:hover {
     transform: translateY(-2px);
-  }
-  
-  .btn-container:active {
+}
+
+.btn-container:active {
     transform: scale(0.95);
-  }
+}
 
 
 
@@ -623,7 +629,7 @@ input:focus {
 
 
 
-.pagos{
+.pagos {
     width: 80%;
 }
 
@@ -655,7 +661,7 @@ input:focus {
 
     .caja-item {
         gap: 0;
-        height:15vh;
+        height: 15vh;
     }
 
 
@@ -701,19 +707,19 @@ input:focus {
     }
 
 
-    .btn-container{
+    .btn-container {
         font-size: 1.8vw;
     }
 
 
 
 
-  
+
 
 }
 
 
-@media (min-width:768px) and (max-width:1023px){
+@media (min-width:768px) and (max-width:1023px) {
 
     /* .pagos{
         width: 70%;
@@ -730,17 +736,42 @@ input:focus {
 @media (min-width:1024px) {
 
 
-    .pagos-texto{
+    .pagos-texto {
         font-size: 1vw;
     }
 
 
-    .productos, .total{
+    .caja-contenido {
+        display: flex;
+        align-items: first baseline;
+    }
+
+    .caja-info{
+        padding-top: 0;
+    }
+
+
+    .caja-btn {
+        display: flex;
+        justify-content: end;
+    }
+
+    .productos,
+    .total {
         font-size: 2.7vw;
     }
+
+
+
+    .btn-container,
+    .input-nombre {
+        width: 60%;
+    }
+
+
+
+    .btn-container{
+        margin-bottom: 0;
+    }
+
 }
-
-
-
-
-

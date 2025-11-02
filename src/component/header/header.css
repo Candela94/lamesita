@@ -188,7 +188,7 @@ width: 40%;
   
   .desk-li {
     text-align: center;
-     /* evita deformaciones */
+    
   }
 
 
@@ -196,13 +196,15 @@ width: 40%;
     display: flex;
     justify-content: center;
     /* background-color: aquamarine; */
-    width: 30%;
+    width: 30%;  
+  
   }
   
   .redes-lista {
     display: flex;
     align-items: center;
     gap: 2.5rem;
+    
   }
   
 

@@ -16,13 +16,13 @@ const Datos = () => {
     };
 
     return (
-        <section className='section'>
+        <section className='section section-datos'>
             <motion.main
                 className="datos-main"
-                initial={{ x: '-100%', opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: '100%', opacity: 0 }}
-                transition={{ duration: 0.5 }}
+                // initial={{ x: '-100%', opacity: 0 }}
+                // animate={{ x: 0, opacity: 1 }}
+                // exit={{ x: '100%', opacity: 0 }}
+                // transition={{ duration: 0.5 }}
             >
                 <h1 className="datos-titulo">
                     TU PRIVACIDAD <br /> SE QUEDA  <br /> EN LA MESITA
@@ -37,7 +37,7 @@ const Datos = () => {
 
                     <p className="datos-texto">
                         <strong>No guardamos información para campañas, ni compartimos tus datos con nadie. </strong>
-                        Tu conversación con nosotros se queda entre nosotros, como una charla de confianza al otro lado de la mesa.
+                        Tu conversación con nosotros se queda aquí, como una charla de confianza al otro lado de la mesa.
                     </p>
 
                     <p className="datos-texto">
