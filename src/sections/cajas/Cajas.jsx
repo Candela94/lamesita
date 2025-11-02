@@ -29,7 +29,7 @@ const CajasSection = ({id}) => {
                     <h1 className='titulo-cajas'>LO JUSTO <br />PARA UN GRAN <br/> MOMENTO</h1>
             
 
-                <p className="texto">Pequeños momentos para disfrutar sin complicaciones. Cada cajita está pensada para compartir, regalar o darse un capricho con productos seleccionados de nuestra tienda. Combina sabores, abre una botella y deja que lo simple vuelva a ser especial.</p>
+                <p className="texto">Pequeños momentos para disfrutar sin complicaciones.<br/> Cada cajita está pensada para compartir, regalar o darse un capricho con productos seleccionados de nuestra tienda.<br/> Combina sabores, abre una botella y deja que lo simple vuelva a ser especial.</p>
 
                 <div className="galeria">
                     <AnimatePresence>
