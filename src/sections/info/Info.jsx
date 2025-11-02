@@ -135,7 +135,7 @@ const Info = ({id}) => {
 
 
 
-        <h1 className="titulo-ubicacion">VISÍTANOS EN EL MERCADO DE JESÚS</h1>
+        <h1 className="titulo-ubicacion">VISÍTANOS<br/> EN EL MERCADO <br/>DE JESÚS</h1>
 
 
          <div className="imagen-mapa"> 

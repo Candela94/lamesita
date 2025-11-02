@@ -76,13 +76,13 @@ export const Header = () => {
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                 >
                                     <li className="header-li">
-                                        <a href="#about" onClick={handleLinkClick}>LA MESITA</a>
+                                        <a href="#about" onClick={handleLinkClick}>NOSOTROS</a>
                                     </li>
                                     <li className="header-li">
-                                        <a href="#cajas" onClick={handleLinkClick}>NUESTRAS CAJITAS</a>
+                                        <a href="#cajas" onClick={handleLinkClick}>LAS CAJITAS</a>
                                     </li>
                                     <li className="header-li">
-                                        <a href="#info" onClick={handleLinkClick}>VISÍTANOS</a>
+                                        <a href="#info" onClick={handleLinkClick}>CONTACTO</a>
                                     </li>
 
 
