@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 
 
 }
@@ -291,6 +292,8 @@
 @media (min-width:1024px) {
 
 
+
+    
     .footer-privacy{
 
         display: block;
@@ -298,7 +301,7 @@
         padding: 0.5rem;
             border-radius: 10px 10px 0 0 ;
     cursor: pointer;
-    
+    margin-top: auto;
     }
     
     
@@ -308,6 +311,9 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+        pointer-events: auto;
+  position: relative;
+  z-index: 10;
     }
     
     .logo-img{
@@ -334,17 +340,20 @@
 
 
     .imagen-mapa {
-        width: 55%;
+        width: 49%;
         height: auto;
         /* border: 6px solid yellow; */
         display: flex;
         justify-content: right;
         position: absolute;
-        right: -5%;
+        right: -4%;
         top: 0%;
         margin-top: 3rem;
 
     }
 
+    .parrafo-footer{
+        background-color: yellow;
+    }
     
 }

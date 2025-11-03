@@ -131,20 +131,21 @@ export const HeaderDesk = () => {
             <header className="header-desk">
                 <nav className="desk-nav">
                     <ul className="desk-ul">
+                    <div className="desk-logo"><a href="#intro"><img src="img/LOGO_AZUL_1.png" alt="logo" className="logo-header" /></a></div>
+
                     <li className="desk-li text-header"><a href="#about">NOSOTROS</a></li>
                     <li className="desk-li text-header"><a href="#cajas">LAS CAJITAS</a></li>
 
 
 
-                    
-                        <div className="desk-logo"><a href="#intro"><img src="img/LOGO_AZUL_1.png" alt="logo" className="logo-header" /></a></div>
+                    <li className="desk-li text-header" ><a href="#info">CONTACTO</a></li>
+
                        
                      
 
 
                        
                             <ul className="redes-lista">
-                            <li className="desk-li text-header" ><a href="#info">CONTACTO</a></li>
 
                                 <li className="redes-icons"> <a target="_blank" href="https://www.instagram.com/lamesita.valencia"><RiInstagramFill style={{marginTop:'0.5rem'}} className="icons-desk" /></a></li>
                                 <li className="redes-icons"> <a target="_blank" href="https://www.tiktok.com/@lamesita.valencia"><FaTiktok style={{marginTop:'0.5rem'}} className="icons-desk" /></a></li>

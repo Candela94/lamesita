@@ -221,11 +221,13 @@ const Info = ({id}) => {
 
     <footer className="footer-privacy">
 
+    <NavLink to="/privacy" className="footer-info">
+  <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo-img" />
+  <span style={{color:'var(--background'}}> 2025 — Política de privacidad</span>
+</NavLink>
 
-      <NavLink to='/privacy'><div className="footer-info">
-        <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo-img" />
-        <p className="parrafo">- 2025 - Política de privacidad</p>
-      </div></NavLink>
+
+
 
     </footer>
 
