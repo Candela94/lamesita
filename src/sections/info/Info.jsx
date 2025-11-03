@@ -1,14 +1,14 @@
 import './info.css'
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { Card,  Location } from '../../component/cards/Cards';
+import { Card, Location } from '../../component/cards/Cards';
 import { FaAngleDown } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 import { NavLink } from 'react-router';
 
-const Info = ({id}) => {
+const Info = ({ id }) => {
 
 
 
@@ -120,116 +120,116 @@ const Info = ({id}) => {
 
   }, [visible, renderDesplegable]);
 
-  
+
 
   return (
 
 
 
-<>
+    <>
 
-    <main id={id} className="mapa-card section">
-
-
-
-      <div className="titulo-ilustracion">
+      <main id={id} className="mapa-card section">
 
 
 
-        <h1 className="titulo-ubicacion">VISÍTANOS<br/> EN EL MERCADO <br/>DE JESÚS</h1>
-
-
-         <div className="imagen-mapa"> 
-          <img
-            ref={imgRef}
-            src="/img/merc.png"
-            alt="mercado"
-            className="ilu-mercado"
-          />
-         </div> 
-
-
-      </div>
+        <div className="titulo-ilustracion">
 
 
 
+          <h1 className="titulo-ubicacion">VISÍTANOS<br /> EN EL MERCADO <br />DE JESÚS</h1>
 
 
-      <div className="horarios">
-        <Card dia="LUNES A SÁBADO" horario="8:00 a 14:30" />
-        <Location />
-      </div>
+          <div className="imagen-mapa">
+            <img
+              ref={imgRef}
+              src="/img/merc.png"
+              alt="mercado"
+              className="ilu-mercado"
+            />
+          </div>
 
 
-      <div className="footer">
-        <div className="mensaje">
-          <ul className="mensaje-opciones">
-            <div className="mensajito-wrapper">
-              <div className="mensajito" onClick={handleToggle}>
-                <h3 className="titulo">ENVÍA UN MENSAJITO</h3>
-                <FaAngleDown className={visible ? 'flecha-rotada' : ''} />
+        </div>
+
+
+
+
+
+        <div className="horarios">
+          <Card dia="LUNES A SÁBADO" horario="8:00 a 14:30" />
+          <Location />
+        </div>
+
+
+        <div className="footer">
+          <div className="mensaje">
+            <ul className="mensaje-opciones">
+              <div className="mensajito-wrapper">
+                <div className="mensajito" onClick={handleToggle}>
+                  <h3 className="titulo">ENVÍA UN MENSAJITO</h3>
+                  <FaAngleDown className={visible ? 'flecha-rotada' : ''} />
+                </div>
+
+                {renderDesplegable && (
+                  <ul
+                    ref={desplegableRef}
+                    className="mensaje-opciones-desplegable"
+                  >
+                    <li
+                      ref={el => opcionesRef.current[0] = el}
+                      className="opcion-mensaje"
+                      onClick={() => window.location.href = 'https://wa.me/34665940987'}
+
+                    >
+
+                      <h4 className="opcion">CHATÉANOS</h4>
+                      <IoLogoWhatsapp style={{ marginBottom: '0.3rem' }} />
+                    </li>
+
+
+
+
+                    <li
+                      ref={el => opcionesRef.current[1] = el}
+                      className="opcion-mensaje"
+                      onClick={() => window.location.href = 'mailto:hola@lamesita.es'}
+
+                    >
+
+                      {/* <IoMail /> */}
+                      <div className="correo">
+                        <h4 style={{ lineHeight: '1' }} className="opcion">ESCRIBE UN CORREITO  </h4>
+                        <p className="correo-p">hola@lamesita.es</p></div>
+                    </li>
+                  </ul>
+                )}
               </div>
 
-              {renderDesplegable && (
-                <ul
-                  ref={desplegableRef}
-                  className="mensaje-opciones-desplegable"
-                >
-                  <li
-                    ref={el => opcionesRef.current[0] = el}
-                    className="opcion-mensaje"
-                    onClick={() => window.location.href = 'https://wa.me/34665940987'}
-
-                  >
-                   
-                    <h4 className="opcion">CHATÉANOS</h4>
-                    <IoLogoWhatsapp style={{marginBottom:'0.3rem'}}/>
-                  </li>
-
-
-
-
-                  <li
-                    ref={el => opcionesRef.current[1] = el}
-                    className="opcion-mensaje"
-                    onClick={() => window.location.href = 'mailto:hola@lamesita.es'}
-
-                  >
-                  
-                    {/* <IoMail /> */}
-                    <div className="correo">
-                    <h4 style={{lineHeight:'1'}}className="opcion">ESCRIBE UN CORREITO  </h4>
-                    <p className="correo-p">hola@lamesita.es</p></div>
-                  </li>
-                </ul>
-              )}
-            </div>
-
-            <div className="mensajito-phone"
-              onClick={() => window.location.href = 'tel:+34665940987'} 
->
-              {/* <BsFillTelephoneFill /> */}
-              <h3 className="titulo">LLÁMANOS</h3>
-            </div>
-          </ul>
-        </div>
+              <div className="mensajito-phone"
+                onClick={() => window.location.href = 'tel:+34665940987'}
+              >
+                {/* <BsFillTelephoneFill /> */}
+                <h3 className="titulo">LLÁMANOS</h3>
+              </div>
+            </ul>
+          </div>
         </div>
 
 
 
-    </main>
+      </main>
 
-    <footer className="footer-privacy">
+      <footer className="footer-privacy">
 
-    <NavLink to="/privacy" className="footer-info">
-  <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo-img" />
-  <span style={{color:'var(--background'}}> 2025 — Política de privacidad</span>
-</NavLink>
-
-
+        <NavLink to="/privacy" className="footer-info">
+          <img src="/img/LOGO_BEIGE_1.png" alt="logo" className="logo-img" />
+          <span style={{ color: 'var(--background' }}> 2025 — Política de privacidad</span>
+        </NavLink>
 
 
-    </footer>
+
+
+      </footer>
 
     </>
   );
