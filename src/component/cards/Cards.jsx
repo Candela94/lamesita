@@ -306,7 +306,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                       }}
                     />
                     <label htmlFor={`extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
-                      {extra.nombre} (+{extra.precio}€)
+                      {extra.nombre} <strong>+{extra.precio}€</strong>
                     </label>
                   </div>
                 ))}
@@ -689,7 +689,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
                   <h4 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h4>
                   {extrasDisponibles.map((extra) => (
-                    <div key={`${caja.nombre}-extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                    <div key={`${caja.nombre}-extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px'  }}>
                       <input
                         type="checkbox"
                         className='check'
@@ -704,7 +704,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                         }}
                       />
                       <label htmlFor={`${caja.nombre}-extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
-                        {extra.nombre} (+{extra.precio}€)
+                        {extra.nombre} <strong> +{extra.precio}€</strong>
                       </label>
                     </div>
                   ))}

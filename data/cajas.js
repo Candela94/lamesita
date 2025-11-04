@@ -3,7 +3,7 @@
 export const extrasGlobales = [
     {
       id: 'chocolate',
-      nombre: 'Barra de chocolate artesano',
+      nombre: 'Barra de chocolate artesano (sabores a elegir al terminar tu pedido)',
       precio: 4.50,
 
       tipos: [
@@ -12,7 +12,7 @@ export const extrasGlobales = [
     },
     {
       id: 'mermeladas',
-      nombre: 'Mermeladas Lorusso 175gr',
+      nombre: 'Mermeladas Lorusso 175g (sabores a elegir al terminar tu pedido)',
       precio: 7,
       tipos: [
         'Fresa', 'Mora', 'Arándanos', 'Frutos rojos', 'Frambuesa',
@@ -76,7 +76,7 @@ export const cajas = [
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Elegante, pensada para los amantes del queso y los maridajes.',
       productos: [
-        { nombre: 'Cava Murviedro'  },
+        { nombre: 'Vino Luna Lunera Tinto'  },
         { nombre: 'Queso artesanal de cabra 150g' },
         { nombre: 'Queso de oveja trufado 200g' },
         { nombre: 'Queso Maasdam 200g' },
@@ -108,6 +108,8 @@ export const cajas = [
         { nombre: 'Miel 500g' , tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota']}
 
       ],
+
+
       color: '#046a42',
       extrasDisponibles: ['chocolate']
     }
@@ -132,23 +134,17 @@ export const imagenesMercado = [
 
    
 
-    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/IMG_4174_hei7qr.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/LAMESITA_-5_fcxjpa.jpg', 
     
 
   
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_2_j1vvpo.jpg',
 
-
-
-    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-4_mcxscn.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-9_qlfvkq.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-3_dlb8d0.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/IMG_4155_mrsrwd.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086152/LAMESITA_-8_jdccar.jpg', 
 
-    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086151/LAMESITA_-7_f09udm.jpg', 
-    'https://res.cloudinary.com/dnz96cick/image/upload/v1762086150/IMG_4147_l3ivk8.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762087459/Foto_25_lziraa.jpg',
     'https://res.cloudinary.com/dnz96cick/image/upload/v1762086153/LAMESITA_1_b102ar.jpg'
 
