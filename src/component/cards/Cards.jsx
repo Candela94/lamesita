@@ -320,7 +320,9 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
             <div className="pagos">
               <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo.</p>
+              
               <p className="pagos-texto"><strong>Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido.</strong></p>
+              <p className="pagos-texto"><strong>Cada cajita se prepara de forma artesanal, por lo que los pesos en gramos pueden presentar ligeras variaciones.</strong></p>
               <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte.</p>
 
 

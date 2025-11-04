@@ -35,16 +35,21 @@ export const cajas = [
       descripcion: 'Ligera, social y lista para disfrutar con un buen vino.',
       productos: [
         { nombre: 'Jamon serrano 200g' },
-        { nombre: 'Queso semicurado García Vaquero' },
+        { nombre: 'Queso semicurado 230g' },
         { nombre: 'Fuet (2ud)' },
-        { nombre: 'Membrillo' },
+        { nombre: 'Membrillo 200gr' },
         { nombre: 'Aceite de oliva virgen extra 250ml' },
         { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] },
-        { nombre: 'Miel 500gr', tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota'] }
+        { nombre: 'Miel 500g', tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota'] }
       ],
       color: '#0000EE',
       extrasDisponibles: ['chocolate']
     },
+
+
+
+
+
   
     {
       nombre: 'CAJITA PICADA',
@@ -55,10 +60,10 @@ export const cajas = [
         { nombre: 'Salchichón ibérico 200g' },
         
         { nombre: 'Lomo de campo ibérico 150g' },
-        { nombre: 'Queso Maasdam 150g' },
-        { nombre: 'Queso de oveja trufado 150g' },
+        { nombre: 'Queso Maasdam 200g' },
+        { nombre: 'Queso de oveja trufado 200g' },
         { nombre: 'Membrillo 200g' },
-        { nombre: 'Miel 500gr', tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota'] },
+        { nombre: 'Miel 500g', tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota'] },
         { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] }
       ],
       color: '#af2325',
@@ -67,14 +72,14 @@ export const cajas = [
   
     {
       nombre: 'CAJITA QUESOS',
-      precio: 36,
+      precio: 37,
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Elegante, pensada para los amantes del queso y los maridajes.',
       productos: [
         { nombre: 'Cava Murviedro'  },
         { nombre: 'Queso artesanal de cabra 150g' },
-        { nombre: 'Queso de oveja trufado 150g' },
-        { nombre: 'Queso Maasdam 150g' },
+        { nombre: 'Queso de oveja trufado 200g' },
+        { nombre: 'Queso Maasdam 200g' },
         { nombre: 'Queso Havarti en lonchas 200g' },
         { nombre: 'Queso curado 200g' },
         { nombre: 'Membrillo 200g' },
@@ -90,16 +95,16 @@ export const cajas = [
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Crea tu cajita a medida, escoge una base y 6 productos a elegir entre los disponibles',
       productos: [
-        { nombre: 'Elige una base', tipos: ['Cava Murviedro', 'Vino Luna Lunera'] },
+        { nombre: 'Elige una base', tipos: ['Cava Murviedro', 'Vino Luna Lunera Blanco', 'Vino Luna Lunera Tinto'] },
         { nombre: 'Jamón serrano 200g' },
-        { nombre: 'Queso semicurado García Vaquero' },
-        { nombre: 'Fuet' },
-        { nombre: 'Membrillo' },
+        { nombre: 'Queso semicurado 230g' },
+        { nombre: 'Fuet (2ud)' },
+        { nombre: 'Membrillo 200g' },
         { nombre: 'Aceite de oliva virgen extra 250ml' },
      
         { nombre: 'Salchichón ibérico 200g' },
-        { nombre: 'Lomo de campo ibérico' },
-        { nombre: 'Queso Maasdam 150g' },
+        { nombre: 'Lomo de campo ibérico 150g' },
+        { nombre: 'Queso Maasdam 200g' },
         { nombre: 'Miel 500g' , tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota']}
 
       ],
