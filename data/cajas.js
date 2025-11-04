@@ -4,11 +4,15 @@ export const extrasGlobales = [
     {
       id: 'chocolate',
       nombre: 'Barra de chocolate artesano',
-      precio: 4.50
+      precio: 4.50,
+
+      tipos: [
+        'Negro(85%)', 'Almengras, naranja y sésamo (72%)', 'Café arábico de tueste natural (72%)', 'Blanco con arándanos, fresas y canela', 'Con leche, almendras, avellana y sésamo ','Pistacho, pipas, almendras, avellana, naranja y sésamo(55%)', 'Blanco con mini grageas, banana, chio y nibs(72%)', 'Puro 0% con almendras (72%)'
+      ]
     },
     {
       id: 'mermeladas',
-      nombre: 'Mermeladas Lorusso',
+      nombre: 'Mermeladas Lorusso 175gr',
       precio: 7,
       tipos: [
         'Fresa', 'Mora', 'Arándanos', 'Frutos rojos', 'Frambuesa',
@@ -36,7 +40,7 @@ export const cajas = [
         { nombre: 'Membrillo' },
         { nombre: 'Aceite de oliva virgen extra 250ml' },
         { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] },
-        { nombre: 'Miel', tipos: ['Romero', 'Azahar'] }
+        { nombre: 'Miel 500gr', tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota'] }
       ],
       color: '#0000EE',
       extrasDisponibles: ['chocolate']
@@ -54,7 +58,7 @@ export const cajas = [
         { nombre: 'Queso Maasdam 150g' },
         { nombre: 'Queso de oveja trufado 150g' },
         { nombre: 'Membrillo 200g' },
-        { nombre: 'Miel', tipos: ['De flor', 'De trufa'] },
+        { nombre: 'Miel 500gr', tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota'] },
         { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] }
       ],
       color: '#af2325',
@@ -67,14 +71,14 @@ export const cajas = [
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Elegante, pensada para los amantes del queso y los maridajes.',
       productos: [
-        { nombre: 'Cava' },
+        { nombre: 'Cava Murviedro'  },
         { nombre: 'Queso artesanal de cabra 150g' },
         { nombre: 'Queso de oveja trufado 150g' },
         { nombre: 'Queso Maasdam 150g' },
         { nombre: 'Queso Havarti en lonchas 200g' },
         { nombre: 'Queso curado 200g' },
         { nombre: 'Membrillo 200g' },
-        { nombre: 'Miel 500g' }
+        { nombre: 'Miel 500g' , tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota']}
       ],
       color: '#f7aa32',
       extrasDisponibles: ['chocolate', 'mermeladas']
@@ -86,7 +90,7 @@ export const cajas = [
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Crea tu cajita a medida, escoge una base y 6 productos a elegir entre los disponibles',
       productos: [
-        { nombre: 'Elige una base', tipos: ['Cava', 'Vino Luna Lunera'] },
+        { nombre: 'Elige una base', tipos: ['Cava Murviedro', 'Vino Luna Lunera'] },
         { nombre: 'Jamón serrano 200g' },
         { nombre: 'Queso semicurado García Vaquero' },
         { nombre: 'Fuet' },
@@ -95,7 +99,9 @@ export const cajas = [
      
         { nombre: 'Salchichón ibérico 200g' },
         { nombre: 'Lomo de campo ibérico' },
-        { nombre: 'Queso Maasdam 150g' }
+        { nombre: 'Queso Maasdam 150g' },
+        { nombre: 'Miel 500g' , tipos: ['Romero', 'Azahar', 'Eucalipto', 'Lavanda', 'Tomillo', 'Mil Flores', 'Brezo', 'Bellota']}
+
       ],
       color: '#046a42',
       extrasDisponibles: ['chocolate']
