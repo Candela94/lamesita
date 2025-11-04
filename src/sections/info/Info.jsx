@@ -205,11 +205,12 @@ const Info = ({ id }) => {
                 )}
               </div>
 
-              <div className="mensajito-phone"
+              <div style={{display:'flex', flexDirection:'column'}}className="mensajito-phone "
                 onClick={() => window.location.href = 'tel:+34665940987'}
               >
                 {/* <BsFillTelephoneFill /> */}
-                <h3 className="titulo">LLÁMANOS</h3>
+                <h3 style={{ lineHeight: '0.8' }} className="titulo">LLÁMANOS</h3>
+                <p className="correo-p">+34 665 940 987</p>
               </div>
             </ul>
           </div>

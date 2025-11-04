@@ -450,7 +450,7 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     );
   };
 
-  const handleSeleccion = (productoNombre, tipo) => {
+  const handleSeleccion = (productoNombre, tipo, tieneTipos = false) => {
     if (!productoNombre) return;
 
     const esBase = productoNombre === 'Elige una base';
@@ -459,16 +459,26 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
     } else {
       setSeleccion(prev => {
         const productosSeleccionados = Object.keys(prev).filter(p => p !== 'Elige una base').length;
-        if (productosSeleccionados >= 6 && !prev[productoNombre]) {
+        const yaEstaSeleccionado = !!prev[productoNombre];
+        
+        // Si el producto tiene tipos y ya está seleccionado, solo cambiamos el tipo
+        if (tieneTipos && yaEstaSeleccionado) {
+          return { ...prev, [productoNombre]: tipo };
+        }
+        
+        // Si no está seleccionado y ya tenemos 6 productos, no permitir agregar más
+        if (productosSeleccionados >= 6 && !yaEstaSeleccionado) {
           alert('Solo puedes seleccionar hasta 6 productos 🙂');
           return prev;
         }
 
         const nuevoSeleccion = { ...prev };
-        if (nuevoSeleccion[productoNombre]) {
+        if (yaEstaSeleccionado && !tieneTipos) {
+          // Solo hacer toggle si NO tiene tipos (productos simples como Miel)
           delete nuevoSeleccion[productoNombre];
         } else {
-          nuevoSeleccion[productoNombre] = 'Seleccionado';
+          // Agregar o actualizar el producto
+          nuevoSeleccion[productoNombre] = tipo || 'Seleccionado';
         }
         return nuevoSeleccion;
       });
@@ -598,7 +608,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                             <li
                               key={`${caja.nombre}-tipo-base-${tipoIdx}`}
                               className="tipos"
-                              onClick={() => handleSeleccion(base.nombre, tipo)}
+                              onClick={() => handleSeleccion(base.nombre, tipo, true)}
                               style={
                                 seleccion[base.nombre] === tipo
                                   ? {
@@ -623,8 +633,12 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                     </div>
 
                     {otrosProductos.map((prod, idx) => {
-                      const tieneTipos = prod.tipos && prod.tipos.filter(t => typeof t === 'string' && t.trim() !== '').length > 0;
+                      const tiposValidos = Array.isArray(prod.tipos)
+                        ? prod.tipos.filter(t => typeof t === 'string' && t.trim() !== '')
+                        : [];
+                      const tieneTipos = tiposValidos.length > 0;
                       const estaSeleccionado = !!seleccion[prod.nombre];
+
                       return (
                         <div
                           key={`${caja.nombre}-prod-${prod.nombre}-${idx}`}
@@ -634,8 +648,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                               ? (e) => {
                                   e.preventDefault();
                                   e.stopPropagation();
-                                  // ✅ Fix Safari/iOS: ejecuta después del frame
-                                  setTimeout(() => handleSeleccion(prod.nombre, null), 0);
+                                  setTimeout(() => handleSeleccion(prod.nombre, 'Seleccionado', false), 0);
                                 }
                               : undefined
                           }
@@ -654,13 +667,13 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                             {prod.nombre}
                           </h4>
 
-                          {tieneTipos && Array.isArray(prod.tipos) && prod.tipos.length > 0 && (
+                          {tieneTipos && (
                             <ul className="overlay-producto-tipos">
-                              {prod.tipos.filter(t => typeof t === 'string' && t.trim() !== '').map((tipo, tipoIdx) => (
+                              {tiposValidos.map((tipo, tipoIdx) => (
                                 <li
                                   key={`${caja.nombre}-tipo-${prod.nombre}-${tipo}-${tipoIdx}`}
                                   className="tipos"
-                                  onClick={() => handleSeleccion(prod.nombre, tipo)}
+                                  onClick={() => handleSeleccion(prod.nombre, tipo, true)}
                                   style={
                                     seleccion[prod.nombre] === tipo
                                       ? {
