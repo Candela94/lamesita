@@ -26,7 +26,7 @@ export const extrasGlobales = [
 export const cajas = [
     {
       nombre: 'CAJITA APERITIVO',
-      precio: 35,
+      precio: 36,
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Ligera, social y lista para disfrutar con un buen vino.',
       productos: [
@@ -44,18 +44,18 @@ export const cajas = [
   
     {
       nombre: 'CAJITA PICADA',
-      precio: 35,
+      precio: 36,
       descripcion: 'Más completa, con contraste de sabores, ideal para compartir',
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       productos: [
         { nombre: 'Salchichón ibérico 200g' },
         
-        { nombre: 'Lomo de campo ibérico' },
+        { nombre: 'Lomo de campo ibérico 150g' },
         { nombre: 'Queso Maasdam 150g' },
         { nombre: 'Queso de oveja trufado 150g' },
         { nombre: 'Membrillo 200g' },
         { nombre: 'Miel', tipos: ['De flor', 'De trufa'] },
-        { nombre: 'Vino', tipos: ['Blanco', 'Tinto'] }
+        { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] }
       ],
       color: '#af2325',
       extrasDisponibles: ['chocolate', 'mermeladas']
@@ -63,7 +63,7 @@ export const cajas = [
   
     {
       nombre: 'CAJITA QUESOS',
-      precio: 35,
+      precio: 36,
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Elegante, pensada para los amantes del queso y los maridajes.',
       productos: [
@@ -82,11 +82,11 @@ export const cajas = [
   
     {
       nombre: 'HAZ TU PROPIA CAJITA',
-      precio: 39.90,
+      precio: 40,
       imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
       descripcion: 'Crea tu cajita a medida, escoge una base y 6 productos a elegir entre los disponibles',
       productos: [
-        { nombre: 'Elige una base', tipos: ['Cava', 'Vino'] },
+        { nombre: 'Elige una base', tipos: ['Cava', 'Vino Luna Lunera'] },
         { nombre: 'Jamón serrano 200g' },
         { nombre: 'Queso semicurado García Vaquero' },
         { nombre: 'Fuet' },
