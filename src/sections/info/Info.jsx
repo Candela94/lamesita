@@ -128,7 +128,7 @@ const Info = ({ id }) => {
 
     <>
 
-      <main id={id} className="mapa-card section">
+      <section id={id} className="mapa-card section">
 
 
 
@@ -218,7 +218,7 @@ const Info = ({ id }) => {
 
 
 
-      </main>
+      </section>
 
       <footer className="footer-privacy">
 

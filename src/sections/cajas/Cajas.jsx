@@ -2,15 +2,20 @@ import './cajas.css'
 import { cajas } from '../../../data/cajas';
 
 
-
 import { CajasContainer } from '../../component/cajas-container/CajasContainer';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
+import SplitText from '../../component/splitText/SplitText';
 
 
 
 const CajasSection = ({id}) => {
     const [cajaAbierta, setCajaAbierta] = useState(null);
+
+
+    const handleAnimationComplete = () => {
+        console.log('All letters have animated!');
+      };
 
     const handleToggle = (id) => {
         setCajaAbierta(prev => prev === id ? null : id);

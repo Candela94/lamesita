@@ -45,21 +45,18 @@ const Galeria = () => {
 
 
 
-  const goPrev = () => {
-    if (indiceActual > 0) {
-      const nuevoIndice = indiceActual - 1;
-      setIndiceActual(nuevoIndice);
-      scrollToIndex(nuevoIndice);
-    }
+  const goNext = () => {
+    const nuevoIndice = (indiceActual + 1) % imagenesMercado.length;
+    setIndiceActual(nuevoIndice);
+    scrollToIndex(nuevoIndice);
   };
   
-  const goNext = () => {
-    if (indiceActual < imagenesMercado.length - 1) {
-      const nuevoIndice = indiceActual + 1;
-      setIndiceActual(nuevoIndice);
-      scrollToIndex(nuevoIndice);
-    }
+  const goPrev = () => {
+    const nuevoIndice = (indiceActual - 1 + imagenesMercado.length) % imagenesMercado.length;
+    setIndiceActual(nuevoIndice);
+    scrollToIndex(nuevoIndice);
   };
+  
 
   // Detectar scroll manual
   
@@ -143,7 +140,7 @@ const Galeria = () => {
                 container.scrollTo({
                   left: idx * container.offsetWidth,
                   behavior: 'smooth'
-                });
+                })
               }
             }}
             aria-label={`Ir a imagen ${idx + 1}`}

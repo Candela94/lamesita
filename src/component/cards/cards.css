@@ -721,15 +721,11 @@ input:focus {
 
 
 @media (min-width:768px) and (max-width:1023px) {
-
-    /* .pagos{
-        width: 70%;
+    .caja-btn {
+        display: flex;
+        width: 38%;
+        justify-content: end;
     }
-    .pagos-texto{
-        font-size: 1.5vw;
-        width: 100%;
-        text-align: center;
-    } */
 
 }
 
@@ -754,6 +750,7 @@ input:focus {
 
     .caja-btn {
         display: flex;
+        width: 63%;
         justify-content: end;
     }
 
@@ -773,7 +770,7 @@ input:focus {
 
     .btn-container{
         margin-bottom: 0;
-        padding: 1.3rem  1rem 1rem 1rem;
+        padding: 1.4rem  1rem 1rem 1rem;
         margin-right: 0.4rem;
 
     }
