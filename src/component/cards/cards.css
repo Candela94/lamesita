@@ -195,7 +195,7 @@
     padding: 1.1rem  1rem 0.8rem 1rem;
     padding-top: rem;
     margin-bottom: 1rem;
-    width: 95%;
+    width: 100%;
     /* background-color: pink; */
 }
 
@@ -204,14 +204,52 @@
 .caja-btn {
 
     display: flex;
+    flex-direction: column;
+    gap: 1rem ;
     justify-content: center;
 
     margin-bottom: 1rem;
-    width: 100%;
+    width: 70%;
     /* border: 6px solid yellow; */
 
 
 }
+
+
+.caja-btn-personalizar {
+
+    display: flex;
+    gap: 1rem ;
+    justify-content: center;
+
+    margin-bottom: 1rem;
+    width: 100%;
+    
+
+
+}
+
+
+.btn-container-personalizar{
+
+    background-color: var(--background);
+
+    font-family: gafiton;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 1.1rem  1rem 0.8rem 1rem;
+    padding-top: rem;
+    margin-bottom: 1rem;
+    width: 95%;
+    /* background-color: pink; */
+}
+
+
+
+
+
 
 .caja-dos {
     margin-bottom: 1rem;
@@ -374,7 +412,7 @@
 }
 
 .input-nombre {
-    padding: 0.5rem;
+    padding: 0.8rem;
     background: none;
     border: 1px solid var(--background);
     color: var(--background);
@@ -382,7 +420,7 @@
     font-family: sans;
     transition: all 0.3s ease;
     margin-top: 1rem;
-    width: 60%;
+    width: 100%;
 
 
 
@@ -708,12 +746,17 @@ input:focus {
     }
 
 
-    .btn-container {
+    .btn-container , .btn-contariner-personalizar{
         font-size: 1.8vw;
     }
 
 
+    .caja-btn-personalizar{width: 50%;}
 
+    .btn-container-personalizar{
+        width: 90%;
+        font-size: 1.8vw;
+    }
 
 
 
@@ -723,7 +766,7 @@ input:focus {
 @media (min-width:768px) and (max-width:1023px) {
     .caja-btn {
         display: flex;
-        width: 38%;
+        width: 50%;
         justify-content: end;
     }
 
@@ -750,7 +793,7 @@ input:focus {
 
     .caja-btn {
         display: flex;
-        width: 63%;
+        width: 50%;
         justify-content: end;
     }
 
@@ -761,18 +804,39 @@ input:focus {
 
 
 
-    .btn-container,
+   
     .input-nombre {
-        width: 60%;
+       
+        padding: 1rem ;
+        font-size: 1.3rem;
     }
 
 
 
     .btn-container{
+        
         margin-bottom: 0;
         padding: 1.4rem  1rem 1rem 1rem;
         margin-right: 0.4rem;
 
+
+
     }
+
+
+
+    .caja-btn-personalizar{
+        
+        width: 80%;
+    display: flex;
+justify-content: end;
+margin-right: 1REM;}
+
+    .btn-container-personalizar{
+        width: 60%;
+        font-size: 1.8vw;
+    }
+
+
 
 }

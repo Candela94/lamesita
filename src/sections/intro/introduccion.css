@@ -1,109 +1,64 @@
+
+
 .section-intro {
-
-
     background-color: var(--primary);
-
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
-
-
 }
 
-
-
-
-
 .png {
-
     width: clamp(180px, 20vw, 300px);
     position: absolute;
 }
 
-
-
-
-
-
-
 .intro-imagen {
-
     /* border: 5px solid blueviolet; */
     width: 100%;
     height: 100vh;
     position: relative;
-
-
 }
 
-
-
-
-
 .imagen-fondo {
-
-
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 1;
-   
+    animation: blurToFocus 0,5s ease-out forwards;
     /* padding:3rem; */
-
-
 }
 
-
-
-
 .logo-cta {
-
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
     position: absolute;
     width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
     z-index: 10;
     padding-top: 8rem;
-
-
 }
-
 
 .logo-container {
     width: 100%;
     padding: 1rem;
-
 }
-
-
 
 .logo {
-
     width: 100%;
-
-
 }
-
-
 
 .btn-cont {
     /* background-color: yellow; */
     width: 100%;
     display: flex;
     justify-content: center;
-    
 }
 
-
 .boton-cta {
-
     background-color: var(--primary);
     border: none;
     padding: 0.9rem 2rem 0.5rem 2rem;
@@ -113,10 +68,13 @@
     font-size: 5vw;
     color: var(--background);
     cursor: pointer;
+    animation: scaleButton 0.2s ease-out 0.4s backwards;
+    transition: transform 0.3s ease;
 }
 
-
-
+.boton-cta:hover {
+    transform: scale(1.05);
+}
 
 .png{
     position: absolute;
@@ -125,40 +83,21 @@
     height: 100dvh;
 }
 
-
-
 /* === TABLET VERTICAL === */
 @media (min-width: 768px) and (max-width: 1023px) {
-
-
-
     .png{
-
         width: 0%;
         height: 100%;
     }
+}
 
-
-
-
-  }
-  
-  
-
-  
-  /* === DESKTOP GRANDE === */
-  @media (min-width: 1034px) {
-  
-
+/* === DESKTOP GRANDE === */
+@media (min-width: 1034px) {
     .logo-cta{
-
-      bottom: 10dvh;
+        bottom: 10dvh;
     }
-
 
     .boton-cta{
-      font-size: 3vw;
+        font-size: 3vw;
     }
-  }
-  
-  
+}

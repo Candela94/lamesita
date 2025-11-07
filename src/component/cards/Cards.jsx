@@ -241,8 +241,8 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               <h3 className="precio">{caja.precio}€</h3>
             </div>
 
-            <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
-              <button className="btn-container personalizar " style={{ color: caja.color }}>
+            <div onClick={handleOpenOverlay} className="caja-btn-personalizar caja-uno caja-btn-delayed">
+              <button className="btn-container-personalizar personalizar " style={{ color: caja.color }}>
                 Personalizar cajita
               </button>
             </div>
@@ -328,6 +328,9 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
             </div>
 
+        
+
+            <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
             <input
               type="text"
               placeholder="Tu nombre"
@@ -335,9 +338,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               onChange={(e) => setNombreUsuario(e.target.value)}
               className="input-nombre"
             />
-
-            <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
-              <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
+              <button className="btn-container" style={{ color: caja.color }}>
                 Guardar productos en mi cajita
               </button>
             </div>
@@ -583,8 +584,8 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 <p className="descripcion">{caja.descripcion}</p>
                 <h3 className="precio">{caja.precio}€</h3>
               </div>
-              <div onClick={handleOpenOverlay} className="caja-btn caja-uno caja-btn-delayed">
-                <button className="btn-container" style={{ color: caja.color }}>
+              <div onClick={handleOpenOverlay} className="caja-btn-personalizar caja-uno caja-btn-delayed">
+                <button className="btn-container-personalizar" style={{ color: caja.color }}>
                   Personalizar cajita
                 </button>
               </div>
@@ -728,6 +729,9 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 <h2 className="productos">Precio total: {totalPrice}€</h2>
               </div>
 
+            
+
+              <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
               <input
                 type="text"
                 placeholder="Tu nombre"
@@ -735,9 +739,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 onChange={(e) => setNombreUsuario(e.target.value)}
                 className="input-nombre"
               />
-
-              <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
-                <button className="btn-container" style={{ color: caja.color, width: '90%' }}>
+                <button className="btn-container" style={{ color: caja.color}}>
                   Guardar productos en mi cajita
                 </button>
               </div>

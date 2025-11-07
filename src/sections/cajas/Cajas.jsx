@@ -14,8 +14,8 @@ const CajasSection = ({id}) => {
 
 
     const handleAnimationComplete = () => {
-        console.log('All letters have animated!');
-      };
+  console.log('All letters have animated!');
+};
 
     const handleToggle = (id) => {
         setCajaAbierta(prev => prev === id ? null : id);
