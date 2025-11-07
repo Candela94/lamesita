@@ -28,12 +28,12 @@ const Landing = () => {
 
         
         <main className='section main-principal'>
-         <Seccion><Introduccion id='intro' /></Seccion>
-           <Seccion><About id='about'/></Seccion>
-          <Seccion> <Galeria  id='galeria'/></Seccion>
+        <Introduccion id='intro' />
+        <About id='about'/>
+          <Galeria  id='galeria'/>
          
-          <Seccion> <CajasSection id='cajas'/></Seccion>
-          <Seccion> <Info id='info'/> </Seccion>
+          <CajasSection id='cajas'/>
+          <Info id='info'/> 
 
 
 
