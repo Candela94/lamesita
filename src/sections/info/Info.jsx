@@ -119,6 +119,7 @@ const Info = ({ id }) => {
 
 
   }, [visible, renderDesplegable]);
+  
 
 
 
