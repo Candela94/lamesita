@@ -16,6 +16,8 @@ import Datos from '../datos/Datos';
 
 const Landing = () => {
 
+
+
     return (
 
 
@@ -28,12 +30,12 @@ const Landing = () => {
 
         
         <main className='section main-principal'>
-        <Introduccion id='intro' />
-        <About id='about'/>
-          <Galeria  id='galeria'/>
+    <Introduccion id='intro' />
+     <About id='about'/>
+         <Galeria  id='galeria'/>
          
-          <CajasSection id='cajas'/>
-          <Info id='info'/> 
+         <CajasSection id='cajas'/>
+         <Info id='info'/> 
 
 
 

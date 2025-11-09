@@ -330,7 +330,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
         
 
-            <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
+            <div  className="caja-btn caja-uno caja-btn-delayed">
             <input
               type="text"
               placeholder="Tu nombre"
@@ -338,7 +338,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               onChange={(e) => setNombreUsuario(e.target.value)}
               className="input-nombre"
             />
-              <button className="btn-container" style={{ color: caja.color }}>
+              <button onClick={handleGuardar} className="btn-container" style={{ color: caja.color }}>
                 Guardar productos en mi cajita
               </button>
             </div>
@@ -349,7 +349,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
         {isOpen && pasoFinal && (
           <div className="caja caja-fade-in">
           <div className="caja-resumen caja-resumen-scale">
-            <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
+            {/* <img src={caja.imagen} alt="caja" className="caja-img-resumen" /> */}
             <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
             <div className="caja-info-resumen">
               <h4>Productos:</h4>
@@ -731,7 +731,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
 
             
 
-              <div onClick={handleGuardar} className="caja-btn caja-uno caja-btn-delayed">
+              <div  className="caja-btn caja-uno caja-btn-delayed">
               <input
                 type="text"
                 placeholder="Tu nombre"
@@ -739,7 +739,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 onChange={(e) => setNombreUsuario(e.target.value)}
                 className="input-nombre"
               />
-                <button className="btn-container" style={{ color: caja.color}}>
+                <button onClick={handleGuardar} className="btn-container" style={{ color: caja.color}}>
                   Guardar productos en mi cajita
                 </button>
               </div>
@@ -750,7 +750,7 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
         {isOpen && pasoFinal && (
           <div className="caja caja-fade-in">
             <div className="caja-resumen caja-resumen-scale">
-              <img src={caja.imagen} alt="caja" className="caja-img-resumen" />
+              {/* <img src={caja.imagen} alt="caja" className="caja-img-resumen" /> */}
               <h2 className='resumen-nombre'>TU CAJITA, {nombreUsuario.toUpperCase()}</h2>
               <div className="caja-info-resumen">
                 <h4>Productos:</h4>
