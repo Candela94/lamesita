@@ -13,9 +13,9 @@ const Landing = () => {
 
   const secciones = [
     { id: 'intro', componente: <Introduccion /> },
-    { id: 'about', componente: <About /> },
+    { id: 'about', componente: <About /> , scrollable: false },
     { id: 'galeria', componente: <Galeria /> },
-    { id: 'cajas', componente: <CajasSection /> },
+    { id: 'cajas', componente: <CajasSection /> , expandible:true},
     { id: 'info', componente: <Info /> },
   ];
 
@@ -32,7 +32,9 @@ const Landing = () => {
               id={seccion.id}
               index={index}
               totalSections={secciones.length}
-              scrollable={true} // si alguna sección necesita scroll interno
+              scrollable={seccion.scrollable || false} // 👈 esto
+              expandible={seccion.expandible || false} // 👈 AQUÍ
+              // si alguna sección necesita scroll interno
             >
               {seccion.componente}
             </Seccion>
