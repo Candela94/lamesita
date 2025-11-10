@@ -30,12 +30,12 @@ const Landing = () => {
 
         
         <main className='section main-principal'>
-    <Introduccion id='intro' />
-     <About id='about'/>
-         <Galeria  id='galeria'/>
+   <Seccion> <Introduccion id='intro' /></Seccion>
+    <Seccion> <About id='about'/></Seccion>
+       <Seccion>  <Galeria  id='galeria'/></Seccion>
          
-         <CajasSection id='cajas'/>
-         <Info id='info'/> 
+      <CajasSection id='cajas'/>
+        <Seccion> <Info id='info'/> </Seccion>
 
 
 
