@@ -31,7 +31,7 @@ export const Seccion = ({
 
   const y = useTransform(scrollYProgress, [0, 4], [0, expandible ? 0 : -140]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 0.9, 1], [1, 1, 0.5, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const scale = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0.9]);
 
   return (
     <div
