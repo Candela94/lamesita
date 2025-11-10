@@ -15,7 +15,6 @@ export const Seccion = ({
     offset: ["start end", "end start"]
   });
 
-  // Reduce el movimiento vertical para que estén más juntas
   const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -100]);
   
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.3, 1, 1, 0.3]);
@@ -32,7 +31,11 @@ export const Seccion = ({
       ref={ref} 
       style={{ 
         position: 'relative',
-        marginBottom: '-50px', // Overlap negativo para juntar secciones
+        minHeight: '100vh', // Altura mínima de viewport completo
+        width: '100%', // Ancho completo
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <motion.section
@@ -42,8 +45,11 @@ export const Seccion = ({
           opacity,
           scale,
           width: '100%',
+          height: scrollable ? maxHeight : '100%',
           maxHeight: scrollable ? maxHeight : 'none',
           overflowY: scrollable ? 'auto' : 'visible',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         {children}
