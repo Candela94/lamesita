@@ -19,7 +19,8 @@ const SplitText = ({
   rootMargin = '-100px',
   textAlign = 'center',
   tag = 'p',
-  onLetterAnimationComplete
+  onLetterAnimationComplete,
+  initialDelay = 0 // 🆕 nuevo: retraso general antes de empezar
 }) => {
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);
@@ -43,9 +44,7 @@ const SplitText = ({
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        } catch (_) {
-          /* noop */
-        }
+        } catch (_) {}
         el._rbsplitInstance = null;
       }
 
@@ -57,8 +56,8 @@ const SplitText = ({
         marginValue === 0
           ? ''
           : marginValue < 0
-            ? `-=${Math.abs(marginValue)}${marginUnit}`
-            : `+=${marginValue}${marginUnit}`;
+          ? `-=${Math.abs(marginValue)}${marginUnit}`
+          : `+=${marginValue}${marginUnit}`;
       const start = `top ${startPct}%${sign}`;
 
       let targets;
@@ -86,6 +85,7 @@ const SplitText = ({
               ...to,
               duration,
               ease,
+              delay: initialDelay / 1000, // 🆕 retrasa el inicio de toda la animación
               stagger: delay / 1000,
               scrollTrigger: {
                 trigger: el,
@@ -114,9 +114,7 @@ const SplitText = ({
         });
         try {
           splitInstance.revert();
-        } catch (_) {
-          /* noop */
-        }
+        } catch (_) {}
         el._rbsplitInstance = null;
       };
     },
@@ -132,7 +130,8 @@ const SplitText = ({
         threshold,
         rootMargin,
         fontsLoaded,
-        onLetterAnimationComplete
+        onLetterAnimationComplete,
+        initialDelay // 🆕 añadida a dependencias
       ],
       scope: ref
     }
@@ -149,50 +148,16 @@ const SplitText = ({
     };
     const classes = `split-parent ${className}`;
     switch (tag) {
-      case 'h1':
-        return (
-          <h1 ref={ref} style={style} className={classes}>
-            {text}
-          </h1>
-        );
-      case 'h2':
-        return (
-          <h2 ref={ref} style={style} className={classes}>
-            {text}
-          </h2>
-        );
-      case 'h3':
-        return (
-          <h3 ref={ref} style={style} className={classes}>
-            {text}
-          </h3>
-        );
-      case 'h4':
-        return (
-          <h4 ref={ref} style={style} className={classes}>
-            {text}
-          </h4>
-        );
-      case 'h5':
-        return (
-          <h5 ref={ref} style={style} className={classes}>
-            {text}
-          </h5>
-        );
-      case 'h6':
-        return (
-          <h6 ref={ref} style={style} className={classes}>
-            {text}
-          </h6>
-        );
-      default:
-        return (
-          <p ref={ref} style={style} className={classes}>
-            {text}
-          </p>
-        );
+      case 'h1': return <h1 ref={ref} style={style} className={classes}>{text}</h1>;
+      case 'h2': return <h2 ref={ref} style={style} className={classes}>{text}</h2>;
+      case 'h3': return <h3 ref={ref} style={style} className={classes}>{text}</h3>;
+      case 'h4': return <h4 ref={ref} style={style} className={classes}>{text}</h4>;
+      case 'h5': return <h5 ref={ref} style={style} className={classes}>{text}</h5>;
+      case 'h6': return <h6 ref={ref} style={style} className={classes}>{text}</h6>;
+      default: return <p ref={ref} style={style} className={classes}>{text}</p>;
     }
   };
+
   return renderTag();
 };
 

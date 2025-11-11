@@ -9,13 +9,13 @@ import SplitText from '../../component/splitText/SplitText';
 
 
 
-const CajasSection = ({id}) => {
+const CajasSection = ({ id }) => {
     const [cajaAbierta, setCajaAbierta] = useState(null);
 
 
     const handleAnimationComplete = () => {
-  console.log('All letters have animated!');
-};
+        console.log('All letters have animated!');
+    };
 
     const handleToggle = (id) => {
         setCajaAbierta(prev => prev === id ? null : id);
@@ -30,11 +30,53 @@ const CajasSection = ({id}) => {
     return (
         <>
             <section id={id} className="section section-cajas">
-               
-                    <h1 className='titulo-cajas'>LO JUSTO <br />PARA UN GRAN <br/> MOMENTO</h1>
-            
 
-                <p className="texto">Pequeños momentos para disfrutar sin complicaciones.<br/> <strong>Cada cajita está pensada para compartir, regalar o darse un capricho con productos seleccionados de nuestra tienda.</strong><br/> Combina sabores, abre una botella y deja que lo simple vuelva a ser especial.</p>
+            <h1 className="titulo-cajas">
+  <SplitText
+    text={`LO JUSTO \nPARA UN GRAN \nMOMENTO`}
+    delay={0}                // un poco más de tiempo entre letras
+    duration={1}              // cada letra tarda más en aparecer
+    ease="power2.out"         // suaviza la curva del fade
+    splitType="chars"
+    from={{ opacity: 0, scale: 0.8 }}
+    to={{ opacity: 1, scale:1 }}
+    threshold={0.1}
+    rootMargin="-100px"
+    textAlign="start"
+    onLetterAnimationComplete={handleAnimationComplete}
+    initialDelay={400}
+  />
+</h1>
+
+
+
+
+                <SplitText
+                    tag="p"
+                    className="texto"
+                    text={
+                        <>
+                            Pequeños momentos para disfrutar sin complicaciones.
+                            {'\n'}
+                            <strong>
+                                Cada cajita está pensada para compartir, regalar o darse un capricho con
+                                productos seleccionados de nuestra tienda.
+                            </strong>
+                            {'\n'}
+                            Combina sabores, abre una botella y deja que lo simple vuelva a ser especial.
+                        </>
+                    }
+                    delay={0}
+                    duration={1}
+                    ease="power3.out"
+                    splitType="lines"
+                    from={{ opacity: 0, scale: 0.8  }}
+                    to={{ opacity: 1, scale: 1 }}
+                    threshold={0.1}
+                    rootMargin="-100px"
+                    textAlign="start"
+                    initialDelay={700}
+                />
 
                 <div className="galeria">
                     <AnimatePresence>

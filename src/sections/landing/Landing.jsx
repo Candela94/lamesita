@@ -11,38 +11,24 @@ import { Header, HeaderDesk } from '../../component/header/Header';
 
 const Landing = () => {
 
-  const secciones = [
-    { id: 'intro', componente: <Introduccion /> },
-    { id: 'about', componente: <About /> , scrollable: false },
-    { id: 'galeria', componente: <Galeria /> },
-    { id: 'cajas', componente: <CajasSection /> , expandible:true},
-    { id: 'info', componente: <Info /> },
-  ];
+    
+      
+      return (
+        <>
+          <Header className='h-mobile' />
+          <HeaderDesk className='h-desk' />
+      
+          <main className='main-principal'>
+            <Introduccion id='intro' />
+            <About id='about'/>
+            <Galeria id='galeria' />
+            <CajasSection id='cajas' />
+            <Info id='info'/>
 
-  return (
-    <>
-      <Header className='h-mobile' />
-      <HeaderDesk className='h-desk' />
-
-      <main className='main-principal'>
-        <div style={{ height: `${secciones.length * 100}vh` }}>
-          {secciones.map((seccion, index) => (
-            <Seccion
-              key={seccion.id}
-              id={seccion.id}
-              index={index}
-              totalSections={secciones.length}
-              scrollable={seccion.scrollable || false} // 👈 esto
-              expandible={seccion.expandible || false} // 👈 AQUÍ
-              // si alguna sección necesita scroll interno
-            >
-              {seccion.componente}
-            </Seccion>
-          ))}
-        </div>
-      </main>
-    </>
-  );
+         
+          </main>
+        </>
+      );
 };
 
 export default Landing;

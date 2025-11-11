@@ -23,7 +23,10 @@
   
 
 
-
+  .split-parent {
+    overflow: visible !important;
+  }
+  
 .titulo-cajas {
     font-size: 10vw;
     color: var(--primary);

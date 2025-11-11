@@ -7,10 +7,30 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
 import { NavLink } from 'react-router';
+import SplitText from '../../component/splitText/SplitText';
+
 
 const Info = ({ id }) => {
 
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3 + i * 0.2, // ⏱️ cada card entra un poco después de la anterior
+        duration: 0.8,
+        ease: 'easeOut'
+      }
+    })
+  };
+  
+
+
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+};
 
   const [visible, setVisible] = useState(false);
 
@@ -137,12 +157,37 @@ const Info = ({ id }) => {
 
 
 
-          <h1 className="titulo-ubicacion">VISÍTANOS<br /> EN EL MERCADO <br />DE JESÚS</h1>
+          <h1 className="titulo-ubicacion">
+            
+            
+            
+            
+          <SplitText
+                        text={
+                          <>
+                          VISÍTANOS&nbsp;&nbsp;<br />
+                          EN EL MERCADO&nbsp;&nbsp;<br />
+                          DE JESÚS
+                        </>
+                        }
+                        delay={0}
+                        duration={1}
+                        ease="power3.out"
+                        splitType="chars"
+                        from={{ opacity: 0, scale: 0.8  }}
+                        to={{ opacity: 1, scale: 1 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="start"
+                        onLetterAnimationComplete={handleAnimationComplete}
+                    />
+                </h1>
+            
+            {/* </div>VISÍTANOS<br /> EN EL MERCADO <br />DE JESÚS</h1> */}
 
 
           <div className="imagen-mapa">
             <img
-              ref={imgRef}
               src="/img/merc.png"
               alt="mercado"
               className="ilu-mercado"
