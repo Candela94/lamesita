@@ -41,10 +41,10 @@ Porque los grandes momentos caben en una mesita.`;
                 className="fondo-img" />
 
             <motion.div className="fondo"
-            initial={{ opacity: 0}}
-            whileInView={{ opacity: 1 }}
+          initial={{ filter: "blur(5px)" }}
+          whileInView={{ filter: "blur(0px)" }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}>
+            transition={{ duration: 0.3, ease: "easeOut" , delay:0.2}}>
                 {/* <h1 className="conoce">TODO NACE   <br />DE LO SENCILLO</h1> */}
 
 

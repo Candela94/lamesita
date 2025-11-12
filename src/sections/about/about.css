@@ -8,7 +8,7 @@
     /* border: 5px solid blue; */
 
     width: 100%;
-
+height: 100dvh;
     overflow: hidden;
 
 
@@ -18,7 +18,7 @@
 
 .fondo-img {
     width: 100%;
-    height: 117vh;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -43,7 +43,8 @@
     border-radius: 4px;
     /* background-color: pink; */
     padding: 1rem;
-
+ will-change: transform;
+    transform-origin: center center;
     box-shadow: 0.5px 0.5px 20px var(--text);
 }
 
@@ -117,6 +118,9 @@
 
 @media (min-width:768px) and (max-width:1023px) {
 
+    .section-about {
+        overflow: hidden !important;
+      }
 
     .fondo-about {
         width: 100%;
@@ -128,6 +132,8 @@
         width: 50%;
         height: auto;
         border-radius: 0;
+        max-height: 80vh; /* 👈 limita la altura máxima */
+
 
 
     }
@@ -219,7 +225,9 @@
         width: 25%;
     }
 
-
+    .section-about {
+        overflow: hidden !important;
+      }
 
 
 }
