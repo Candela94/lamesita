@@ -40,7 +40,11 @@ Porque los grandes momentos caben en una mesita.`;
                 alt="fondo"
                 className="fondo-img" />
 
-            <div className="fondo">
+            <motion.div className="fondo"
+            initial={{ opacity: 0}}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}>
                 {/* <h1 className="conoce">TODO NACE   <br />DE LO SENCILLO</h1> */}
 
 
@@ -54,7 +58,7 @@ Porque los grandes momentos caben en una mesita.`;
 
                 
 
-            </div>
+            </motion.div>
 
 
 
