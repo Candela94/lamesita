@@ -382,17 +382,27 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               </h3>
             </div>
 
-            <div onClick={handleEnviarWhatsApp} className="caja-btn caja-btn-delayed">
+
+
+
+            <div onClick={handleEnviarWhatsApp} className="caja-btn caja-editar caja-btn-delayed">
               <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
                 Contacta y haz tu pedido
               </button>
             </div>
 
-            <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
+
+
+
+            <div onClick={handleVolverASeleccion} className="caja-btn caja-editar caja-dos caja-btn-delayed">
               <button className="btn-container " style={{ border: '2px solid var(--background', background:'none', color: 'var(--background)', width: '70%' }}>
                 Volver a editar mi cajita
               </button>
             </div>
+
+
+
+
           </div>
         </div>
         )}
@@ -783,12 +793,12 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 </h3>
               </div>
 
-              <div onClick={handleEnviarWhatsApp} className="caja-btn caja-btn-delayed">
+              <div onClick={handleEnviarWhatsApp} className="caja-btn caja-editar caja-btn-delayed">
                 <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
                   Contacta y haz tu pedido
                 </button>
               </div>
-              <div onClick={handleVolverASeleccion} className="caja-btn caja-dos caja-btn-delayed">
+              <div onClick={handleVolverASeleccion} className="caja-btn caja-editar caja-dos caja-btn-delayed">
                 <button className="btn-container" style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
                   Volver a editar mi cajita
                 </button>
