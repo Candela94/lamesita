@@ -2,33 +2,27 @@ import './cajas.css';
 import { cajas } from '../../../data/cajas';
 import { CajasContainer } from '../../component/cajas-container/CajasContainer';
 import { useState, memo } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import SplitText from '../../component/splitText/SplitText';
 
-// 🧠 Título estático: no se vuelve a renderizar nunca
-const TituloCajas = memo(() => {
-  console.log('Renderizando TituloCajas una vez ✅');
+const TituloCajas = memo(() => (
+  <h1 className="titulo-cajas">
+    <SplitText
+      text={`LO JUSTO \nPARA UN GRAN \nMOMENTO`}
+      delay={0}
+      duration={1}
+      ease="power2.out"
+      splitType="chars"
+      from={{ opacity: 0, scale: 0.8 }}
+      to={{ opacity: 1, scale: 1 }}
+      threshold={0.1}
+      rootMargin="-100px"
+      textAlign="start"
+      initialDelay={400}
+    />
+  </h1>
+));
 
-  return (
-    <h1 className="titulo-cajas">
-      <SplitText
-        text={`LO JUSTO \nPARA UN GRAN \nMOMENTO`}
-        delay={0}
-        duration={1}
-        ease="power2.out"
-        splitType="chars"
-        from={{ opacity: 0, scale: 0.8 }}
-        to={{ opacity: 1, scale: 1 }}
-        threshold={0.1}
-        rootMargin="-100px"
-        textAlign="start"
-        initialDelay={400}
-      />
-    </h1>
-  );
-});
-
-// 🧠 Texto también fijo
 const TextoCajas = memo(() => (
   <SplitText
     tag="p"
@@ -60,20 +54,60 @@ const TextoCajas = memo(() => (
 
 const CajasSection = ({ id }) => {
   const [cajaAbierta, setCajaAbierta] = useState(null);
+  const [overlayVisible, setOverlayVisible] = useState(false);
 
-  const handleToggle = (id) => {
+  const handleToggleCaja = (id) => {
     setCajaAbierta((prev) => (prev === id ? null : id));
   };
 
-  // Filtramos las cajas
   const cajasNormales = cajas.filter((c) => c.nombre !== 'HAZ TU PROPIA CAJITA');
   const cajaPersonalizada = cajas.find((c) => c.nombre === 'HAZ TU PROPIA CAJITA');
 
   return (
     <section id={id} className="section section-cajas">
-      {/* 🚫 SplitText está fuera del flujo reactivo */}
       <TituloCajas />
-      <TextoCajas />
+
+      <div className="texto-ver-imagen">
+        <TextoCajas />
+
+        <button
+          className="btn-ver-imagen"
+          onClick={() => setOverlayVisible(true)}
+        >
+          VER CAJITA
+        </button>
+      </div>
+
+      {/* OVERLAY */}
+      <AnimatePresence>
+        {overlayVisible && (
+          <motion.div
+            className="overlay-caja"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOverlayVisible(false)}
+          >
+            <motion.div
+              className="overlay-imagen-wrapper"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="overlay-cerrar"
+                onClick={() => setOverlayVisible(false)}
+              >
+                ×
+              </button>
+
+              <img src="/img/CAJAS.png" alt="CAJA" className="overlay-imagen" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="galeria">
         <AnimatePresence>
@@ -82,7 +116,7 @@ const CajasSection = ({ id }) => {
               <CajasContainer
                 caja={c}
                 isOpen={cajaAbierta === i}
-                onToggle={() => handleToggle(i)}
+                onToggle={() => handleToggleCaja(i)}
               />
             </li>
           ))}
@@ -96,7 +130,7 @@ const CajasSection = ({ id }) => {
               <CajasContainer
                 caja={cajaPersonalizada}
                 isOpen={cajaAbierta === cajasNormales.length}
-                onToggle={() => handleToggle(cajasNormales.length)}
+                onToggle={() => handleToggleCaja(cajasNormales.length)}
               />
             </li>
           )}
@@ -106,5 +140,4 @@ const CajasSection = ({ id }) => {
   );
 };
 
-// 🚀 memo para evitar re-renders del propio CajasSection
 export default memo(CajasSection);

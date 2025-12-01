@@ -91,11 +91,119 @@
 }
 
 
+
+.imagen-inicio{
+
+    display: none;
+}
+
+
+   /* Contenedor del texto y el botón */
+   .texto-ver-imagen {
+    display: flex;
+   flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom:2.5rem ;
+  }
+  
+  /* Botón */
+  .btn-ver-imagen {
+    background: none;
+    width: 25%;
+    color: var(--primary);
+    padding: 1rem 0.5em 0.8rem 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    border-radius: 10px;
+    font-family: gafiton;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+ 
+  
+    margin-left: 0.5rem;
+    border: 2px solid var(--primary);
+  }
+  
+  /* .btn-ver-imagen:hover {
+    background: #v;
+    color: #fff;
+  } */
+  
+  /* OVERLAY */
+  .overlay-caja {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  /* Contenido interno del overlay */
+  .overlay-imagen-wrapper {
+    position: relative;
+    border-radius: 10px;
+  }
+  
+  .overlay-imagen {
+    max-width: 80vw;
+    max-height: 80vh;
+    display: block;
+  }
+  
+  /* Botón cerrar */
+  .overlay-cerrar {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 0;
+  }
+  
+
+
 @media (min-width:768px)  {
 
 
 
-
+    .overlay-imagen-wrapper {
+        position: relative;
+        border-radius: 10px;
+      }
+      
+      .overlay-imagen {
+        max-width: 80vw;
+        max-height: 80vh;
+        display: block;
+      }
+      
+      /* Botón cerrar */
+      .overlay-cerrar {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        line-height: 0;
+      }
 
 
 
@@ -126,6 +234,11 @@
     }
 
 
+    .txt-imagen{
+        display: flex;
+        align-items: first baseline;
+        justify-content: space-between;
+    }
 
   
     .texto{
@@ -133,6 +246,56 @@
     }
 
 
+    .caja-imagen{
+        width: 23%;
+        height: 48vh;
+    }
+
+    .imagen-inicio{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+
+       
+     
+
+    }
+
+
+    /* Contenedor del texto y el botón */
+   .texto-ver-imagen {
+    display: flex;
+   flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1em;
+    position: relative;
+    padding-bottom:2.5rem ;
+  }
+  
+  /* Botón */
+  .btn-ver-imagen {
+    background: none;
+    width: 15%;
+    color: var(--primary);
+    padding: 1rem 0.5em 0.8rem 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    border-radius: 10px;
+    font-family: gafiton;
+    position: absolute;
+    bottom: 1.5em;
+    right: 0;
+ 
+  
+    margin-left: 0.5rem;
+    border: 2px solid var(--primary);
+  }
+  
+
+ 
 
 }
 
