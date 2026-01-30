@@ -103,7 +103,7 @@ const CajasSection = ({ id }) => {
                 ×
               </button>
 
-              <img src="/img/CAJAS.png" alt="CAJA" className="overlay-imagen" />
+              <img src="/img/CAJAS-WEB.png" alt="CAJA" className="overlay-imagen" />
             </motion.div>
           </motion.div>
         )}
