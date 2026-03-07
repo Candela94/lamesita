@@ -88,6 +88,26 @@ export const cajas = [
       color: '#f7aa32',
       extrasDisponibles: ['chocolate', 'mermeladas']
     },
+
+    {
+      nombre: 'CAJITA ROMÁNTICA',
+      precio: 37,
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
+      descripcion: 'Lo justo para una velada perfecta.',
+      productos: [
+        { nombre: 'Jamón serrano 150g' },
+        { nombre: '2 velitas' },
+        { nombre: 'Queso de oveja trufado 200g' },
+        { nombre: 'Queso de Maasdam 200g' },
+        { nombre: 'Lomo 150g' },
+        { nombre: 'Salchichón ibérico 150g' },
+        { nombre: 'Queso Brie 200g' },
+        { nombre: 'Fuet' },
+        { nombre: 'Chocolate artesano (a elegir)' },
+        { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] }
+      ],
+      color: '#EDCDD4'
+    },
   
     {
       nombre: 'HAZ TU PROPIA CAJITA',

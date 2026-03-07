@@ -292,6 +292,14 @@
 }
 
 
+.belamusa{
+    width: 13%;
+  
+}
+.caja-rosa {
+    width: 27%;
+}
+
 
 .producto-overlay {
     /* background-color: green; */
@@ -428,7 +436,7 @@
 }
 
 .input-nombre::placeholder {
-    color: var(--background);
+    color: var(--placeholder-color, var(--background));
     opacity: 0.9;
     /* Asegura que no esté semi-transparente */
 }

@@ -53,6 +53,10 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
   const [extrasSeleccionados, setExtrasSeleccionados] = useState([]);
   const [mostrarContenido, setMostrarContenido] = useState(false);
 
+  const esCajaRomantica = caja.nombre === 'CAJITA ROMÁNTICA';
+  const colorRomantico = '#9F4854';
+  const colorTextoBotonRomantico = '#EDCDD4';
+
 
   const handleOpenOverlay = () => setOverlay(true);
 
@@ -211,16 +215,48 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
   };
 
   return (
-    <div ref={ref} className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
+    <div
+      ref={ref}
+      className={`caja-item ${isOpen ? 'abierta' : ''}`}
+      style={{
+        backgroundColor: caja.color,
+        ...(esCajaRomantica ? { color: colorRomantico } : {}),
+      }}
+    >
       <div className="caja-header" onClick={handleToggleCaja}>
         <span className="nombre">
-          <h2 className="nombre-caja">{caja.nombre}</h2>
+          {esCajaRomantica ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <h2 className="nombre-caja" style={{ color: colorRomantico }}>
+                {caja.nombre}
+              </h2>
+              <div className='belamusa' >
+                <img
+                  src="/img/BELAMUSA-ROJO.png"
+                  alt="Belamusa"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    objectFit: 'contain',
+                  }}
+                />
+              </div>
+            </div>
+          ) : (
+            <h2 className="nombre-caja">{caja.nombre}</h2>
+          )}
         </span>
 
         <button
           className={`caja-toggle ${isOpen ? 'rotated' : ''}`}
+          style={esCajaRomantica ? { color: colorRomantico } : undefined}
         >
-          {isOpen ? <IoClose className='icons' /> : <FaAngleDown className='icons' />}
+          {isOpen ? (
+            <IoClose className='icons' style={esCajaRomantica ? { color: colorRomantico } : undefined} />
+          ) : (
+            <FaAngleDown className='icons' style={esCajaRomantica ? { color: colorRomantico } : undefined} />
+          )}
         </button>
       </div>
 
@@ -237,12 +273,27 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
             </div> */}
 
             <div className="caja-info">
-              <p className="descripcion">{caja.descripcion}</p>
-              <h3 className="precio">{caja.precio}€</h3>
+              <p className="descripcion" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                {caja.descripcion}
+              </p>
+              <h3 className="precio" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                {caja.precio}€
+              </h3>
             </div>
 
             <div onClick={handleOpenOverlay} className="caja-btn-personalizar caja-uno caja-btn-delayed">
-              <button className="btn-container-personalizar personalizar " style={{ color: caja.color }}>
+              <button
+                className="btn-container-personalizar personalizar "
+                style={
+                  esCajaRomantica
+                    ? {
+                        backgroundColor: colorRomantico,
+                        border: `2px solid ${colorRomantico}`,
+                        color: colorTextoBotonRomantico,
+                      }
+                    : { color: caja.color }
+                }
+              >
                 Personalizar cajita
               </button>
             </div>
@@ -253,9 +304,28 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
         {isOpen && overlay && (
           <div className="caja caja-fade-in">
           <div className="card-options">
+            {esCajaRomantica && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+                <div className='caja-rosa'>
+                  <img
+                    src="/img/caja-rosa.jpeg"
+                    alt="Cajita romántica"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      objectFit: 'contain',
+                      borderRadius: '4px',
+                    }}
+                  />
+                </div>
+              </div>
+            )}
             {caja.productos.map((prod, id) => (
               <div key={`prod-${id}-${prod.nombre}`} className="producto-overlay">
-                <h4 className='productos'>{prod.nombre}</h4>
+                <h4 className='productos' style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                  {prod.nombre}
+                </h4>
 
                 {prod.tipos && prod.tipos.filter(t => t.trim() !== '').length > 0 && (
                   <ul className="overlay-producto-tipos">
@@ -267,14 +337,25 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                           onClick={() => handleSeleccion(prod.nombre, tipo)}
                           style={
                             seleccion[prod.nombre] === tipo
-                              ? {
-                                backgroundColor: 'var(--background)',
-                                color: caja.color,
-                                fontWeight: 'bold',
-                                boxShadow: '0.5px 0.5px 10px var(--background)',
-                                transform: 'scale(1.05)',
-                              }
-                              : {}
+                              ? esCajaRomantica
+                                ? {
+                                    backgroundColor: colorRomantico,
+                                    color: colorTextoBotonRomantico,
+                                    border: `1px solid ${colorRomantico}`,
+                                    fontWeight: 'bold',
+                                    boxShadow: `0.5px 0.5px 10px ${colorRomantico}`,
+                                    transform: 'scale(1.05)',
+                                  }
+                                : {
+                                    backgroundColor: 'var(--background)',
+                                    color: caja.color,
+                                    fontWeight: 'bold',
+                                    boxShadow: '0.5px 0.5px 10px var(--background)',
+                                    transform: 'scale(1.05)',
+                                  }
+                              : esCajaRomantica
+                                ? { color: colorRomantico, border: `1px solid ${colorRomantico}` }
+                                : {}
                           }
                         >
                           {tipo}
@@ -288,7 +369,15 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
             {extrasDisponibles.length > 0 && (
               <div className="extras-section" style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '8px' }}>
-                <h4 style={{ marginBottom: '10px', fontSize: '16px' }}>Añade extras a tu cajita:</h4>
+                <h4
+                  style={{
+                    marginBottom: '10px',
+                    fontSize: '16px',
+                    ...(esCajaRomantica ? { color: colorRomantico } : {}),
+                  }}
+                >
+                  Añade extras a tu cajita:
+                </h4>
 
                 {extrasDisponibles.map((extra) => (
                   <div key={`extra-${extra.id}`} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
@@ -305,7 +394,10 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                         accentColor: caja.color,
                       }}
                     />
-                    <label htmlFor={`extra-checkbox-${extra.id}`} style={{ cursor: 'pointer', flex: 1 }}>
+                    <label
+                      htmlFor={`extra-checkbox-${extra.id}`}
+                      style={{ cursor: 'pointer', flex: 1, ...(esCajaRomantica ? { color: colorRomantico } : {}) }}
+                    >
                       {extra.nombre} <strong>+{extra.precio}€</strong>
                     </label>
                   </div>
@@ -314,16 +406,26 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
             )}
 
             <div key={totalPrice} style={{ marginTop: '15px', textAlign: 'center' }}>
-              <h2 className="productos">Precio total: {totalPrice}€</h2>
+              <h2 className="productos" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                Precio total: {totalPrice}€
+              </h2>
             </div>
 
 
             <div className="pagos">
-              <p className="pagos-texto">En La Mesita, aceptamos pagos por bizum, transferencia o efectivo.</p>
+              <p className="pagos-texto" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                En La Mesita, aceptamos pagos por bizum, transferencia o efectivo.
+              </p>
               
-              <p className="pagos-texto"><strong>Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido.</strong></p>
-              <p className="pagos-texto"><strong>Cada cajita se prepara de forma artesanal, por lo que los pesos en gramos pueden presentar ligeras variaciones.</strong></p>
-              <p className="pagos-texto">Si prefieres que te lo enviemos, el coste de envío se calculará aparte.</p>
+              <p className="pagos-texto" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                <strong>Preparamos tu pedido con cariño, por lo que estará listo para recoger en tienda 24 horas hábiles tras haber realizado el pedido.</strong>
+              </p>
+              <p className="pagos-texto" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                <strong>Cada cajita se prepara de forma artesanal, por lo que los pesos en gramos pueden presentar ligeras variaciones.</strong>
+              </p>
+              <p className="pagos-texto" style={esCajaRomantica ? { color: colorRomantico } : undefined}>
+                Si prefieres que te lo enviemos, el coste de envío se calculará aparte.
+              </p>
 
 
             </div>
@@ -337,8 +439,29 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
               value={nombreUsuario}
               onChange={(e) => setNombreUsuario(e.target.value)}
               className="input-nombre"
+              style={
+                esCajaRomantica
+                  ? {
+                      color: colorRomantico,
+                      border: `2px solid ${colorRomantico}`,
+                      '--placeholder-color': colorRomantico,
+                    }
+                  : undefined
+              }
             />
-              <button onClick={handleGuardar} className="btn-container" style={{ color: caja.color }}>
+              <button
+                onClick={handleGuardar}
+                className="btn-container"
+                style={
+                  esCajaRomantica
+                    ? {
+                        backgroundColor: colorRomantico,
+                        border: `2px solid ${colorRomantico}`,
+                        color: colorTextoBotonRomantico,
+                      }
+                    : { color: caja.color }
+                }
+              >
                 Guardar productos en mi cajita
               </button>
             </div>
@@ -386,7 +509,19 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
             <div onClick={handleEnviarWhatsApp} className="caja-btn caja-editar caja-btn-delayed">
-              <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
+              <button
+                className="btn-container"
+                style={
+                  esCajaRomantica
+                    ? {
+                        backgroundColor: colorRomantico,
+                        border: `2px solid ${colorRomantico}`,
+                        color: colorTextoBotonRomantico,
+                        width: '70%',
+                      }
+                    : { color: caja.color, width: '70%' }
+                }
+              >
                 Contacta y haz tu pedido
               </button>
             </div>
@@ -395,7 +530,24 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
 
 
             <div onClick={handleVolverASeleccion} className="caja-btn caja-editar caja-dos caja-btn-delayed">
-              <button className="btn-container " style={{ border: '2px solid var(--background', background:'none', color: 'var(--background)', width: '70%' }}>
+              <button
+                className="btn-container "
+                style={
+                  esCajaRomantica
+                    ? {
+                        backgroundColor: colorRomantico,
+                        border: `2px solid ${colorRomantico}`,
+                        color: colorTextoBotonRomantico,
+                        width: '70%',
+                      }
+                    : {
+                        border: '2px solid var(--background',
+                        background: 'none',
+                        color: 'var(--background)',
+                        width: '70%',
+                      }
+                }
+              >
                 Volver a editar mi cajita
               </button>
             </div>
@@ -421,6 +573,10 @@ export const CajaPersonalizada = ({ caja, isOpen, onToggle }) => {
   const [pasoFinal, setPasoFinal] = useState(false);
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [extrasSeleccionados, setExtrasSeleccionados] = useState([]);
+
+  const esCajaRomantica = caja.nombre === 'CAJITA ROMÁNTICA';
+  const colorRomantico = '#9F4854';
+  const colorTextoBotonRomantico = '#EDCDD4';
 
   const handleOpenOverlay = () => setOverlay(true);
   const ref = useRef(null);
@@ -576,13 +732,44 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
   };
 
   return (
-    <div ref={ref} className={`caja-item ${isOpen ? 'abierta' : ''}`} style={{ backgroundColor: caja.color }}>
+    <div
+      ref={ref}
+      className={`caja-item ${isOpen ? 'abierta' : ''}`}
+      style={{
+        backgroundColor: caja.color,
+        ...(esCajaRomantica ? { color: colorRomantico } : {}),
+      }}
+    >
       <div className="caja-header" onClick={handleToggleCaja}>
         <span className="nombre">
-          <h2 className="nombre-caja">{caja.nombre}</h2>
+          {esCajaRomantica ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <h2 className="nombre-caja" style={{ color: colorRomantico }}>
+                {caja.nombre}
+              </h2>
+              <div style={{ width: 'clamp(28px, 8vw, 44px)' }}>
+                <img
+                  src="/img/BELAMUSA-ROJO.png"
+                  alt="Belamusa"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    objectFit: 'contain',
+                  }}
+                />
+              </div>
+            </div>
+          ) : (
+            <h2 className="nombre-caja">{caja.nombre}</h2>
+          )}
         </span>
         <button className={`caja-toggle ${isOpen ? 'rotated' : ''}`}>
-          {isOpen ? <IoClose className='icons' /> : <FaAngleDown className='icons' />}
+          {isOpen ? (
+            <IoClose className='icons' style={esCajaRomantica ? { color: colorRomantico } : undefined} />
+          ) : (
+            <FaAngleDown className='icons' style={esCajaRomantica ? { color: colorRomantico } : undefined} />
+          )}
         </button>
       </div>
 
@@ -595,7 +782,18 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 <h3 className="precio">{caja.precio}€</h3>
               </div>
               <div onClick={handleOpenOverlay} className="caja-btn-personalizar caja-uno caja-btn-delayed">
-                <button className="btn-container-personalizar" style={{ color: caja.color }}>
+                <button
+                  className="btn-container-personalizar"
+                  style={
+                    esCajaRomantica
+                      ? {
+                          backgroundColor: colorRomantico,
+                          border: `2px solid ${colorRomantico}`,
+                          color: colorTextoBotonRomantico,
+                        }
+                      : { color: caja.color }
+                  }
+                >
                   Personalizar cajita
                 </button>
               </div>
@@ -606,6 +804,22 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
         {isOpen && overlay && (
           <div className="caja caja-fade-in">
             <div className="card-options">
+              {esCajaRomantica && (
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+                  <div style={{ width: 'clamp(72px, 20vw, 140px)' }}>
+                    <img
+                      src="/img/caja-rosa.jpeg"
+                      alt="Cajita romántica"
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        display: 'block',
+                        objectFit: 'contain',
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
               {(() => {
                 const base = caja.productos.find(p => p.nombre === 'Elige una base');
                 const otrosProductos = caja.productos.filter(p => p.nombre !== 'Elige una base');
@@ -622,14 +836,25 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                               onClick={() => handleSeleccion(base.nombre, tipo, true)}
                               style={
                                 seleccion[base.nombre] === tipo
-                                  ? {
-                                      backgroundColor: 'var(--background)',
-                                      color: caja.color,
-                                      fontWeight: 'bold',
-                                      boxShadow: '0.5px 0.5px 10px var(--background)',
-                                      transform: 'scale(1.05)',
-                                    }
-                                  : {}
+                                  ? esCajaRomantica
+                                    ? {
+                                        backgroundColor: colorRomantico,
+                                        color: colorTextoBotonRomantico,
+                                        border: `1px solid ${colorRomantico}`,
+                                        fontWeight: 'bold',
+                                        boxShadow: `0.5px 0.5px 10px ${colorRomantico}`,
+                                        transform: 'scale(1.05)',
+                                      }
+                                    : {
+                                        backgroundColor: 'var(--background)',
+                                        color: caja.color,
+                                        fontWeight: 'bold',
+                                        boxShadow: '0.5px 0.5px 10px var(--background)',
+                                        transform: 'scale(1.05)',
+                                      }
+                                  : esCajaRomantica
+                                    ? { color: colorRomantico, border: `1px solid ${colorRomantico}` }
+                                    : {}
                               }
                             >
                               {tipo}
@@ -687,14 +912,25 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                                   onClick={() => handleSeleccion(prod.nombre, tipo, true)}
                                   style={
                                     seleccion[prod.nombre] === tipo
-                                      ? {
-                                          backgroundColor: 'var(--background)',
-                                          color: caja.color,
-                                          fontWeight: 'bold',
-                                          boxShadow: '0.5px 0.5px 10px var(--background)',
-                                          transform: 'scale(1.05)',
-                                        }
-                                      : {}
+                                      ? esCajaRomantica
+                                        ? {
+                                            backgroundColor: colorRomantico,
+                                            color: colorTextoBotonRomantico,
+                                            border: `1px solid ${colorRomantico}`,
+                                            fontWeight: 'bold',
+                                            boxShadow: `0.5px 0.5px 10px ${colorRomantico}`,
+                                            transform: 'scale(1.05)',
+                                          }
+                                        : {
+                                            backgroundColor: 'var(--background)',
+                                            color: caja.color,
+                                            fontWeight: 'bold',
+                                            boxShadow: '0.5px 0.5px 10px var(--background)',
+                                            transform: 'scale(1.05)',
+                                          }
+                                      : esCajaRomantica
+                                        ? { color: colorRomantico, border: `1px solid ${colorRomantico}` }
+                                        : {}
                                   }
                                 >
                                   {tipo}
@@ -748,8 +984,29 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                 value={nombreUsuario}
                 onChange={(e) => setNombreUsuario(e.target.value)}
                 className="input-nombre"
+                style={
+                  esCajaRomantica
+                    ? {
+                        color: colorRomantico,
+                        border: `2px solid ${colorRomantico}`,
+                        '--placeholder-color': colorRomantico,
+                      }
+                    : undefined
+                }
               />
-                <button onClick={handleGuardar} className="btn-container" style={{ color: caja.color}}>
+                <button
+                  onClick={handleGuardar}
+                  className="btn-container"
+                  style={
+                    esCajaRomantica
+                      ? {
+                          backgroundColor: colorRomantico,
+                          border: `2px solid ${colorRomantico}`,
+                          color: colorTextoBotonRomantico,
+                        }
+                      : { color: caja.color }
+                  }
+                >
                   Guardar productos en mi cajita
                 </button>
               </div>
@@ -794,12 +1051,41 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
               </div>
 
               <div onClick={handleEnviarWhatsApp} className="caja-btn caja-editar caja-btn-delayed">
-                <button className="btn-container" style={{ color: caja.color, width: '70%' }}>
+                <button
+                  className="btn-container"
+                  style={
+                    esCajaRomantica
+                      ? {
+                          backgroundColor: '#9F4854',
+                          border: '2px solid #9F4854',
+                          color: '#EDCDD4',
+                          width: '70%',
+                        }
+                      : { color: caja.color, width: '70%' }
+                  }
+                >
                   Contacta y haz tu pedido
                 </button>
               </div>
               <div onClick={handleVolverASeleccion} className="caja-btn caja-editar caja-dos caja-btn-delayed">
-                <button className="btn-container" style={{ border: '2px solid var(--background)', background:'none', color: 'var(--background)', width: '70%' }}>
+                <button
+                  className="btn-container"
+                  style={
+                    esCajaRomantica
+                      ? {
+                          backgroundColor: '#9F4854',
+                          border: '2px solid #9F4854',
+                          color: '#EDCDD4',
+                          width: '70%',
+                        }
+                      : {
+                          border: '2px solid var(--background)',
+                          background: 'none',
+                          color: 'var(--background)',
+                          width: '70%',
+                        }
+                  }
+                >
                   Volver a editar mi cajita
                 </button>
               </div>
