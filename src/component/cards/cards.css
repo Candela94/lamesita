@@ -756,6 +756,13 @@ input:focus {
     }
 
 
+    .belamusa{
+   
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+  
+}
+
     .btn-container , .btn-contariner-personalizar{
         font-size: 1.8vw;
     }

@@ -89,25 +89,25 @@ export const cajas = [
       extrasDisponibles: ['chocolate', 'mermeladas']
     },
 
-    // {
-    //   nombre: 'CAJITA ROMÁNTICA',
-    //   precio: 37,
-    //   imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
-    //   descripcion: 'Una cajita llena de amor para una velada inolvidable.',
-    //   productos: [
-    //     { nombre: 'Jamón serrano 150g' },
-    //     { nombre: '2 velitas' },
-    //     { nombre: 'Queso de oveja trufado 200g' },
-    //     { nombre: 'Queso de Maasdam 200g' },
-    //     { nombre: 'Lomo 150g' },
-    //     { nombre: 'Salchichón ibérico 150g' },
-    //     { nombre: 'Queso Brie 200g' },
-    //     { nombre: 'Fuet' },
-    //     { nombre: 'Chocolate artesano (A elegir)' },
-    //     { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] }
-    //   ],
-    //   color: '#EDCDD4'
-    // },
+    {
+      nombre: 'CAJITA ROMÁNTICA',
+      precio: 42,
+      imagen: 'https://res.cloudinary.com/dnz96cick/image/upload/v1761638268/vino_uxshac.jpg',
+      descripcion: 'Una cajita llena de amor para una velada inolvidable.',
+      productos: [
+        { nombre: 'Jamón serrano ' },
+        { nombre: '2 velitas' },
+        { nombre: 'Queso de oveja trufado ' },
+        { nombre: 'Queso de Maasdam ' },
+        { nombre: 'Lomo ' },
+        { nombre: 'Salchichón ibérico ' },
+        { nombre: 'Queso Brie ' },
+        { nombre: 'Fuet' },
+        { nombre: 'Chocolate artesano (A elegir)' },
+        { nombre: 'Vino Luna Lunera', tipos: ['Blanco', 'Tinto'] }
+      ],
+      color: '#EDCDD4'
+    },
   
     {
       nombre: 'HAZ TU PROPIA CAJITA',

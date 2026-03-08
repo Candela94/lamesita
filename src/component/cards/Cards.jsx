@@ -305,7 +305,7 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
           <div className="caja caja-fade-in">
           <div className="card-options">
             {esCajaRomantica && (
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '12px' }}>
                 <div className='caja-rosa'>
                   <img
                     src="/img/caja-rosa.jpeg"
@@ -319,6 +319,16 @@ export const Cajas = ({ caja, isOpen, onToggle }) => {
                     }}
                   />
                 </div>
+                <p style={{
+                  fontFamily: 'DM Sans, sans-serif',
+                  fontSize: 'clamp(12px, 2.5vw, 14px)',
+                  color: colorRomantico,
+                  textAlign: 'center',
+                  margin: '8px 0 0 0',
+                  fontWeight: '400'
+                }}>
+                  Raciones calculadas para dos personas
+                </p>
               </div>
             )}
             {caja.productos.map((prod, id) => (
@@ -805,8 +815,8 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
           <div className="caja caja-fade-in">
             <div className="card-options">
               {esCajaRomantica && (
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
-                  <div style={{ width: 'clamp(72px, 20vw, 140px)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '12px' }}>
+                  <div className='caja-rosa'>
                     <img
                       src="/img/caja-rosa.jpeg"
                       alt="Cajita romántica"
@@ -818,6 +828,16 @@ En mi cajita, he seleccionado los siguientes productos:\n\n${productos}`;
                       }}
                     />
                   </div>
+                  <p style={{
+                    fontFamily: 'DM Sans, sans-serif',
+                    fontSize: 'clamp(12px, 2.5vw, 14px)',
+                    color: colorRomantico,
+                    textAlign: 'center',
+                    margin: '8px 0 0 0',
+                    fontWeight: '400'
+                  }}>
+                    Raciones calculadas para dos personas
+                  </p>
                 </div>
               )}
               {(() => {
